@@ -6,18 +6,12 @@ const listingSchema = new Schema({
         type: String,
         required: true,
     },
-    description: String,
     image: {
         type: String,
-        set: (v) =>
-            v === ""
-                ? "https://gratisography.com/wp-content/uploads/2024/11/gratisography-augmented-reality-800x525.jpg"
-                : v,
+        set: (v) => (typeof v === "object" ? v.url : v),
+        default: "https://gratisography.com/wp-content/uploads/2024/11/gratisography-augmented-reality-800x525.jpg",
     },
-    price: Number,
-    location: String,
-    country: String,
 });
 
 const Listing = mongoose.model("Listing", listingSchema);
-model.export = Listing;
+module.exports = Listing;
