@@ -25,7 +25,7 @@ app.set('views', path.join(__dirname, 'views'));
 app.use(express.urlencoded({ extended: true }));
 
 app.get('/', (req, res) => {
-    res.send("Hello World");
+    res.render('home');
 });
 
 //Index route
@@ -42,16 +42,25 @@ app.get('/listings/:id', async (req, res) => {
     // res.render("listings/show", { listing });
 }); 
 
-app.all("*", (req, res, next) => {
-    next(new ExpressError(404, "Page not found!"));
+app.get('/india', async (req, res, next) => {
+    try {
+        const indiaPackages = await Listing.find({ country: "India" }); 
+        res.render('india', { indiaPackages }); 
+    } catch (error) {
+        next(error); 
+    }
+});
+
+
+app.use((req, res, next) => {
+    res.status(404).send("Page not found");
 });
 
 app.use((err, req, res, next) => {
-    let {statusCode, message} = err;
-    res.status(statusCode).send(message);
+    console.error(err.stack);
+    res.status(500).send("Something went wrong!");
 });
 
 app.listen(8080, () => {
     console.log('Server is running on port 8080');
 })
-
