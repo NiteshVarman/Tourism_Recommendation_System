@@ -51,6 +51,9 @@ app.get('/india', async (req, res, next) => {
     }
 });
 
+app.get('/indiamap', (req, res) => {
+    res.render('indiamap');
+})
 
 app.use((req, res, next) => {
     res.status(404).send("Page not found");
