@@ -1,0 +1,58 @@
+#map {
+    width: 900px;
+    height: 700px;
+  }
+
+  #map .state {
+    fill: white;
+    stroke: #8a8a8a;
+    stroke-width: 1;
+  }
+
+  #map .state:hover {
+    fill: #ffc107;
+  }
+
+  #map .state-name {
+    fill: #ffffff;
+    stroke: #000000;
+    font-family: Arial, sans-serif;
+    font-size: 12px;
+    pointer-events: none;
+    display: none;
+  }
+
+  #map .state:hover .state-name {
+    display: block;
+  }
+  #map .tn {
+    fill: rgb(0, 0, 0);
+    stroke: #8a8a8a;
+    stroke-width: 1;
+  }
+
+  #map .tn:hover {
+    fill: #ffc107;
+  }
+
+  #map .state-name {
+    fill: #ffffff;
+    stroke: #000000;
+    font-family: Arial, sans-serif;
+    font-size: 12px;
+    pointer-events: none;
+    display: none;
+  }
+
+  #map .tn:hover .state-name {
+    display: block;
+  }
+
+  h1 {
+    color: wheat;
+    font-family: "Times New Roman", Times, serif, sans-serif;
+    font-size: 40px;
+    text-align: center;
+    margin-top: 20px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+  }

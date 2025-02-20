@@ -186,16 +186,18 @@
         />
         <text class="state-name" x="-15" y="8">Dadra and Nagar Haveli</text>
       </g>
-      <a href="C:\Users\samit\Desktop\uid project\goa.html">
-        <g class="state">
-          <path
-            id="IN-GA"
-            title="Goa"
+
+      <g class="state">
+        <path 
+            id="IN-GA" 
+            title="Goa" 
             d="m 115.005,503.84721 3.2,-0.29117 0.68,-1.30068 0.355,1.0478 1.317,0.17128 0.5,2.11675 0.616,0.72237 0.611,0.14307 2.054,-0.9944 0,0 0.993,-0.0383 0.35,-0.62968 0.483,0.69517 0.384,-0.38083 0.496,0.26799 0.278,0.97123 -0.298,0.95107 0.69,0.86645 -0.647,0.79391 0.548,1.00951 0.003,1.18482 0.957,0.46445 0.278,1.61603 -1.761,0.7667 1.029,0.74857 0.318,0.85033 -0.676,0.88761 -0.235,1.02664 0.502,1.21604 -0.851,1.06594 0.176,0.52289 -1.22,0.98231 -0.831,-0.64279 0.068,0.9128 -0.754,-0.24986 -0.879,0.538 0,0 -1.14,-0.49468 0.221,-0.86141 -1.814,-2.3384 -1.151,-0.39192 0.768,-1.34501 -1.122,-4.03704 -0.448,-0.8332 -0.681,0.21158 -1.221,-1.08608 1.971,0.2962 0.418,-0.39393 -1,-0.80902 -1.285,-0.20553 0.372,-0.7254 -0.854,0.006 -0.599,-2.60438 -1.169,-2.39986 z"
-          />
-          <text class="state-name" x="80" y="520">Goa</text>
-        </g>
-      </a>
+            onclick="redirectToPlace(this.getAttribute('title'))" 
+            style="cursor: pointer; fill: black;" />
+        <text class="state-name" x="100" y="520">Goa</text>
+    </g>
+
+      
       <g class="state">
         <path
           id="IN-GJ"
@@ -406,6 +408,12 @@
         <text class="state-name" x="390" y="340">West Bengal</text>
       </g>
     </svg>
+    <script>
+      function redirectToPlace(place) {
+          // Redirect to a dynamic page that fetches data for the clicked place
+          window.location.href = `/place?name=${place}`;
+      }
+  </script>
     <div class="suggestions-wrapper">
       <div class="suggestions-heading"></div>
       <ul class="suggestions-list" style="position: absolute;right:300px;top:200px;text-align: left;font-size: 30px;color: #000000;line-height: 35px;">

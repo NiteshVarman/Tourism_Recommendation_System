@@ -61,7 +61,7 @@ const tourPackages = [
   },
   {
     title: "Luxury Kashmir Vacation Package",
-    place: "Kashmir",
+    place: "Goa",
     image: {
       url: "https://landing.journawayholidays.com/wp-content/uploads/2023/01/luxury.png",
     },
@@ -85,7 +85,7 @@ const tourPackages = [
   },
   {
     title: "Adventure Kashmir Trekking Package",
-    place: "Kashmir",
+    place: "Goa",
     image: {
       url: "https://landing.journawayholidays.com/wp-content/uploads/2023/02/trekking.png",
     },
