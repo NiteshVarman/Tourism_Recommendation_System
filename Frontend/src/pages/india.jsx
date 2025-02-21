@@ -9,16 +9,14 @@ const India = () => {
 
     const handleClick = async (e) => {
         
-        const stateName = e.target.getAttribute("title"); // Get the state name (e.g., Goa)
+        const stateName = e.target.getAttribute("title"); 
         if (!stateName) return;
-
-        setSelectedState(stateName); // Update state if needed
-
+        setSelectedState(stateName);
         try {
             const response = await fetch(`http://localhost:8080/place?name=${stateName}`);
-            const data = await response.json(); // Assuming JSON response
-
-            console.log("Fetched Data:", data); // Log API response
+            const data = await response.json(); 
+            console.log("Fetched Data:", data); 
+            navigate(`/place/${stateName}`);
         } catch (error) {
             console.error("Error fetching data:", error);
         }

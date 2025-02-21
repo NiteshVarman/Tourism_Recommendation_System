@@ -1,14 +1,21 @@
-const mongoose = require('mongoose');
-const Schema = mongoose.Schema;
-const passportLocalMongoose = require("passport-local-mongoose");
+const mongoose = require("mongoose");
 
-const UserSchema = new Schema({
-    email: {
-        type: String,
-        required: true,
-    }
+// User Schema
+const userSchema = new mongoose.Schema({
+    name: { type: String, required: true },
+    email: { type: String, required: true, unique: true },
+    password: { type: String, required: true }, // Hashed password
 });
 
-UserSchema.plugin(passportLocalMongoose);
+// OTP Schema
+const otpSchema = new mongoose.Schema({
+    email: { type: String, required: true },
+    otp: { type: String, required: true },
+    createdAt: { type: Date, expires: "5m", default: Date.now }, // Auto-delete after 5 min
+});
 
-module.exports = mongoose.model("User", UserSchema);
+// Export both models
+const User = mongoose.model("User", userSchema);
+const OTP = mongoose.model("OTP", otpSchema);
+
+module.exports = { User, OTP };
