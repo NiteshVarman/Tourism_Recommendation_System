@@ -1,25 +1,33 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import 'bootstrap/dist/css/bootstrap.min.css';
+import "bootstrap/dist/css/bootstrap.min.css";
 import Home from "./Home";
 import India from "./pages/india";
 import Place from "./pages/place";
 import Login from "./pages/login";
+import InternationalListings from "./pages/international";
+import EducationalListings from "./pages/educational";
+import DevotionalListings from "./pages/devotional";
+import WeekendListings from "./pages/weekend";
 import ForgotPassword from "./pages/forgot";
 import VerifyOTP from "./pages/verify";
 import ResetPassword from "./pages/reset";
+import Profile from "./pages/profile";
+import { useState } from "react";
 
 export default function App() {
+  const [firstLoading, setFirstLoading] = useState(true);
   return (
     <Router>
       <Routes>
-        <Route path="/" element={<Home />} />
+        <Route path="/" element={<Home firstLoading={firstLoading} setFirstLoading={setFirstLoading}/>} />
         <Route path="/listings/indian" element={<India />} />
-        <Route path="/listings/international" element={<h1>International Packages</h1>} />
-        <Route path="/listings/educational" element={<h1>Educational Packages</h1>} />
-        <Route path="/listings/devotional" element={<h1>Devotional Packages</h1>} />
-        <Route path="/listings/weekend" element={<h1>Weekend Tour Packages</h1>} />
+        <Route path="/listings/international" element={<InternationalListings />} />
+        <Route path="/listings/educational" element={<EducationalListings />} />
+        <Route path="/listings/devotional" element={<DevotionalListings />} />
+        <Route path="/listings/weekend" element={<WeekendListings />} />
         <Route path="/login" element={<Login />} />
         <Route path="/forgot-password" element={<ForgotPassword />} />
+        <Route path="/profile" element={<Profile />} />
         <Route path="/verify-otp" element={<VerifyOTP />} />
         <Route path="/reset-password" element={<ResetPassword />} />
         <Route path="/place/:stateName" element={<Place />} />

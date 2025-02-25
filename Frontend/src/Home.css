@@ -1,47 +1,445 @@
-/* Container styling */
-.home-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 20px;
-    padding: 20px;
-    max-width: 1200px;
-    margin: auto;
-}
-
-/* Card styling */
-.card {
-    border-radius: 12px;
-    overflow: hidden;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    cursor: pointer;
-    background: #fff;
-}
-
-.card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
-}
-
-/* Image styling */
-.card img {
+/* Splash Screen */
+.splash-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
     width: 100%;
-    height: 180px;
+    height: 100%;
+    background-color: rgb(7, 7, 7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2000;
+    animation: fadeOut 1s ease-in-out 4s forwards; /* Fades out after 4 seconds */
+}
+
+/* Image animation */
+.splash-image {
+    width: 50vw;
+    height: auto;
+    max-width: 500px;
+    border-radius: 300px;
+    opacity: 0; /* Start invisible */
+    filter: blur(20px); /* Start with heavy blur */
+    animation: fadeInBlur 4s ease-in-out forwards;
+}
+
+/* Splash fade-out animation */
+@keyframes fadeOut {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+        visibility: hidden;
+    }
+}
+
+/* Fade-in and blur reduction animation */
+@keyframes fadeInBlur {
+    0% {
+        opacity: 0;
+        filter: blur(20px);
+    }
+    10% {
+        opacity: 0.1;
+        filter: blur(18px);
+    }
+    20% {
+        opacity: 0.2;
+        filter: blur(15px);
+    }
+    30% {
+        opacity: 0.3;
+        filter: blur(12px);
+    }
+    40% {
+        opacity: 0.4;
+        filter: blur(9px);
+    }
+    50% {
+        opacity: 0.5;
+        filter: blur(7px);
+    }
+    60% {
+        opacity: 0.6;
+        filter: blur(5px);
+    }
+    70% {
+        opacity: 0.7;
+        filter: blur(3px);
+    }
+    80% {
+        opacity: 0.8;
+        filter: blur(2px);
+    }
+    90% {
+        opacity: 0.9;
+        filter: blur(1px);
+    }
+    100% {
+        opacity: 1;
+        filter: blur(0px);
+    }
+}
+
+
+
+/* Ensure the body and html take full viewport height */
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    overflow: hidden; /* Prevents full page scrolling */
+
+}
+
+/* Wrapper to separate navbar and content */
+.home-wrapper {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+
+
+
+
+.navbar {
+    position: fixed;
+    top: 4%;
+    left: 10%;
+    right: 10%;
+    padding: 20px 40px;
+    border-radius: 10px;
+    display: flex;
+    justify-content: flex-end;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    background: rgba(255, 255, 255, 0.1); /* Light glass effect */
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    z-index: 1100; /* Ensure it's higher than the video */
+}
+
+
+#nav-title {
+    background: transparent;
+}
+
+
+
+.nav-list {
+    list-style: none;
+    display:flex;
+    gap: 35px;
+    margin: 0;
+    padding: 0;
+    color: black;
+    
+}
+
+.nav-list li {
+    cursor: pointer;
+    font-size: 18px;
+    font-weight:bold;
+    transition: color 0.3s;
+}
+
+.nav-list li:hover {
+    color: #ffcc00;
+    text-shadow: 0px 0px 10px rgba(255, 204, 0, 0.8);
+    transition: text-shadow 0.3s ease-in-out;
+}
+
+
+.video-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    font-size: 3rem;
+    font-weight: bold;
+    text-align: center;
+    z-index: 10; /* Ensure it's above the video */
+    padding: 10px 20px;
+    border-radius: 10px;
+    opacity: 0;
+    transform: translate(-50%, -40%);
+    animation: fadeSlideIn 1.5s ease-out forwards;
+}
+
+@keyframes fadeSlideIn {
+    0% {
+        opacity: 0;
+        transform: translate(-50%, -50px);
+    }
+    100% {
+        opacity: 1;
+        transform: translate(-50%, -50%);
+    }
+}
+
+.video-text h1 {
+    margin: 0;
+    font-size: 3.5rem;
+    font-weight: bolder;
+    opacity: 0;
+    transform: scale(0.8);
+    animation: fadeScaleIn 1.5s ease-out 0.5s forwards;
+}
+
+@keyframes fadeScaleIn {
+    0% {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.video-text p {
+    margin-top: 5px;
+    font-size: 1.8rem;
+    font-weight:bold;
+    opacity: 0.8;
+    transform: translateY(10px);
+    animation: fadeUp 1.5s ease-out 0.8s forwards;
+}
+
+/* Scrollable Main Content */
+.main-content {
+    margin-top: 9%;
+    flex-grow: 1;
+    overflow-y: scroll;
+    padding-top: 0px; /* Leaves space for the fixed navbar */
+    padding-bottom:0px;
+    position: relative; /* Ensure it stacks below the video */
+    z-index: 2; /* Above video */
+    margin-top: -50px; /* Adjust to bring it below the video */
+    padding-top: 20px;
+    scrollbar-width: none;
+}
+
+/* Hide scrollbar for Chrome, Safari, and Edge */
+.main-content::-webkit-scrollbar {
+    width: 0;
+    display: none;
+}
+
+/* Video Section */
+.video-slider {
+    position: relative;  /* Change from absolute to relative */
+    width: 100%;
+    height: 100%;  /* Ensure it takes full screen height */
+    z-index: 1; /* Lower than navbar but above the background */
+}
+
+.video {
+    width: 100%;
+    height: 100%;
     object-fit: cover;
 }
 
-/* Card text */
-.card-text {
-    text-align: center;
-    padding: 15px;
-    font-size: 18px;
-    font-weight: bold;
-    color: #333;
+/* Fade effect */
+.fade-in {
+    opacity: 1;
+    transition: opacity 0.5s ease-in-out;
 }
 
-/* Responsive design */
-@media (max-width: 768px) {
-    .home-container {
-        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    }
+.fade-out {
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
 }
+
+/* Video navigation buttons */
+.video-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 15px 20px;
+    font-size: 24px;
+    cursor: pointer;
+    border-radius: 50%;
+    transition: background 0.3s ease-in-out, transform 0.2s ease-in-out;
+    opacity: 50%;
+}
+
+.video-btn:hover {
+    background: rgba(6, 6, 6, 0.8);
+    transform: scale(1.05);
+    transition: transform 0.3s ease-in-out;
+    color: #ffcc00;
+    text-shadow: 0px 0px 10px rgba(255, 204, 0, 0.8);
+    transition: text-shadow 0.3s ease-in-out;
+}
+
+.video-btn.left {
+    left: 4%;
+}
+
+.video-btn.right {
+    right: 4%;
+}
+
+
+.home-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    padding: 20px;
+    width: 55%;
+    margin: 0 auto; /* Center the grid container horizontally */
+    justify-items: center; /* Center grid items within their cells */
+    position: relative;
+    z-index: 2; /* Make sure it's above the video */
+    padding-top: 3%;
+    
+}
+
+.section-divider {
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), 
+                url('https://cdn.pixabay.com/photo/2020/02/10/03/48/road-4835215_1280.jpg');
+                background-size: cover;
+                background-position: center;
+                background-repeat: no-repeat;
+    height: 97%;
+}
+
+
+.card {
+    position: relative;
+    height: 270px;
+    width: 100%; /* Ensure cards fill their grid cells */
+    border-radius: 5px;
+    overflow: hidden;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s;
+}
+
+/* Add this to handle vertical centering of content */
+.card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block; /* Remove default image spacing */
+}
+
+.card img:hover {
+    transition: 0.5s ease-in-out;
+    transform: scale(1.1);
+}
+
+/* First card spans 2 columns */
+.card:nth-child(1) {
+    grid-column: 1 / 3;
+}
+
+/* Second card spans 1 column */
+.card:nth-child(2) {
+    grid-column: 3 / 4;
+}
+
+/* Subsequent cards (3rd, 4th, 5th) */
+.card:nth-child(n+3) {
+    grid-column: span 1;
+}
+
+
+.card-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    font-size: 24px;
+    font-weight: lighter;
+    text-align: center;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    background: transparent; 
+    padding: 8px 20px;
+    border-radius: 8px;
+    width: 80%;
+    
+}
+
+.card:hover {
+    
+    box-shadow: 0px 4px 15px rgba(255, 204, 0, 0.6);
+    z-index: 1;
+}
+
+/* Smart Packages heading */
+/* Smart Packages heading */
+.section-heading {
+    text-align:center;
+    margin: 0px 0 10px 16%;
+    font-size: 2rem;
+    color: #c1f468;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    position: relative;
+    width: 70%;
+    padding-left: 20px;
+    padding-top: 8%;
+    font-weight: bolder;
+    text-decoration: underline;
+}
+
+
+
+.section-heading:hover {
+    color: #ffcc00;
+    transition: color 0.3s ease-in-out;
+    cursor: default;
+    text-shadow: 0px 0px 10px rgba(255, 204, 0, 0.8);
+}
+
+.highlights-section {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    padding: 40px 10px;
+    text-align: center;
+    background: #f5f5f5;
+    flex-wrap: wrap;
+  }
+  
+  .highlight-card {
+    flex: 1;
+    max-width: 250px;
+    padding: 20px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out;
+  }
+  
+  .highlight-card:hover {
+    transform: translateY(-5px);
+  }
+  
+  .highlight-card h2 {
+    font-size: 1.5rem;
+    color: #333;
+    margin-bottom: 10px;
+  }
+  
+  .highlight-card p {
+    font-size: 1rem;
+    color: #666;
+  }
+
+  .icon {
+    font-size: 2rem; /* Adjust icon size */
+    color: #ff6f61;
+    margin-bottom: 10px;
+    color:rgb(242, 177, 13); 
+    size: 40px; /* Add gap between icon and title */
+  }
+  

@@ -55,11 +55,11 @@ app.get('/listings', async (req, res) => {
 });
 
 //Show route
-app.get('/listings/:id', async (req, res) => {
-    let { id } = req.params;
-    const listing = await Listing.findById(id);
-    // res.render("listings/show", { listing });
-}); 
+// app.get('/listings/:id', async (req, res) => {
+//     let { id } = req.params;
+//     const listing = await Listing.findById(id);
+//     // res.render("listings/show", { listing });
+// }); 
 
 // Register Route
 app.post("/register", async (req, res) => {
@@ -86,6 +86,36 @@ app.post("/login", async (req, res) => {
         if (!isMatch) return res.status(400).json({ message: "Invalid email or password" });
         const token = jwt.sign({ userId: user._id }, process.env.JWT_SECRET, { expiresIn: "1h" });
         res.status(200).json({ message: "Login successful", token });
+    } catch (error) {
+        res.status(500).json({ message: "Server error" });
+    }
+});
+
+const authMiddleware = (req, res, next) => {
+    const authHeader = req.headers.authorization;
+    if (!authHeader || !authHeader.startsWith("Bearer ")) {
+        return res.status(401).json({ message: "Unauthorized" });
+    }
+
+    const token = authHeader.split(" ")[1]; // Extract token after "Bearer"
+    try {
+        const decoded = jwt.verify(token, process.env.JWT_SECRET); // Ensure JWT_SECRET is correct
+        req.userId = decoded.userId;
+        console.log("Middleware:", req.userId); // Store userId for further use
+        next();
+    } catch (error) {
+        return res.status(403).json({ message: "Invalid token" });
+    }
+};
+
+// Profile Route
+app.get("/profile", authMiddleware, async (req, res) => {
+    try {
+        const user = await User.findById(req.userId).select("name"); // Fetch username
+        if (!user) return res.status(404).json({ message: "User not found" });
+        console.log(user);
+        res.status(200).json({ name: user.name });
+        
     } catch (error) {
         res.status(500).json({ message: "Server error" });
     }
@@ -202,6 +232,47 @@ app.get('/place', async (req, res) => {
     }
 });
 
+
+app.get('/listings/international', async (req, res) => {
+    try {
+        const internationalListings = await Listing.find({ type: "International tour" }); 
+        
+        res.json(internationalListings);
+    } catch (error) {
+        console.error("Error fetching educational tour listings:", error);
+        res.status(500).json({ message: "Internal server error" });
+    }
+});
+
+app.get('/listings/educational', async (req, res) => {
+    try {
+        const educationalListings = await Listing.find({ type: "Educational tour" }); 
+        res.json(educationalListings);
+    } catch (error) {
+        console.error("Error fetching educational tour listings:", error);
+        res.status(500).json({ message: "Internal server error" });
+    }
+});
+
+app.get('/listings/devotional', async (req, res) => {
+    try {
+        const devotionalListings = await Listing.find({ type: "Devotional tour" }); 
+        res.json(devotionalListings);
+    } catch (error) {
+        console.error("Error fetching educational tour listings:", error);
+        res.status(500).json({ message: "Internal server error" });
+    }
+});
+
+app.get('/listings/weekend', async (req, res) => {
+    try {
+        const weekendListings = await Listing.find({ type: "Weekend tour" }); 
+        res.json(weekendListings);
+    } catch (error) {
+        console.error("Error fetching educational tour listings:", error);
+        res.status(500).json({ message: "Internal server error" });
+    }
+});
 
 app.use((err, req, res, next) => {
     console.error(err.stack);

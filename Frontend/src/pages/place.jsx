@@ -30,6 +30,7 @@ const Place = () => {
                             <h3>{place.title}</h3>
                             <p>Type: {place.type}</p>
                             <p>Duration: {place.duration}</p>
+                            <p>Route: {place.route}</p>
                             <p>Price: ₹{place.price}</p>
                         </div>
                     ))
