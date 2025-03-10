@@ -3,7 +3,6 @@ import { useNavigate } from "react-router-dom";
 import "./Home.css";
 import { FaMapMarkedAlt, FaDollarSign, FaClock, FaUserTie } from "react-icons/fa";
 
-
 // Video data with corresponding title & subtext
 const videoData = [
   {
@@ -63,10 +62,9 @@ export default function Home({ firstLoading, setFirstLoading }) {
   const [currentVideo, setCurrentVideo] = useState(0);
   const [fade, setFade] = useState(true);
   const [showSplash, setShowSplash] = useState(true);
-  const [animationKey, setAnimationKey] = useState(Date.now()); 
+  const [animationKey, setAnimationKey] = useState(Date.now());
 
   useEffect(() => {
-    // Hide splash screen after 5 seconds
     if (firstLoading) {
       const timer = setTimeout(() => {
         setShowSplash(false);
@@ -79,8 +77,7 @@ export default function Home({ firstLoading, setFirstLoading }) {
   useEffect(() => {
     const interval = setInterval(() => {
       handleNext();
-    }, 5000); // Auto change every 5 seconds
-
+    }, 5000);
     return () => clearInterval(interval);
   }, [currentVideo]);
 
@@ -89,8 +86,8 @@ export default function Home({ firstLoading, setFirstLoading }) {
     setTimeout(() => {
       setCurrentVideo((prev) => (prev + 1) % videoData.length);
       setFade(true);
-      setAnimationKey(Date.now()); // Ensure new animation trigger
-    }, 500);
+      setAnimationKey(Date.now());
+    }, 100);
   };
 
   const handlePrev = () => {
@@ -98,8 +95,8 @@ export default function Home({ firstLoading, setFirstLoading }) {
     setTimeout(() => {
       setCurrentVideo((prev) => (prev - 1 + videoData.length) % videoData.length);
       setFade(true);
-      setAnimationKey(Date.now()); // Ensure new animation trigger
-    }, 500);
+      setAnimationKey(Date.now());
+    }, 100);
   };
 
   return (
@@ -125,10 +122,7 @@ export default function Home({ firstLoading, setFirstLoading }) {
                 document.getElementById("packages-section")?.scrollIntoView({ behavior: "smooth" });
               }}>Packages</li>
 
-              <li id="nav-title" onClick={() => {
-                setFirstLoading(false);
-                window.open("http://127.0.0.1:5000/explore", "_blank");
-              }}>Explore</li>
+              <li id="nav-title" onClick={() => navigate("/explore")}>Explore</li>
               <li id="nav-title" onClick={() => navigate("/about")}>About</li>
               <li id="nav-title" onClick={() => navigate("/login")}>Signin</li>
               <li id="nav-title" onClick={() => navigate("/profile")}>Profile</li>
@@ -153,29 +147,27 @@ export default function Home({ firstLoading, setFirstLoading }) {
             </div>
 
             {/* Highlights Section */}
-              <div className="highlights-section">
-                {highlights.map((item, index) => (
-                  <div key={index} className="highlight-card">
-                    <div className="icon">{item.icon}</div>
-                    <h2>{item.title}</h2>
-                    <p>{item.description}</p>
-                  </div>
-                ))}
-              </div>
-
-
-            
-            <div className="section-divider">
-            <h1 id="packages-section" className="section-heading">Smart Packages</h1>
-            {/* Package Section */}
-            <div className="home-container">
-              {packages.map((pkg, index) => (
-                <div key={index} className="card" onClick={() => navigate(pkg.link)}>
-                  <img src={pkg.image} alt={pkg.name} />
-                  <div className="card-text">{pkg.name}</div>
+            <div className="highlights-section">
+              {highlights.map((item, index) => (
+                <div key={index} className="highlight-card">
+                  <div className="icon">{item.icon}</div>
+                  <h2>{item.title}</h2>
+                  <p>{item.description}</p>
                 </div>
               ))}
             </div>
+
+            {/* Package Section */}
+            <div className="section-divider">
+              <h1 id="packages-section" className="section-heading">Smart Packages</h1>
+              <div className="home-container">
+                {packages.map((pkg, index) => (
+                  <div key={index} className="card" onClick={() => navigate(pkg.link)}>
+                    <img src={pkg.image} alt={pkg.name} />
+                    <div className="card-text">{pkg.name}</div>
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
         </>

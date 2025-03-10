@@ -1,0 +1,14 @@
+{
+  "devDependencies": {
+    "concurrently": "^9.1.2"
+  },
+  "scripts": {
+    "start": "concurrently \"npm run server\" \"npm run client\" \"npm run python\"",
+    "server": "cd backend && nodemon app.js",
+    "client": "cd frontend && npm run dev",
+    "python": "cd backend && python app.py"
+  },
+  "dependencies": {
+    "react-router-dom": "^7.3.0"
+  }
+}

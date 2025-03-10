@@ -1,0 +1,300 @@
+State Name,Place Name,Type of Tourist Place,Best Time to Visit,Popularity,Rating,Budget,Type of Tour Package,No. of Days Preferred
+Andhra Pradesh,Araku Valley,Hills,October to March,Very Popular,4.7,Moderate,Family,3
+Andhra Pradesh,Borra Caves,Adventure,October to March,Popular,4.5,Moderate,Friends,2
+Andhra Pradesh,Visakhapatnam Beach,Beaches,November to February,Very Popular,4.6,Moderate,Family,3
+Andhra Pradesh,Simhachalam Temple,Devotional,October to March,Very Popular,4.8,Low,Family,1
+Andhra Pradesh,Tirumala Temple,Devotional,All year round,Extremely Popular,4.9,Moderate,Family,2
+Andhra Pradesh,Lepakshi,Historical,October to February,Popular,4.5,Low,Family,1
+Andhra Pradesh,Belum Caves,Adventure,October to March,Popular,4.4,Moderate,Friends,2
+Andhra Pradesh,Gandikota,Historical,October to March,Very Popular,4.6,Moderate,Friends,2
+Andhra Pradesh,Ahobilam,Devotional,October to March,Popular,4.4,Moderate,Family,2
+Andhra Pradesh,Nagarjunakonda,Historical,October to March,Popular,4.3,Moderate,Family,2
+Andhra Pradesh,Amaravati Monastery,Educational,November to February,Popular,4.3,Low,Solo,1
+Andhra Pradesh,Undavalli Caves,Historical,November to February,Popular,4.4,Low,Friends,1
+Andhra Pradesh,Sri Kalahasti Temple,Devotional,All year round,Very Popular,4.7,Moderate,Family,1
+Andhra Pradesh,Suryalanka Beach,Beaches,November to February,Popular,4.5,Moderate,Friends,2
+Andhra Pradesh,Rushikonda Beach,Beaches,November to February,Very Popular,4.6,Moderate,Family,3
+Andhra Pradesh,Kailasagiri Park,Parks,October to March,Very Popular,4.7,Low,Family,1
+Andhra Pradesh,Indira Gandhi Zoological Park,Wildlife,October to March,Popular,4.4,Low,Family,1
+Andhra Pradesh,Horsley Hills,Hills,November to February,Popular,4.3,Moderate,Friends,2
+Andhra Pradesh,Chandragiri Fort,Historical,October to March,Popular,4.4,Low,Family,1
+Andhra Pradesh,Ettipotala Waterfalls,Adventure,October to February,Popular,4.5,Moderate,Friends,2
+Andhra Pradesh,Kotappakonda Temple,Devotional,October to March,Popular,4.3,Low,Family,1
+Andhra Pradesh,Thotlakonda Monastery,Educational,November to February,Popular,4.4,Low,Solo,1
+Andhra Pradesh,Yarada Beach,Beaches,November to February,Popular,4.5,Moderate,Friends,2
+Andhra Pradesh,VUDA Park,Parks,October to March,Popular,4.3,Low,Family,1
+Andhra Pradesh,Mahanandi Temple,Devotional,All year round,Very Popular,4.6,Moderate,Family,1
+Andhra Pradesh,Iskon Temple Vijayawada,Devotional,All year round,Popular,4.5,Low,Family,1
+Andhra Pradesh,Rock Garden,Adventure,October to February,Popular,4.3,Moderate,Friends,2
+Andhra Pradesh,Annavaram Temple,Devotional,All year round,Very Popular,4.7,Moderate,Family,1
+Andhra Pradesh,Veerabhadra Temple,Historical,October to March,Popular,4.4,Low,Family,1
+Andhra Pradesh,Bhavani Island,Adventure,October to March,Popular,4.5,Moderate,Friends,2
+Andhra Pradesh,Gopalapuram Wildlife Sanctuary,Wildlife,October to February,Popular,4.3,Moderate,Friends,2
+Andhra Pradesh,Rayalacheruvu Lake,Parks,November to February,Popular,4.3,Low,Family,1
+Andhra Pradesh,Kambalakonda Wildlife Sanctuary,Wildlife,October to February,Popular,4.4,Moderate,Friends,2
+Andhra Pradesh,Pulicat Lake Bird Sanctuary,Wildlife,November to February,Popular,4.5,Moderate,Family,2
+Andhra Pradesh,Papi Hills,Adventure,October to March,Popular,4.6,Moderate,Friends,2
+Andhra Pradesh,Vontimitta Temple,Devotional,All year round,Popular,4.4,Low,Family,1
+Andhra Pradesh,Uppalapadu Bird Sanctuary,Wildlife,November to February,Popular,4.3,Low,Family,1
+Andhra Pradesh,Someswara Temple,Devotional,All year round,Popular,4.4,Low,Family,1
+Andhra Pradesh,Kondaveedu Fort,Historical,October to March,Popular,4.3,Low,Friends,1
+Andhra Pradesh,Bhavanasi Lake,Parks,November to February,Popular,4.4,Low,Family,1
+Andhra Pradesh,Sri Venkateswara National Park,Wildlife,October to February,Popular,4.5,Moderate,Family,2
+Andhra Pradesh,Alipiri Steps,Devotional,All year round,Very Popular,4.6,Low,Family,1
+Andhra Pradesh,Sri Venkateswara Zoological Park,Wildlife,October to March,Popular,4.4,Moderate,Family,2
+Andhra Pradesh,Nellapattu Bird Sanctuary,Wildlife,November to February,Popular,4.3,Low,Family,1
+Andhra Pradesh,Mogalarajapuram Caves,Historical,October to March,Popular,4.2,Low,Friends,1
+Andhra Pradesh,Kanaka Durga Temple,Devotional,All year round,Very Popular,4.7,Moderate,Family,1
+Andhra Pradesh,Victoria Jubilee Museum,Educational,October to March,Popular,4.3,Low,Solo,1
+Andhra Pradesh,Surendrapuri Museum,Educational,October to March,Popular,4.5,Low,Family,1
+Andhra Pradesh,Basara Saraswati Temple,Devotional,All year round,Popular,4.5,Moderate,Family,1
+Tamil Nadu,Ooty,Hills,October to June,Very Popular,4.8,Moderate,Family,3
+Tamil Nadu,Kodaikanal,Hills,September to May,Very Popular,4.7,Moderate,Family,3
+Tamil Nadu,Marina Beach,Beaches,November to February,Extremely Popular,4.6,Low,Friends,1
+Tamil Nadu,Rameswaram,Devotional,All year round,Very Popular,4.8,Moderate,Family,2
+Tamil Nadu,Mahabalipuram,Monuments,October to March,Very Popular,4.7,Moderate,Family,2
+Tamil Nadu,Kanyakumari,Beaches,October to March,Very Popular,4.6,Moderate,Family,2
+Tamil Nadu,Meenakshi Temple,Devotional,All year round,Extremely Popular,4.9,Moderate,Family,1
+Tamil Nadu,Vivekananda Rock Memorial,Monuments,October to March,Very Popular,4.7,Low,Family,1
+Tamil Nadu,Thanjavur Brihadeeswarar Temple,Historical,October to March,Very Popular,4.8,Low,Family,1
+Tamil Nadu,Yercaud,Hills,October to June,Popular,4.5,Moderate,Friends,2
+Tamil Nadu,Mudumalai Wildlife Sanctuary,Wildlife,October to May,Very Popular,4.6,Moderate,Family,2
+Tamil Nadu,Gingee Fort,Historical,October to March,Popular,4.4,Low,Friends,1
+Tamil Nadu,Coakers Walk,Parks,September to May,Popular,4.5,Low,Family,1
+Tamil Nadu,Arignar Anna Zoological Park,Wildlife,October to March,Very Popular,4.6,Low,Family,1
+Tamil Nadu,Hogenakkal Falls,Adventure,October to March,Popular,4.5,Moderate,Friends,2
+Tamil Nadu,Vellore Fort,Historical,October to March,Popular,4.4,Low,Family,1
+Tamil Nadu,Kolli Hills,Hills,October to May,Popular,4.5,Moderate,Friends,2
+Tamil Nadu,Sri Ranganathaswamy Temple,Devotional,All year round,Very Popular,4.8,Moderate,Family,1
+Tamil Nadu,Pichavaram Mangrove Forest,Adventure,October to March,Popular,4.5,Moderate,Friends,2
+Tamil Nadu,Kalpakkam Beach,Beaches,November to February,Popular,4.3,Low,Friends,1
+Tamil Nadu,Guindy National Park,Wildlife,October to March,Popular,4.4,Low,Family,1
+Tamil Nadu,Silver Cascade Falls,Parks,October to March,Popular,4.4,Low,Family,1
+Tamil Nadu,Thiruvannamalai Temple,Devotional,All year round,Very Popular,4.7,Moderate,Family,1
+Tamil Nadu,Sankagiri Fort,Historical,October to March,Popular,4.3,Low,Friends,1
+Tamil Nadu,Santhome Cathedral Basilica,Monuments,All year round,Popular,4.5,Low,Family,1
+Tamil Nadu,Anamalai Tiger Reserve,Wildlife,October to May,Popular,4.5,Moderate,Friends,2
+Tamil Nadu,Kutralam Falls,Adventure,October to March,Popular,4.5,Moderate,Friends,2
+Tamil Nadu,Auroville,Educational,October to March,Very Popular,4.6,Low,Solo,2
+Tamil Nadu,Rockfort Temple,Historical,October to March,Very Popular,4.7,Low,Family,1
+Tamil Nadu,Velankanni Church,Devotional,All year round,Very Popular,4.8,Moderate,Family,2
+Tamil Nadu,Mayiladuthurai,Historical,October to March,Popular,4.3,Low,Family,1
+Tamil Nadu,Kumbakonam,Historical,October to March,Very Popular,4.6,Low,Family,2
+Tamil Nadu,Marudhamalai Temple,Devotional,All year round,Popular,4.5,Low,Family,1
+Tamil Nadu,Pamban Bridge,Monuments,October to March,Popular,4.5,Low,Family,1
+Tamil Nadu,Theni,Hills,October to March,Popular,4.4,Moderate,Friends,2
+Tamil Nadu,Sathanur Dam,Parks,October to March,Popular,4.3,Low,Family,1
+Tamil Nadu,Danish Fort,Historical,October to March,Popular,4.4,Low,Friends,1
+Tamil Nadu,Kanyakumari Temple,Devotional,All year round,Very Popular,4.7,Moderate,Family,1
+Tamil Nadu,Adiyogi Shiva Statue,Monuments,All year round,Very Popular,4.8,Low,Family,1
+Tamil Nadu,Anna Science Centre Planetarium,Educational,October to March,Popular,4.3,Low,Solo,1
+Tamil Nadu,Chettinad Palace,Historical,October to March,Popular,4.4,Moderate,Family,1
+Tamil Nadu,Botanical Gardens,Parks,October to June,Very Popular,4.7,Low,Family,1
+Tamil Nadu,Thirumoorthy Hills,Hills,October to March,Popular,4.4,Moderate,Friends,2
+Tamil Nadu,Manimuthar Falls,Adventure,October to March,Popular,4.5,Moderate,Friends,2
+Tamil Nadu,Chennai Rail Museum,Educational,October to March,Popular,4.3,Low,Family,1
+Tamil Nadu,Poondi Reservoir,Parks,October to March,Popular,4.3,Low,Family,1
+Tamil Nadu,Kanjanur Temple,Devotional,All year round,Popular,4.4,Low,Family,1
+Tamil Nadu,Tirunelveli,Nature,October to March,Popular,4.5,Moderate,Family,2
+Telangana,Charminar,Historical,October to March,Very Popular,4.8,Low,Family,1
+Telangana,Golconda Fort,Historical,October to March,Very Popular,4.7,Low,Family,1
+Telangana,Ramoji Film City,Adventure,October to March,Extremely Popular,4.9,High,Family,2
+Telangana,Hussain Sagar Lake,Parks,November to February,Very Popular,4.6,Moderate,Friends,1
+Telangana,Birla Mandir,Devotional,All year round,Very Popular,4.7,Low,Family,1
+Telangana,Nehru Zoological Park,Wildlife,October to March,Popular,4.5,Low,Family,1
+Telangana,Salar Jung Museum,Educational,October to March,Very Popular,4.8,Low,Solo,1
+Telangana,Chowmahalla Palace,Historical,October to March,Popular,4.6,Low,Family,1
+Telangana,Nagarjuna Sagar Dam,Adventure,October to March,Popular,4.5,Moderate,Friends,2
+Telangana,Medak Cathedral,Monuments,October to March,Popular,4.4,Low,Family,1
+Telangana,Warangal Fort,Historical,October to March,Popular,4.5,Low,Family,1
+Telangana,Bhadrachalam Temple,Devotional,All year round,Very Popular,4.7,Moderate,Family,1
+Telangana,Kuntala Waterfalls,Adventure,October to March,Popular,4.5,Moderate,Friends,2
+Telangana,Bogatha Waterfalls,Adventure,October to March,Popular,4.4,Moderate,Friends,2
+Telangana,Pakhal Lake,Parks,November to February,Popular,4.3,Low,Family,1
+Telangana,Ananthagiri Hills,Hills,October to March,Popular,4.5,Moderate,Friends,2
+Telangana,Thousand Pillar Temple,Historical,October to March,Very Popular,4.6,Low,Family,1
+Telangana,Yadagirigutta Temple,Devotional,All year round,Very Popular,4.7,Moderate,Family,1
+Telangana,KBR National Park,Wildlife,October to March,Popular,4.4,Low,Family,1
+Telangana,Sri Rama Sagar Project,Adventure,October to March,Popular,4.3,Moderate,Friends,2
+Telangana,Shamirpet Lake,Parks,November to February,Popular,4.3,Low,Family,1
+Telangana,Ethipothala Waterfalls,Adventure,October to March,Popular,4.4,Moderate,Friends,2
+Telangana,Khammam Fort,Historical,October to March,Popular,4.3,Low,Family,1
+Telangana,Lumbini Park,Parks,October to March,Very Popular,4.6,Low,Family,1
+Telangana,Shilparamam,Monuments,All year round,Popular,4.5,Low,Family,1
+Telangana,Jalavihar Water Park,Adventure,October to March,Very Popular,4.7,Moderate,Friends,1
+Telangana,Pocharam Wildlife Sanctuary,Wildlife,October to March,Popular,4.4,Moderate,Friends,2
+Telangana,Durgam Cheruvu Lake,Parks,November to February,Popular,4.3,Low,Family,1
+Telangana,Bhongir Fort,Historical,October to March,Popular,4.3,Low,Family,1
+Telangana,Kadam Dam,Adventure,October to March,Popular,4.4,Moderate,Friends,2
+Telangana,Sri Lakshmi Narasimha Swamy Temple,Devotional,All year round,Popular,4.5,Moderate,Family,1
+Telangana,Rajiv Gandhi International Cricket Stadium,Monuments,All year round,Popular,4.4,Low,Friends,1
+Telangana,Nizamabad Fort,Historical,October to March,Popular,4.3,Low,Family,1
+Telangana,Devarakonda Fort,Historical,October to March,Popular,4.3,Low,Family,1
+Telangana,Nagarjunasagar Wildlife Sanctuary,Wildlife,October to March,Popular,4.5,Moderate,Friends,2
+Telangana,Mallela Theertham,Adventure,October to March,Popular,4.4,Moderate,Friends,2
+Telangana,Mrugavani National Park,Wildlife,October to March,Popular,4.3,Low,Family,1
+Telangana,Koilkonda Fort,Historical,October to March,Popular,4.2,Low,Family,1
+Telangana,Kolanupaka Jain Temple,Devotional,All year round,Popular,4.5,Moderate,Family,1
+Telangana,Keesaragutta Temple,Devotional,All year round,Popular,4.4,Moderate,Family,1
+Telangana,Mahbubnagar Fort,Historical,October to March,Popular,4.3,Low,Family,1
+Telangana,Rajiv Gandhi Deer Park,Wildlife,October to March,Popular,4.3,Low,Family,1
+Telangana,Medaram Jatara,Monuments,February (Biennial),Very Popular,4.7,Moderate,Family,1
+Telangana,Surendrapuri Mythological Museum,Educational,October to March,Popular,4.4,Low,Family,1
+Telangana,Kawal Wildlife Sanctuary,Wildlife,October to March,Popular,4.4,Moderate,Friends,2
+Telangana,Dichpalli Temple,Devotional,All year round,Popular,4.3,Low,Family,1
+Telangana,Chintamani Jalapatham,Adventure,October to March,Popular,4.4,Moderate,Friends,2
+Kerala,Munnar,Hills,September to March,Very Popular,4.8,Moderate,Family,3
+Kerala,Alleppey,Beaches,October to March,Very Popular,4.7,Moderate,Family,2
+Kerala,Kochi,Historical,September to March,Very Popular,4.6,Moderate,Friends,2
+Kerala,Wayanad,Hills,October to May,Popular,4.5,Moderate,Family,3
+Kerala,Kovalam,Beaches,September to March,Very Popular,4.7,Moderate,Family,2
+Kerala,Thekkady,Wildlife,October to February,Very Popular,4.8,Moderate,Family,3
+Kerala,Varkala,Beaches,October to March,Very Popular,4.7,Moderate,Friends,2
+Kerala,Kumarakom,Parks,November to February,Popular,4.5,Moderate,Family,2
+Kerala,Idukki,Hills,September to March,Popular,4.4,Moderate,Friends,2
+Kerala,Poovar,Beaches,October to March,Popular,4.3,Moderate,Family,2
+Kerala,Thrissur,Monuments,September to March,Popular,4.4,Moderate,Family,2
+Kerala,Palakkad,Parks,October to March,Popular,4.3,Moderate,Family,2
+Kerala,Malampuzha Dam,Parks,October to February,Popular,4.3,Low,Family,1
+Kerala,Periyar National Park,Wildlife,September to April,Very Popular,4.7,Moderate,Family,3
+Kerala,Athirapally Waterfalls,Adventure,June to September,Very Popular,4.8,Moderate,Friends,2
+Kerala,Silent Valley National Park,Wildlife,October to April,Popular,4.5,Moderate,Friends,2
+Kerala,Guruvayur Temple,Devotional,All year round,Very Popular,4.7,Moderate,Family,1
+Kerala,Kottayam,Historical,September to March,Popular,4.4,Moderate,Family,2
+Kerala,Kasargod,Monuments,October to March,Popular,4.3,Moderate,Friends,2
+Kerala,Bekal Fort,Historical,October to March,Popular,4.5,Moderate,Family,2
+Kerala,Muzhappilangad Drive-in Beach,Beaches,September to March,Popular,4.4,Moderate,Friends,2
+Kerala,Marari Beach,Beaches,October to March,Very Popular,4.7,Moderate,Family,2
+Kerala,Nelliampathi,Hills,September to March,Popular,4.4,Moderate,Friends,2
+Kerala,Vagamon,Hills,September to March,Very Popular,4.6,Moderate,Friends,2
+Kerala,Padmanabhaswamy Temple,Devotional,All year round,Very Popular,4.8,Low,Family,1
+Kerala,Chembra Peak,Adventure,October to May,Popular,4.5,Moderate,Friends,2
+Kerala,Kappad Beach,Beaches,September to March,Popular,4.3,Moderate,Family,2
+Kerala,Thalassery Fort,Historical,October to March,Popular,4.2,Low,Family,1
+Kerala,Bolgatty Palace,Monuments,September to March,Popular,4.4,Moderate,Family,1
+Kerala,Kadampuzha Temple,Devotional,All year round,Popular,4.3,Low,Family,1
+Kerala,Napier Museum,Educational,All year round,Popular,4.3,Low,Solo,1
+Kerala,Thusharagiri Waterfalls,Adventure,September to March,Popular,4.3,Moderate,Friends,2
+Kerala,Agasthyakoodam,Hills,November to April,Popular,4.4,Moderate,Friends,3
+Kerala,Kerala Folklore Museum,Educational,All year round,Popular,4.5,Low,Solo,1
+Kerala,Peppara Wildlife Sanctuary,Wildlife,October to March,Popular,4.3,Moderate,Friends,2
+Kerala,Meenmutty Waterfalls,Adventure,October to May,Popular,4.4,Moderate,Friends,2
+Kerala,Kodanad Elephant Training Centre,Wildlife,October to March,Popular,4.4,Moderate,Family,1
+Kerala,Parambikulam Wildlife Sanctuary,Wildlife,October to April,Popular,4.5,Moderate,Friends,2
+Kerala,Mannar,Historical,October to March,Popular,4.3,Low,Family,1
+Kerala,Kumbalangi,Parks,November to February,Popular,4.3,Moderate,Family,1
+Kerala,Thikkoti Light House,Monuments,October to March,Popular,4.2,Low,Family,1
+Kerala,Palakkad Fort,Historical,October to March,Popular,4.4,Low,Family,1
+Kerala,Ponmudi,Hills,October to March,Very Popular,4.6,Moderate,Friends,2
+Kerala,Kumarakom Bird Sanctuary,Wildlife,October to March,Very Popular,4.7,Moderate,Family,2
+Kerala,Kottuli Wetlands,Parks,October to February,Popular,4.3,Low,Family,1
+Kerala,Veli Tourist Village,Parks,October to March,Popular,4.4,Low,Family,1
+Kerala,Kakkayam Dam,Adventure,October to March,Popular,4.3,Moderate,Friends,2
+Kerala,Nilambur,Hills,October to March,Popular,4.4,Moderate,Friends,2
+Kerala,Peruvannamuzhi Dam,Parks,November to February,Popular,4.3,Low,Family,1
+Kerala,Anamudi Peak,Adventure,October to May,Popular,4.5,Moderate,Friends,2
+Kerala,Edakkal Caves,Historical,October to March,Popular,4.5,Low,Solo,1
+Kerala,Pazhassi Raja Museum,Educational,All year round,Popular,4.4,Low,Solo,1
+Kerala,Kuthiramalika Palace Museum,Educational,All year round,Popular,4.3,Low,Solo,1
+Kerala,Koyikkal Palace,Historical,October to March,Popular,4.3,Low,Solo,1
+Karnataka,Bangalore,Educational,October to March,Very Popular,4.7,Moderate,Family,2
+Karnataka,Mysore,Historical,September to March,Very Popular,4.8,Moderate,Family,2
+Karnataka,Hampi,Monuments,October to March,Very Popular,4.9,Moderate,Solo,3
+Karnataka,Coorg,Hills,September to May,Very Popular,4.8,Moderate,Family,3
+Karnataka,Chikmagalur,Hills,September to March,Very Popular,4.7,Moderate,Friends,2
+Karnataka,Gokarna,Beaches,October to March,Very Popular,4.8,Moderate,Friends,2
+Karnataka,Udupi,Beaches,October to March,Popular,4.5,Moderate,Family,2
+Karnataka,Murudeshwar,Devotional,All year round,Very Popular,4.7,Low,Family,1
+Karnataka,Badami,Historical,October to March,Popular,4.6,Moderate,Friends,2
+Karnataka,Bijapur,Historical,September to March,Popular,4.5,Moderate,Family,2
+Karnataka,Jog Falls,Adventure,July to December,Very Popular,4.7,Moderate,Friends,2
+Karnataka,Kabini,Wildlife,October to April,Very Popular,4.8,High,Family,2
+Karnataka,Nagarhole National Park,Wildlife,October to May,Very Popular,4.8,High,Family,2
+Karnataka,Bandipur National Park,Wildlife,October to May,Very Popular,4.7,High,Family,2
+Karnataka,Sakleshpur,Hills,September to April,Popular,4.5,Moderate,Friends,2
+Karnataka,Agumbe,Hills,June to February,Popular,4.4,Moderate,Friends,2
+Karnataka,Kundadri,Hills,October to March,Popular,4.3,Moderate,Solo,1
+Karnataka,Belur and Halebidu,Monuments,October to March,Very Popular,4.8,Moderate,Family,2
+Karnataka,Dandeli,Adventure,October to March,Very Popular,4.7,Moderate,Friends,3
+Karnataka,Karwar,Beaches,October to March,Popular,4.5,Moderate,Family,2
+Karnataka,Maravanthe Beach,Beaches,October to March,Popular,4.4,Moderate,Friends,2
+Karnataka,Shivanasamudra Falls,Adventure,July to December,Popular,4.5,Moderate,Friends,2
+Karnataka,Chitradurga Fort,Historical,October to March,Popular,4.6,Moderate,Family,2
+Karnataka,Kemmangundi,Hills,September to April,Popular,4.5,Moderate,Friends,2
+Karnataka,Madikeri,Hills,October to March,Popular,4.4,Moderate,Family,2
+Karnataka,Bheemeshwari,Adventure,October to March,Popular,4.3,Moderate,Friends,2
+Karnataka,Anthargange,Adventure,October to March,Popular,4.2,Low,Solo,1
+Karnataka,Karkala,Monuments,October to March,Popular,4.4,Low,Family,1
+Karnataka,Kudremukh,Hills,September to April,Popular,4.6,Moderate,Friends,3
+Karnataka,Gangamoola,Adventure,October to March,Popular,4.3,Moderate,Solo,1
+Karnataka,Manikyadhara Falls,Adventure,September to April,Popular,4.4,Moderate,Friends,2
+Karnataka,KRS Dam,Parks,October to March,Popular,4.3,Low,Family,1
+Karnataka,Lalbagh Botanical Garden,Parks,All year round,Very Popular,4.8,Low,Family,1
+Karnataka,Cubbon Park,Parks,All year round,Very Popular,4.7,Low,Family,1
+Karnataka,Shivagange,Adventure,October to March,Popular,4.5,Moderate,Friends,2
+Karnataka,Kaup Beach,Beaches,October to March,Popular,4.4,Moderate,Friends,2
+Karnataka,Om Beach,Beaches,October to March,Very Popular,4.8,Moderate,Friends,2
+Karnataka,Mullayanagiri,Hills,September to March,Very Popular,4.7,Moderate,Friends,2
+Karnataka,Ranganathittu Bird Sanctuary,Wildlife,October to March,Popular,4.5,Moderate,Family,2
+Karnataka,Hebbe Falls,Adventure,September to April,Popular,4.6,Moderate,Friends,2
+Karnataka,Abbey Falls,Adventure,September to April,Very Popular,4.7,Moderate,Family,2
+Karnataka,Brucepet,Monuments,October to March,Popular,4.3,Low,Family,1
+Karnataka,Skandagiri,Adventure,October to March,Popular,4.4,Moderate,Friends,2
+Karnataka,Bhoganandishwara Temple,Devotional,All year round,Popular,4.5,Low,Family,1
+Karnataka,Gavi Gangadhareshwara Temple,Devotional,All year round,Popular,4.3,Low,Family,1
+Karnataka,Dharmasthala,Devotional,All year round,Very Popular,4.7,Low,Family,1
+Karnataka,Karkala Gomateshwara,Devotional,All year round,Popular,4.5,Low,Family,1
+Karnataka,Kanva Reservoir,Adventure,October to March,Popular,4.3,Moderate,Friends,2
+Karnataka,Somanathapura,Monuments,October to March,Popular,4.6,Moderate,Family,2
+Madhya Pradesh,Bhopal,Educational,October to March,Popular,4.5,Moderate,Family,2
+Madhya Pradesh,Khajuraho,Monuments,October to March,Very Popular,4.8,Moderate,Solo,3
+Madhya Pradesh,Sanchi,Historical,October to March,Very Popular,4.7,Moderate,Family,2
+Madhya Pradesh,Gwalior,Historical,October to March,Very Popular,4.8,Moderate,Friends,2
+Madhya Pradesh,Orchha,Historical,October to March,Popular,4.6,Moderate,Friends,2
+Madhya Pradesh,Ujjain,Devotional,All year round,Very Popular,4.7,Low,Family,1
+Madhya Pradesh,Omkareshwar,Devotional,All year round,Very Popular,4.7,Low,Family,1
+Madhya Pradesh,Mandu,Monuments,October to March,Very Popular,4.6,Moderate,Family,2
+Madhya Pradesh,Pachmarhi,Hills,October to March,Very Popular,4.7,Moderate,Family,3
+Madhya Pradesh,Kanha National Park,Wildlife,October to June,Very Popular,4.8,High,Family,3
+Madhya Pradesh,Bandhavgarh National Park,Wildlife,October to June,Very Popular,4.9,High,Family,3
+Madhya Pradesh,Pench National Park,Wildlife,October to June,Very Popular,4.8,High,Family,3
+Madhya Pradesh,Satpura National Park,Wildlife,October to June,Popular,4.6,High,Family,3
+Madhya Pradesh,Bhedaghat,Adventure,October to March,Very Popular,4.7,Moderate,Friends,2
+Madhya Pradesh,Chanderi,Historical,October to March,Popular,4.5,Moderate,Family,2
+Madhya Pradesh,Burhanpur,Historical,October to March,Popular,4.4,Moderate,Friends,2
+Madhya Pradesh,Maheshwar,Monuments,October to March,Popular,4.5,Moderate,Family,2
+Madhya Pradesh,Raisen Fort,Historical,October to March,Popular,4.4,Moderate,Friends,2
+Madhya Pradesh,Amarkantak,Devotional,October to March,Popular,4.5,Low,Family,1
+Madhya Pradesh,Kuno National Park,Wildlife,October to June,Popular,4.5,High,Family,3
+Madhya Pradesh,Shivpuri,Adventure,October to March,Popular,4.3,Moderate,Friends,2
+Madhya Pradesh,Hanuwantiya,Adventure,October to March,Popular,4.4,Moderate,Friends,2
+Madhya Pradesh,Morena,Historical,October to March,Popular,4.3,Moderate,Family,2
+Madhya Pradesh,Tawa Reservoir,Adventure,October to March,Popular,4.4,Moderate,Friends,2
+Madhya Pradesh,Bajrangarh Fort,Historical,October to March,Popular,4.2,Moderate,Family,2
+Madhya Pradesh,Dhubela,Monuments,October to March,Popular,4.3,Moderate,Family,2
+Madhya Pradesh,Shahdol,Historical,October to March,Popular,4.2,Moderate,Family,2
+Madhya Pradesh,Patalpani Waterfall,Adventure,October to March,Popular,4.3,Moderate,Friends,2
+Madhya Pradesh,Tigra Dam,Adventure,October to March,Popular,4.2,Moderate,Friends,2
+Madhya Pradesh,Kanha Museum,Educational,October to March,Popular,4.3,Low,Family,1
+Madhya Pradesh,Ralamandal Wildlife Sanctuary,Wildlife,October to June,Popular,4.3,Moderate,Family,2
+Madhya Pradesh,Gandhi Sagar Dam,Adventure,October to March,Popular,4.3,Moderate,Friends,2
+Madhya Pradesh,Shri Ram Raja Temple,Devotional,All year round,Popular,4.5,Low,Family,1
+Madhya Pradesh,Bawangaja,Devotional,All year round,Popular,4.4,Low,Family,1
+Madhya Pradesh,Kerwa Dam,Adventure,October to March,Popular,4.3,Moderate,Friends,2
+Madhya Pradesh,Karanji Lake,Parks,All year round,Popular,4.2,Low,Family,1
+Madhya Pradesh,Khatia Gate,Wildlife,October to June,Popular,4.4,Moderate,Family,2
+Madhya Pradesh,Rajwada,Historical,October to March,Popular,4.3,Moderate,Family,2
+Madhya Pradesh,Shyamla Hills,Parks,All year round,Popular,4.2,Low,Family,1
+Madhya Pradesh,Van Vihar National Park,Wildlife,October to June,Popular,4.4,Moderate,Family,2
+Madhya Pradesh,Kajligarh Fort,Historical,October to March,Popular,4.3,Moderate,Friends,2
+Madhya Pradesh,Kaleshwar Temple,Devotional,All year round,Popular,4.3,Low,Family,1
+Madhya Pradesh,Bhojpur Temple,Devotional,All year round,Very Popular,4.6,Low,Family,1
+Madhya Pradesh,Singrauli,Adventure,October to March,Popular,4.2,Moderate,Friends,2
+Madhya Pradesh,Bargi Dam,Adventure,October to March,Popular,4.3,Moderate,Friends,2
+Madhya Pradesh,Handi Khoh,Hills,October to March,Popular,4.4,Moderate,Friends,2
+Madhya Pradesh,Jatashankar Temple,Devotional,All year round,Popular,4.3,Low,Family,1
+
+
+
+
+

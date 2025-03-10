@@ -37,7 +37,7 @@ const Profile = () => {
 
     return (
         <div>
-            <h1>Hello, {name ? name : "Guest"}!</h1>
+            <h1 style={{ color: "black" }}>Hello, {name ? name.toUpperCase() : "Guest"}!</h1>
         </div>
     );
 };

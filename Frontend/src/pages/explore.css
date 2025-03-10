@@ -1,0 +1,69 @@
+@keyframes backgroundCycle {
+    0%   { background-image: url('https://img.freepik.com/premium-photo/suspension-bridge-travel-nature-scenery-building_1417-264.jpg'); }
+    33%  { background-image: url('https://img.freepik.com/premium-photo/nature-beauty_1246590-5185.jpg'); }
+    66%  { background-image: url('https://img.freepik.com/premium-photo/3d-silhouette-tree-landscape-against-sunset-ocean-landscape_1048-9148.jpg'); }
+    100% { background-image: url('https://img.freepik.com/premium-photo/mountain-meadow-sunny-day-natural-summer-landscape-mountains-alaska_328046-2613.jpg'); }
+  }
+  
+  body {
+    font-family: 'Arial', sans-serif;
+    animation: backgroundCycle 20s infinite ease-in-out;
+    background-size: cover;
+    background-position: center;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    height: auto;
+    overflow: auto;
+}
+  
+.container {
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 15px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+    padding: 30px;
+    width: 450px;
+    text-align: center;
+    color: #333;
+    margin: 50px auto; /* Allows scrolling and ensures content is visible */
+}
+  
+  h1 {
+    color: #2c3e50;
+    margin-bottom: 20px;
+    font-size: 28px;
+    font-weight: 600;
+  }
+  
+  .form-group {
+    margin-bottom: 15px;
+    text-align: left;
+  }
+  
+  .form-group input, .form-group select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-sizing: border-box;
+    font-size: 14px;
+  }
+  
+  .btn {
+    background: linear-gradient(to right, #4facfe, #00f2fe);
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    margin: 5px;
+  }
+
+
+html {
+    height: auto;
+    overflow-y: auto;
+}
+  

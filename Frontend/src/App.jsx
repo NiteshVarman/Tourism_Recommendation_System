@@ -12,6 +12,7 @@ import ForgotPassword from "./pages/forgot";
 import VerifyOTP from "./pages/verify";
 import ResetPassword from "./pages/reset";
 import Profile from "./pages/profile";
+import Explore from "./pages/explore";
 import { useState } from "react";
 
 export default function App() {
@@ -31,6 +32,7 @@ export default function App() {
         <Route path="/verify-otp" element={<VerifyOTP />} />
         <Route path="/reset-password" element={<ResetPassword />} />
         <Route path="/place/:stateName" element={<Place />} />
+        <Route path="/explore" element={<Explore />} />
         <Route path="*" element={<h1>404 Not Found</h1>} />
       </Routes>
     </Router>

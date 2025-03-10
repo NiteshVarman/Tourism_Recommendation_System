@@ -51,7 +51,7 @@ const tourPackages = [
     "title": "Exclusive Arunachal Adventure",
     "place": "Arunachal Pradesh",
     "image": {
-      "url": "https://landing.journawayholidays.com/wp-content/uploads/2023/01/ar1.png"
+      "url": "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/01/85/2c/41/jung-falls.jpg?w=1400&h=1400&s=1"
     },
     "price": 13999,
     "route": "AR-Itanagar > AR-Tawang > AR-Bomdila",
@@ -63,7 +63,7 @@ const tourPackages = [
     "title": "Arunachal Scenic Retreat",
     "place": "Arunachal Pradesh",
     "image": {
-      "url": "https://landing.journawayholidays.com/wp-content/uploads/2023/01/ar2.png"
+      "url": "https://static.toiimg.com/photo/91692789.cms"
     },
     "price": 14999,
     "route": "AR-Tawang > AR-Ziro > AR-Itanagar",
@@ -75,7 +75,7 @@ const tourPackages = [
     "title": "Arunachal Nature Expedition",
     "place": "Arunachal Pradesh",
     "image": {
-      "url": "https://landing.journawayholidays.com/wp-content/uploads/2023/01/ar3.png"
+      "url": "https://media.licdn.com/dms/image/v2/D4D12AQG7gHJ1n95xXg/article-cover_image-shrink_720_1280/article-cover_image-shrink_720_1280/0/1704173356593?e=2147483647&v=beta&t=qXvst0bV_0umdv_5HBEThUMeP-pzJIAE_5srbnpbsDc"
     },
     "price": 15999,
     "route": "AR-Bomdila > AR-Tawang > AR-Ziro",
@@ -87,7 +87,7 @@ const tourPackages = [
     "title": "Arunachal Cultural Journey",
     "place": "Arunachal Pradesh",
     "image": {
-      "url": "https://landing.journawayholidays.com/wp-content/uploads/2023/01/ar4.png"
+      "url": "https://www.zingbus.com/blog/wp-content/uploads/2022/07/arunachal-pradesh.jpg"
     },
     "price": 16999,
     "route": "AR-Itanagar > AR-Bomdila > AR-Tawang",
@@ -99,7 +99,7 @@ const tourPackages = [
     "title": "Assam Wildlife Safari",
     "place": "Assam",
     "image": {
-      "url": "https://landing.journawayholidays.com/wp-content/uploads/2023/01/as1.png"
+      "url": "https://sandpebblestours.com/wp-content/uploads/2018/11/assam-1.jpg"
     },
     "price": 12999,
     "route": "AS-Guwahati > AS-Kaziranga > AS-Jorhat",
@@ -111,7 +111,7 @@ const tourPackages = [
     "title": "Assam Cultural Expedition",
     "place": "Assam",
     "image": {
-      "url": "https://landing.journawayholidays.com/wp-content/uploads/2023/01/as2.png"
+      "url": "https://travelsincredibleindia.wordpress.com/wp-content/uploads/2018/05/sikkim.jpg?w=636&h=379"
     },
     "price": 13999,
     "route": "AS-Guwahati > AS-Majuli > AS-Kaziranga",
@@ -123,7 +123,7 @@ const tourPackages = [
     "title": "Assam Tea Trails Tour",
     "place": "Assam",
     "image": {
-      "url": "https://landing.journawayholidays.com/wp-content/uploads/2023/01/as3.png"
+      "url": "https://img.traveltriangle.com/blog/wp-content/uploads/2020/01/cover-PLACES-TO-VISIT-IN-ASSAM.jpg"
     },
     "price": 14999,
     "route": "AS-Kaziranga > AS-Guwahati > AS-Jorhat",
@@ -135,7 +135,7 @@ const tourPackages = [
     "title": "Assam Riverine Adventure",
     "place": "Assam",
     "image": {
-      "url": "https://landing.journawayholidays.com/wp-content/uploads/2023/01/as4.png"
+      "url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT9KCuHLXcextkifNN-kjWAzRvTuVlJqI-1ZQ&s"
     },
     "price": 15999,
     "route": "AS-Jorhat > AS-Kaziranga > AS-Majuli",
@@ -147,7 +147,7 @@ const tourPackages = [
     "title": "Bihar Spiritual Journey",
     "place": "Bihar",
     "image": {
-      "url": "https://landing.journawayholidays.com/wp-content/uploads/2023/01/br1.png"
+      "url": "https://static.langimg.com/thumb/85174721/navbharat-times-85174721.jpg?imgsize=181278&width=540&resizemode=3"
     },
     "price": 12999,
     "route": "BR-Patna > BR-Bodh Gaya > BR-Nalanda",
@@ -159,7 +159,7 @@ const tourPackages = [
     "title": "Bihar Heritage Trail",
     "place": "Bihar",
     "image": {
-      "url": "https://landing.journawayholidays.com/wp-content/uploads/2023/01/br2.png"
+      "url": "https://www.tourmyindia.com/blog//wp-content/uploads/2015/08/sher-shah-suri-tomb-sasaram.jpg"
     },
     "price": 13999,
     "route": "BR-Bodh Gaya > BR-Rajgir > BR-Patna",
@@ -171,7 +171,7 @@ const tourPackages = [
     "title": "Bihar Cultural Expedition",
     "place": "Bihar",
     "image": {
-      "url": "https://landing.journawayholidays.com/wp-content/uploads/2023/01/br3.png"
+      "url": "https://www.akshartours.com/wp-content/uploads/2020/08/Things-to-Do-in-Bihar.jpg"
     },
     "price": 14999,
     "route": "BR-Patna > BR-Rajgir > BR-Bodh Gaya",
@@ -183,7 +183,7 @@ const tourPackages = [
     "title": "Bihar Historic Voyage",
     "place": "Bihar",
     "image": {
-      "url": "https://landing.journawayholidays.com/wp-content/uploads/2023/01/br4.png"
+      "url": "https://travelsetu.com/apps/uploads/new_destinations_photos/destination/2024/01/06/13f515c3c5cc7e4ac169e8bbb0b9e0fb_1000x1000.jpeg"
     },
     "price": 15999,
     "route": "BR-Nalanda > BR-Bodh Gaya > BR-Rajgir",
@@ -195,7 +195,7 @@ const tourPackages = [
     "title": "Chhattisgarh Cultural Expedition",
     "place": "Chhattisgarh",
     "image": {
-      "url": "https://landing.journawayholidays.com/wp-content/uploads/2023/01/cg1.png"
+      "url": "https://indiatravel.com/wp-content/uploads/2022/03/Chhattisgarh-slider-imgggg-1.jpg"
     },
     "price": 12999,
     "route": "CG-Raipur > CG-Jagdalpur > CG-Bastar",
@@ -207,7 +207,7 @@ const tourPackages = [
     "title": "Chhattisgarh Tribal Trail",
     "place": "Chhattisgarh",
     "image": {
-      "url": "https://landing.journawayholidays.com/wp-content/uploads/2023/01/cg2.png"
+      "url": "https://im.hunt.in/cg/Chhatis/About/Tourism/watreed.jpg"
     },
     "price": 13999,
     "route": "CG-Bastar > CG-Dantewada > CG-Raipur",
@@ -219,7 +219,7 @@ const tourPackages = [
     "title": "Chhattisgarh Nature Discovery",
     "place": "Chhattisgarh",
     "image": {
-      "url": "https://landing.journawayholidays.com/wp-content/uploads/2023/01/cg3.png"
+      "url": "https://s7ap1.scene7.com/is/image/incredibleindia/1-kutaghat-dam-bilaspur-chhattisgarh-khutaghat-attr-hero?qlt=82&ts=1727011181193"
     },
     "price": 14999,
     "route": "CG-Raipur > CG-Bastar > CG-Jagdalpur",
@@ -231,7 +231,7 @@ const tourPackages = [
     "title": "Chhattisgarh Heritage Tour",
     "place": "Chhattisgarh",
     "image": {
-      "url": "https://landing.journawayholidays.com/wp-content/uploads/2023/01/cg4.png"
+      "url": "https://hindi.cdn.zeenews.com/hindi/sites/default/files/2022/07/10/1216097-bhoramdev-mandir-cg.jpg"
     },
     "price": 15999,
     "route": "CG-Jagdalpur > CG-Raipur > CG-Dantewada",
@@ -243,7 +243,7 @@ const tourPackages = [
     "title": "Goa Beach Escape",
     "place": "Goa",
     "image": {
-      "url": "https://landing.journawayholidays.com/wp-content/uploads/2023/01/ga1.png"
+      "url": "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/15/33/fc/f0/goa.jpg?w=1200&h=700&s=1"
     },
     "price": 12999,
     "route": "GA-Panjim > GA-Calangute > GA-Margao",
@@ -255,7 +255,7 @@ const tourPackages = [
     "title": "Goa Party and Sun Tour",
     "place": "Goa",
     "image": {
-      "url": "https://landing.journawayholidays.com/wp-content/uploads/2023/01/ga2.png"
+      "url": "https://cdn.guidetour.in/wp-content/uploads/2017/01/goa-1.jpg"
     },
     "price": 13999,
     "route": "GA-Calangute > GA-Panjim > GA-Vasco",
@@ -267,7 +267,7 @@ const tourPackages = [
     "title": "Goa Heritage Journey",
     "place": "Goa",
     "image": {
-      "url": "https://landing.journawayholidays.com/wp-content/uploads/2023/01/ga3.png"
+      "url": "https://goa-tourism.org.in/images/places-to-visit/headers/places-to-visit-in-goa-header-goa-tourism.jpg.jpg"
     },
     "price": 14999,
     "route": "GA-Vasco > GA-Calangute > GA-Panjim",
@@ -279,7 +279,7 @@ const tourPackages = [
     "title": "Goa Coastal Adventure",
     "place": "Goa",
     "image": {
-      "url": "https://landing.journawayholidays.com/wp-content/uploads/2023/01/ga4.png"
+      "url": "https://www.oyorooms.com/travel-guide/wp-content/uploads/2021/08/BlogImage-16Aug_Goa_Image-3-1.jpg"
     },
     "price": 15999,
     "route": "GA-Margao > GA-Panjim > GA-Calangute",
@@ -291,7 +291,7 @@ const tourPackages = [
     "title": "Gujarat Heritage Expedition",
     "place": "Gujarat",
     "image": {
-      "url": "https://landing.journawayholidays.com/wp-content/uploads/2023/01/gj1.png"
+      "url": "https://www.trawell.in/admin/images/upload/899428835Somnath_Main.jpg"
     },
     "price": 12999,
     "route": "GJ-Ahmedabad > GJ-Gandhinagar > GJ-Surat",
@@ -303,7 +303,7 @@ const tourPackages = [
     "title": "Gujarat Cultural Sojourn",
     "place": "Gujarat",
     "image": {
-      "url": "https://landing.journawayholidays.com/wp-content/uploads/2023/01/gj2.png"
+      "url": "https://d3lzcn6mbbadaf.cloudfront.net/media/details/ANI-20241125090809.jpg"   
     },
     "price": 13999,
     "route": "GJ-Surat > GJ-Kutch > GJ-Ahmedabad",
@@ -315,7 +315,7 @@ const tourPackages = [
     "title": "Gujarat Royal Tour",
     "place": "Gujarat",
     "image": {
-      "url": "https://landing.journawayholidays.com/wp-content/uploads/2023/01/gj3.png"
+      "url": "https://assets.traveltriangle.com/blog/wp-content/uploads/2016/09/Rani-ki-Vav-Gujarat.jpg"
     },
     "price": 14999,
     "route": "GJ-Kutch > GJ-Ahmedabad > GJ-Surat",
@@ -327,7 +327,7 @@ const tourPackages = [
     "title": "Gujarat Explorer Package",
     "place": "Gujarat",
     "image": {
-      "url": "https://landing.journawayholidays.com/wp-content/uploads/2023/01/gj4.png"
+      "url": "https://www.tourmyindia.com/blog//wp-content/uploads/2020/11/Feature-Akshardham-Temple.jpg"
     },
     "price": 15999,
     "route": "GJ-Gandhinagar > GJ-Ahmedabad > GJ-Kutch",
@@ -339,7 +339,7 @@ const tourPackages = [
     "title": "Haryana Cultural Sojourn",
     "place": "Haryana",
     "image": {
-      "url": "https://landing.journawayholidays.com/wp-content/uploads/2023/01/hr1.png"
+      "url": "https://www.indiatravelblog.com/attachments/destinations/19-1-Tourist-Destinations-in-Haryana.jpg"
     },
     "price": 12999,
     "route": "HR-Kurukshetra > HR-Gurgaon > HR-Faridabad",
@@ -351,7 +351,7 @@ const tourPackages = [
     "title": "Haryana Heritage Tour",
     "place": "Haryana",
     "image": {
-      "url": "https://landing.journawayholidays.com/wp-content/uploads/2023/01/hr2.png"
+      "url": "https://cdnbbsr.s3waas.gov.in/s37b7a53e239400a13bd6be6c91c4f6c4e/uploads/bfi_thumb/2020051445-qnwxknqjzn58mnyk4y7zr34z5x6on790ogl9q7drxq.jpg"
     },
     "price": 13999,
     "route": "HR-Gurgaon > HR-Kurukshetra > HR-Faridabad",
@@ -363,7 +363,7 @@ const tourPackages = [
     "title": "Haryana Urban Exploration",
     "place": "Haryana",
     "image": {
-      "url": "https://landing.journawayholidays.com/wp-content/uploads/2023/01/hr3.png"
+      "url": "https://i0.wp.com/www.tusktravel.com/blog/wp-content/uploads/2021/06/Surajkund-Crafts-Fair-Haryana.jpg?resize=800%2C600&ssl=1"
     },
     "price": 14999,
     "route": "HR-Kurukshetra > HR-Faridabad > HR-Gurgaon",
@@ -375,7 +375,7 @@ const tourPackages = [
     "title": "Haryana Discovery Package",
     "place": "Haryana",
     "image": {
-      "url": "https://landing.journawayholidays.com/wp-content/uploads/2023/01/hr4.png"
+      "url": "https://assets.architecturaldigest.in/photos/600850011b516d492c3ab45e/master/w_1600%2Cc_limit/noor-mahal-karnal-haryana-interior-design_4.jpg"
     },
     "price": 15999,
     "route": "HR-Faridabad > HR-Kurukshetra > HR-Gurgaon",
@@ -387,7 +387,7 @@ const tourPackages = [
     "title": "Himachal Scenic Retreat",
     "place": "Himachal Pradesh",
     "image": {
-      "url": "https://landing.journawayholidays.com/wp-content/uploads/2023/01/hp1.png"
+      "url": "https://assets-news.housing.com/news/wp-content/uploads/2022/07/28105830/Top-10-tourist-places-to-visit-in-Himachal-Pradesh-09.jpg"
     },
     "price": 12999,
     "route": "HP-Shimla > HP-Manali > HP-Dharamshala",
@@ -399,7 +399,7 @@ const tourPackages = [
     "title": "Himachal Adventure Tour",
     "place": "Himachal Pradesh",
     "image": {
-      "url": "https://landing.journawayholidays.com/wp-content/uploads/2023/01/hp2.png"
+      "url": "https://www.tripsavvy.com/thmb/TFMyJPWEgRUMjCjVF3knXi2kaa0=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/GettyImages-1248778184-a6a7af47fb944d919f379793044b4533.jpg"
     },
     "price": 13999,
     "route": "HP-Manali > HP-Dalhousie > HP-Shimla",
@@ -411,7 +411,7 @@ const tourPackages = [
     "title": "Himachal Hill Expedition",
     "place": "Himachal Pradesh",
     "image": {
-      "url": "https://landing.journawayholidays.com/wp-content/uploads/2023/01/hp3.png"
+      "url": "https://drifttravel.com/wp-content/uploads/2023/11/bhimakali-temple-sarahan-himachal-pradesh-2022-03-17-06-25-11-utc-copy-640x411.webp"
     },
     "price": 14999,
     "route": "HP-Dharamshala > HP-Manali > HP-Shimla",
@@ -423,7 +423,7 @@ const tourPackages = [
     "title": "Himachal Heritage Journey",
     "place": "Himachal Pradesh",
     "image": {
-      "url": "https://landing.journawayholidays.com/wp-content/uploads/2023/01/hp4.png"
+      "url": "https://travelsincredibleindia.wordpress.com/wp-content/uploads/2018/02/himachal-pradesh-tourism.jpg"
     },
     "price": 15999,
     "route": "HP-Shimla > HP-Dharamshala > HP-Manali",
@@ -435,7 +435,7 @@ const tourPackages = [
     "title": "Jharkhand Explorer Tour",
     "place": "Jharkhand",
     "image": {
-      "url": "https://landing.journawayholidays.com/wp-content/uploads/2023/01/jh1.png"
+      "url": "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/06/c3/cc/4c/dassam-falls.jpg?w=1200&h=-1&s=1"
     },
     "price": 12999,
     "route": "JH-Ranchi > JH-Jamshedpur > JH-Deoghar",
@@ -447,7 +447,7 @@ const tourPackages = [
     "title": "Jharkhand Cultural Expedition",
     "place": "Jharkhand",
     "image": {
-      "url": "https://landing.journawayholidays.com/wp-content/uploads/2023/01/jh2.png"
+      "url": "https://www.akshartours.com/wp-content/uploads/2020/07/Best-Place-to-Visit-in-Jharkhand.jpg"
     },
     "price": 13999,
     "route": "JH-Deoghar > JH-Ranchi > JH-Dhanbad",
@@ -459,7 +459,7 @@ const tourPackages = [
     "title": "Jharkhand Heritage Trail",
     "place": "Jharkhand",
     "image": {
-      "url": "https://landing.journawayholidays.com/wp-content/uploads/2023/01/jh3.png"
+      "url": "https://www.tourmyindia.com/blog//wp-content/uploads/2015/10/Best-Places-to-Visit-in-Jharkhand.jpg"
     },
     "price": 14999,
     "route": "JH-Jamshedpur > JH-Deoghar > JH-Ranchi",
@@ -471,7 +471,7 @@ const tourPackages = [
     "title": "Jharkhand Discovery Package",
     "place": "Jharkhand",
     "image": {
-      "url": "https://landing.journawayholidays.com/wp-content/uploads/2023/01/jh4.png"
+      "url": "https://www.samindiatour.com/blog/wp-content/uploads/2022/08/The-Most-Beautiful-Hill-Stations-in-Jharkhand.jpg"
     },
     "price": 15999,
     "route": "JH-Ranchi > JH-Dhanbad > JH-Jamshedpur",
@@ -483,7 +483,7 @@ const tourPackages = [
     "title": "Karnataka Cultural Trail",
     "place": "Karnataka",
     "image": {
-      "url": "https://landing.journawayholidays.com/wp-content/uploads/2023/01/ka1.png"
+      "url": "https://www.tusktravel.com/blog/wp-content/uploads/2023/08/Places-to-Visit-in-Karnataka-in-September.jpg"
     },
     "price": 12999,
     "route": "KA-Bangalore > KA-Mysore > KA-Coorg",
@@ -495,7 +495,7 @@ const tourPackages = [
     "title": "Karnataka Heritage Explorer",
     "place": "Karnataka",
     "image": {
-      "url": "https://landing.journawayholidays.com/wp-content/uploads/2023/01/ka2.png"
+      "url": "https://www.godigit.com/content/dam/godigit/directportal/en/contenthm/best-places-to-visit-in-karnataka.jpg"
     },
     "price": 13999,
     "route": "KA-Mysore > KA-Hampi > KA-Bangalore",
@@ -507,7 +507,7 @@ const tourPackages = [
     "title": "Karnataka Royal Adventure",
     "place": "Karnataka",
     "image": {
-      "url": "https://landing.journawayholidays.com/wp-content/uploads/2023/01/ka3.png"
+      "url": "https://www.asparkholidays.com/uploads/45331_palaces-heaven-on-earth-1.jpg"
     },
     "price": 14999,
     "route": "KA-Coorg > KA-Bangalore > KA-Mysore",
@@ -519,7 +519,7 @@ const tourPackages = [
     "title": "Karnataka Explorer Package",
     "place": "Karnataka",
     "image": {
-      "url": "https://landing.journawayholidays.com/wp-content/uploads/2023/01/ka4.png"
+      "url": "https://blog.thomascook.in/wp-content/uploads/2017/09/Untitled-design-20-min.jpg"
     },
     "price": 15999,
     "route": "KA-Hampi > KA-Mysore > KA-Coorg",
@@ -531,7 +531,7 @@ const tourPackages = [
     "title": "Kerala Backwater Bliss",
     "place": "Kerala",
     "image": {
-      "url": "https://landing.journawayholidays.com/wp-content/uploads/2023/01/kl1.png"
+      "url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSYrRRbKv7V5wxI9HeywAnYR5NA-Gku19ak1Q&s"
     },
     "price": 12999,
     "route": "KL-Kochi > KL-Munnar > KL-Alleppey",
@@ -543,7 +543,7 @@ const tourPackages = [
     "title": "Kerala Spice and Scenic Tour",
     "place": "Kerala",
     "image": {
-      "url": "https://landing.journawayholidays.com/wp-content/uploads/2023/01/kl2.png"
+      "url": "https://storage.googleapis.com/stateless-www-justwravel-com/2024/11/b062cce8-top-10-1024x576.jpg"
     },
     "price": 13999,
     "route": "KL-Munnar > KL-Kochi > KL-Thiruvananthapuram",
@@ -555,7 +555,7 @@ const tourPackages = [
     "title": "Kerala Cultural Odyssey",
     "place": "Kerala",
     "image": {
-      "url": "https://landing.journawayholidays.com/wp-content/uploads/2023/01/kl3.png"
+      "url": "https://travelsetu.com/apps/uploads/new_destinations_photos/destination/2023/12/15/ed4e5844df8201e480059b18e40f5947_1000x1000.jpg"
     },
     "price": 14999,
     "route": "KL-Alleppey > KL-Munnar > KL-Kochi",
@@ -567,7 +567,7 @@ const tourPackages = [
     "title": "Kerala Heritage Retreat",
     "place": "Kerala",
     "image": {
-      "url": "https://landing.journawayholidays.com/wp-content/uploads/2023/01/kl4.png"
+      "url": "https://traveltradejournal.com/wp-content/uploads/2022/03/Kerala.jpg"
     },
     "price": 15999,
     "route": "KL-Thiruvananthapuram > KL-Kochi > KL-Alleppey",
@@ -579,7 +579,7 @@ const tourPackages = [
     "title": "Maharashtra Urban & Heritage Tour",
     "place": "Maharashtra",
     "image": {
-      "url": "https://landing.journawayholidays.com/wp-content/uploads/2023/01/mh1.png"
+      "url": "https://www.trawell.in/images/pics/maharashtra_best_main.jpg"
     },
     "price": 12999,
     "route": "MH-Mumbai > MH-Pune > MH-Nashik",
@@ -591,7 +591,7 @@ const tourPackages = [
     "title": "Maharashtra Royal Expedition",
     "place": "Maharashtra",
     "image": {
-      "url": "https://landing.journawayholidays.com/wp-content/uploads/2023/01/mh2.png"
+      "url": "https://www.godigit.com/content/dam/godigit/directportal/en/contenthm/mumbai-maharashtra.jpg"
     },
     "price": 13999,
     "route": "MH-Pune > MH-Aurangabad > MH-Mumbai",
@@ -603,7 +603,7 @@ const tourPackages = [
     "title": "Maharashtra Cultural Journey",
     "place": "Maharashtra",
     "image": {
-      "url": "https://landing.journawayholidays.com/wp-content/uploads/2023/01/mh3.png"
+      "url": "https://a.travel-assets.com/findyours-php/viewfinder/images/res70/98000/98046-Elephanta-Caves.jpg"
     },
     "price": 14999,
     "route": "MH-Nashik > MH-Mumbai > MH-Pune",
@@ -615,7 +615,7 @@ const tourPackages = [
     "title": "Maharashtra Explorer Package",
     "place": "Maharashtra",
     "image": {
-      "url": "https://landing.journawayholidays.com/wp-content/uploads/2023/01/mh4.png"
+      "url": "https://maharashtratourism.gov.in/wp-content/uploads/2023/11/MAHABALESHWAR-2.jpg"
     },
     "price": 15999,
     "route": "MH-Aurangabad > MH-Nashik > MH-Pune",
@@ -627,7 +627,7 @@ const tourPackages = [
     "title": "MP Heritage and Wildlife Expedition",
     "place": "Madhya Pradesh",
     "image": {
-      "url": "https://landing.journawayholidays.com/wp-content/uploads/2023/01/mp1.png"
+      "url": "https://www.ghumoindiacommunity.com/wp-content/uploads/2023/07/1572436388_madhya_pradesh_web.jpg"
     },
     "price": 12999,
     "route": "MP-Bhopal > MP-Indore > MP-Gwalior",
@@ -639,7 +639,7 @@ const tourPackages = [
     "title": "MP Cultural Journey",
     "place": "Madhya Pradesh",
     "image": {
-      "url": "https://landing.journawayholidays.com/wp-content/uploads/2023/01/mp2.png"
+      "url": "https://media.istockphoto.com/id/528284252/photo/kjaruharo-temples-india.jpg?s=612x612&w=0&k=20&c=-iWM83PbINoAS5i_06cVjIDpe_yT0cE3uw0_iPoeWHM="
     },
     "price": 13999,
     "route": "MP-Indore > MP-Khajuraho > MP-Bhopal",
@@ -651,7 +651,7 @@ const tourPackages = [
     "title": "MP Historic Tour",
     "place": "Madhya Pradesh",
     "image": {
-      "url": "https://landing.journawayholidays.com/wp-content/uploads/2023/01/mp3.png"
+      "url": "https://img.traveltriangle.com/blog/wp-content/uploads/2020/01/cover-for-Places-To-Visit-In-Madhya-Pradesh-In-May_16-Jan.jpg"
     },
     "price": 14999,
     "route": "MP-Gwalior > MP-Bhopal > MP-Indore",
@@ -663,7 +663,7 @@ const tourPackages = [
     "title": "MP Explorer Package",
     "place": "Madhya Pradesh",
     "image": {
-      "url": "https://landing.journawayholidays.com/wp-content/uploads/2023/01/mp4.png"
+      "url": "https://www.clubmahindra.com/blog/media/section_images/desktop36-ae7b82167f82441.jpg"
     },
     "price": 15999,
     "route": "MP-Khajuraho > MP-Gwalior > MP-Bhopal",
@@ -675,7 +675,7 @@ const tourPackages = [
     "title": "Manipur Cultural Discovery",
     "place": "Manipur",
     "image": {
-      "url": "https://landing.journawayholidays.com/wp-content/uploads/2023/01/mn1.png"
+      "url": "https://travelfromindia.com/assets/uploads/news-115.jpg"
     },
     "price": 12999,
     "route": "MN-Imphal > MN-Bishnupur > MN-Moreh",
@@ -687,7 +687,7 @@ const tourPackages = [
     "title": "Manipur Heritage Tour",
     "place": "Manipur",
     "image": {
-      "url": "https://landing.journawayholidays.com/wp-content/uploads/2023/01/mn2.png"
+      "url": "https://manipurtourism.gov.in/wp-content/uploads/2020/08/MM.jpg"
     },
     "price": 13999,
     "route": "MN-Bishnupur > MN-Ukhrul > MN-Imphal",
@@ -699,7 +699,7 @@ const tourPackages = [
     "title": "Manipur Scenic Adventure",
     "place": "Manipur",
     "image": {
-      "url": "https://landing.journawayholidays.com/wp-content/uploads/2023/01/mn3.png"
+      "url": "https://www.capertravelindia.com/images/manipur-3.jpg"
     },
     "price": 14999,
     "route": "MN-Moreh > MN-Imphal > MN-Bishnupur",
@@ -711,7 +711,7 @@ const tourPackages = [
     "title": "Manipur Explorer Package",
     "place": "Manipur",
     "image": {
-      "url": "https://landing.journawayholidays.com/wp-content/uploads/2023/01/mn4.png"
+      "url": "https://im.hunt.in/cg/man/About/Tourism/CCpur_Waterfall.jpg"
     },
     "price": 15999,
     "route": "MN-Ukhrul > MN-Moreh > MN-Imphal",
@@ -723,7 +723,7 @@ const tourPackages = [
     "title": "Meghalaya Nature Escape",
     "place": "Meghalaya",
     "image": {
-      "url": "https://landing.journawayholidays.com/wp-content/uploads/2023/01/ml1.png"
+      "url": "https://www.meghalayatourism.in/wp-content/uploads/2020/07/Dawki-Shnongpdeng-1.jpg"
     },
     "price": 12999,
     "route": "ML-Shillong > ML-Cherrapunji > ML-Mawlynnong",
@@ -735,7 +735,7 @@ const tourPackages = [
     "title": "Meghalaya Scenic Tour",
     "place": "Meghalaya",
     "image": {
-      "url": "https://landing.journawayholidays.com/wp-content/uploads/2023/01/ml2.png"
+      "url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSMMEvDJWxisx-ud_YvgkpFAlLVHQWh7Q_i4w&s"
     },
     "price": 13999,
     "route": "ML-Cherrapunji > ML-Mawsynram > ML-Shillong",
@@ -747,7 +747,7 @@ const tourPackages = [
     "title": "Meghalaya Cultural Expedition",
     "place": "Meghalaya",
     "image": {
-      "url": "https://landing.journawayholidays.com/wp-content/uploads/2023/01/ml3.png"
+      "url": "https://media2.thrillophilia.com/images/photos/000/128/694/original/1528271874_shutterstock_634408664.jpg?w=753&h=450&dpr=1.5"
     },
     "price": 14999,
     "route": "ML-Shillong > ML-Mawsynram > ML-Cherrapunji",
@@ -759,7 +759,7 @@ const tourPackages = [
     "title": "Meghalaya Explorer Package",
     "place": "Meghalaya",
     "image": {
-      "url": "https://landing.journawayholidays.com/wp-content/uploads/2023/01/ml4.png"
+      "url": "https://www.esikkimtourism.in/wp-content/uploads/2018/07/Meghalaya-Shillong.jpg"
     },
     "price": 15999,
     "route": "ML-Mawlynnong > ML-Shillong > ML-Cherrapunji",
@@ -771,7 +771,7 @@ const tourPackages = [
     "title": "Mizoram Hidden Gems Tour",
     "place": "Mizoram",
     "image": {
-      "url": "https://landing.journawayholidays.com/wp-content/uploads/2023/01/mz1.png"
+      "url": "https://www.ibef.org/assets/images/states/Mizoram-2.jpg"
     },
     "price": 12999,
     "route": "MZ-Aizawl > MZ-Lunglei > MZ-Champhai",
@@ -783,7 +783,7 @@ const tourPackages = [
     "title": "Mizoram Scenic Retreat",
     "place": "Mizoram",
     "image": {
-      "url": "https://landing.journawayholidays.com/wp-content/uploads/2023/01/mz2.png"
+      "url": "https://www.holidify.com/images/bgImages/MIZORAM.jpg"
     },
     "price": 13999,
     "route": "MZ-Lunglei > MZ-Saiha > MZ-Aizawl",
@@ -795,7 +795,7 @@ const tourPackages = [
     "title": "Mizoram Cultural Journey",
     "place": "Mizoram",
     "image": {
-      "url": "https://landing.journawayholidays.com/wp-content/uploads/2023/01/mz3.png"
+      "url": "https://images.herzindagi.info/image/2023/Apr/mizoram-card.jpg"
     },
     "price": 14999,
     "route": "MZ-Champhai > MZ-Aizawl > MZ-Lunglei",
@@ -807,7 +807,7 @@ const tourPackages = [
     "title": "Mizoram Explorer Package",
     "place": "Mizoram",
     "image": {
-      "url": "https://landing.journawayholidays.com/wp-content/uploads/2023/01/mz4.png"
+      "url": "https://easternroutes.com/wp-content/uploads/2019/02/Mizoram_the_Land_of_Blue_Mountain.jpg"
     },
     "price": 15999,
     "route": "MZ-Saiha > MZ-Champhai > MZ-Aizawl",
@@ -819,7 +819,7 @@ const tourPackages = [
     "title": "Nagaland Cultural Immersion",
     "place": "Nagaland",
     "image": {
-      "url": "https://landing.journawayholidays.com/wp-content/uploads/2023/01/nl1.png"
+      "url": "https://images.herzindagi.info/image/2023/Apr/places-to-visit-in-nagaland.jpg"
     },
     "price": 12999,
     "route": "NL-Kohima > NL-Dimapur > NL-Mokokchung",
@@ -831,7 +831,7 @@ const tourPackages = [
     "title": "Nagaland Scenic Journey",
     "place": "Nagaland",
     "image": {
-      "url": "https://landing.journawayholidays.com/wp-content/uploads/2023/01/nl2.png"
+      "url": "https://images.wanderon.in/blogs/new/2024/05/mon-in-nagaland.jpg"
     },
     "price": 13999,
     "route": "NL-Dimapur > NL-Wokha > NL-Kohima",
@@ -843,7 +843,7 @@ const tourPackages = [
     "title": "Nagaland Heritage Tour",
     "place": "Nagaland",
     "image": {
-      "url": "https://landing.journawayholidays.com/wp-content/uploads/2023/01/nl3.png"
+      "url": "https://www.purvidiscovery.com/uploads/nagaland-abode-pristine-beauty-north-east-india1.jpg"
     },
     "price": 14999,
     "route": "NL-Kohima > NL-Wokha > NL-Dimapur",
@@ -855,7 +855,7 @@ const tourPackages = [
     "title": "Nagaland Explorer Package",
     "place": "Nagaland",
     "image": {
-      "url": "https://landing.journawayholidays.com/wp-content/uploads/2023/01/nl4.png"
+      "url": "https://img-cdn.thepublive.com/fit-in/640x430/filters:format(webp)/pratidin/media/post_attachments/pratidintime/2023-03/6467facc-c93d-4fc8-9b75-f4457070c12a/Copy_of_Pratidin_Template__10_.jpg"
     },
     "price": 15999,
     "route": "NL-Mokokchung > NL-Kohima > NL-Wokha",
@@ -867,7 +867,7 @@ const tourPackages = [
     "title": "Odisha Temple Trail",
     "place": "Odisha",
     "image": {
-      "url": "https://landing.journawayholidays.com/wp-content/uploads/2023/01/od1.png"
+      "url": "https://ihplb.b-cdn.net/wp-content/uploads/2021/11/puri.jpg"
     },
     "price": 12999,
     "route": "OD-Bhubaneswar > OD-Puri > OD-Konark",
@@ -879,7 +879,7 @@ const tourPackages = [
     "title": "Odisha Cultural Sojourn",
     "place": "Odisha",
     "image": {
-      "url": "https://landing.journawayholidays.com/wp-content/uploads/2023/01/od2.png"
+      "url": "https://assets-news.housing.com/news/wp-content/uploads/2022/07/24234249/ODISHA-FEATURE-compressed.jpg"
     },
     "price": 13999,
     "route": "OD-Puri > OD-Cuttack > OD-Bhubaneswar",
@@ -891,7 +891,7 @@ const tourPackages = [
     "title": "Odisha Heritage Tour",
     "place": "Odisha",
     "image": {
-      "url": "https://landing.journawayholidays.com/wp-content/uploads/2023/01/od3.png"
+      "url": "https://ihplb.b-cdn.net/wp-content/uploads/2021/11/konark.jpg"
     },
     "price": 14999,
     "route": "OD-Konark > OD-Bhubaneswar > OD-Puri",
@@ -903,7 +903,7 @@ const tourPackages = [
     "title": "Odisha Explorer Package",
     "place": "Odisha",
     "image": {
-      "url": "https://landing.journawayholidays.com/wp-content/uploads/2023/01/od4.png"
+      "url": "https://plutotours.in/places/wp-content/uploads/2024/03/13.-Duduma-Waterfalls-in-Koraput-1.webp"
     },
     "price": 15999,
     "route": "OD-Cuttack > OD-Konark > OD-Puri",
@@ -915,7 +915,7 @@ const tourPackages = [
     "title": "Punjab Cultural Heritage Tour",
     "place": "Punjab",
     "image": {
-      "url": "https://landing.journawayholidays.com/wp-content/uploads/2023/01/pb1.png"
+      "url": "https://media2.thrillophilia.com/images/photos/000/152/188/original/1581765398_amritsar-3083693.jpg?w=753&h=450&dpr=1.5"
     },
     "price": 12999,
     "route": "PB-Amritsar > PB-Chandigarh > PB-Ludhiana",
@@ -927,7 +927,7 @@ const tourPackages = [
     "title": "Punjab Spiritual Sojourn",
     "place": "Punjab",
     "image": {
-      "url": "https://landing.journawayholidays.com/wp-content/uploads/2023/01/pb2.png"
+      "url": "https://onlinetravelbucket.wordpress.com/wp-content/uploads/2018/04/mohali.jpg?w=663"
     },
     "price": 13999,
     "route": "PB-Chandigarh > PB-Amritsar > PB-Jalandhar",
@@ -939,7 +939,7 @@ const tourPackages = [
     "title": "Punjab Heritage Expedition",
     "place": "Punjab",
     "image": {
-      "url": "https://landing.journawayholidays.com/wp-content/uploads/2023/01/pb3.png"
+      "url": "https://www.mytourplans.com/storage/blogs/120623060445-bhatinda-compressed.jpg"
     },
     "price": 14999,
     "route": "PB-Amritsar > PB-Jalandhar > PB-Ludhiana",
@@ -951,7 +951,7 @@ const tourPackages = [
     "title": "Punjab Explorer Package",
     "place": "Punjab",
     "image": {
-      "url": "https://landing.journawayholidays.com/wp-content/uploads/2023/01/pb4.png"
+      "url": "https://www.godigit.com/content/dam/godigit/directportal/en/contenthm/chandigarh.jpg"
     },
     "price": 15999,
     "route": "PB-Ludhiana > PB-Amritsar > PB-Chandigarh",
@@ -963,7 +963,7 @@ const tourPackages = [
     "title": "Rajasthan Royal Heritage Tour",
     "place": "Rajasthan",
     "image": {
-      "url": "https://landing.journawayholidays.com/wp-content/uploads/2023/01/rj1.png"
+      "url": "https://media.istockphoto.com/id/511119416/photo/indian-landmark-gadi-sagar-in-rajasthan.jpg?s=612x612&w=0&k=20&c=dO7TbXh3sd6_QmgcF_nYi6ynyIAvPI5STavwzCDyWTI="
     },
     "price": 12999,
     "route": "RJ-Jaipur > RJ-Udaipur > RJ-Jodhpur",
@@ -975,7 +975,7 @@ const tourPackages = [
     "title": "Rajasthan Desert Safari",
     "place": "Rajasthan",
     "image": {
-      "url": "https://landing.journawayholidays.com/wp-content/uploads/2023/01/rj2.png"
+      "url": "https://udaipurkiran.com/wp-content/uploads/2023/04/Rajasthan-Tourism.jpg"
     },
     "price": 13999,
     "route": "RJ-Jodhpur > RJ-Jaisalmer > RJ-Jaipur",
@@ -987,7 +987,7 @@ const tourPackages = [
     "title": "Rajasthan Cultural Extravaganza",
     "place": "Rajasthan",
     "image": {
-      "url": "https://landing.journawayholidays.com/wp-content/uploads/2023/01/rj3.png"
+      "url": "https://www.tourmyindia.com/states/rajasthan/image/best-places-to-visit-rajasthan.webp"
     },
     "price": 14999,
     "route": "RJ-Udaipur > RJ-Jodhpur > RJ-Jaipur",
@@ -999,7 +999,7 @@ const tourPackages = [
     "title": "Rajasthan Explorer Package",
     "place": "Rajasthan",
     "image": {
-      "url": "https://landing.journawayholidays.com/wp-content/uploads/2023/01/rj4.png"
+      "url": "https://www.tourism.rajasthan.gov.in/content/dam/rajasthan-tourism/english/city/menu/KR_CityPalace01.jpg"
     },
     "price": 15999,
     "route": "RJ-Jaipur > RJ-Jaisalmer > RJ-Udaipur",
@@ -1011,7 +1011,7 @@ const tourPackages = [
     "title": "Sikkim Himalayan Retreat",
     "place": "Sikkim",
     "image": {
-      "url": "https://landing.journawayholidays.com/wp-content/uploads/2023/01/sk1.png"
+      "url": "https://media.easemytrip.com/media/Blog/India/637350613416802581/637350613416802581qElw1X.png"
     },
     "price": 12999,
     "route": "SK-Gangtok > SK-Pelling > SK-Namchi",
@@ -1023,7 +1023,7 @@ const tourPackages = [
     "title": "Sikkim Scenic Sojourn",
     "place": "Sikkim",
     "image": {
-      "url": "https://landing.journawayholidays.com/wp-content/uploads/2023/01/sk2.png"
+      "url": "https://travelsetu.com/apps/uploads/new_destinations_photos/destination/2023/12/20/bf6039b029d0658a6b199d36785af271_1000x1000.jpeg"
     },
     "price": 13999,
     "route": "SK-Pelling > SK-Ravangla > SK-Gangtok",
@@ -1035,7 +1035,7 @@ const tourPackages = [
     "title": "Sikkim Cultural Tour",
     "place": "Sikkim",
     "image": {
-      "url": "https://landing.journawayholidays.com/wp-content/uploads/2023/01/sk3.png"
+      "url": "https://images.travelandleisureasia.com/wp-content/uploads/sites/2/2024/02/01155129/Pelling.jpg"
     },
     "price": 14999,
     "route": "SK-Gangtok > SK-Ravangla > SK-Pelling",
@@ -1047,7 +1047,7 @@ const tourPackages = [
     "title": "Sikkim Explorer Package",
     "place": "Sikkim",
     "image": {
-      "url": "https://landing.journawayholidays.com/wp-content/uploads/2023/01/sk4.png"
+      "url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR4qUBlqXC-j9qnJSVFFt24fdA9SycwpIbwtg&s"
     },
     "price": 15999,
     "route": "SK-Namchi > SK-Gangtok > SK-Ravangla",
@@ -1059,7 +1059,7 @@ const tourPackages = [
     "title": "Tamil Nadu Cultural Odyssey",
     "place": "Tamil Nadu",
     "image": {
-      "url": "https://landing.journawayholidays.com/wp-content/uploads/2023/01/tn1.png"
+      "url": "https://www.tamilnadutourism.tn.gov.in/virtualtour-pkg/img/thanjavur_virtualtour.jpg"
     },
     "price": 12999,
     "route": "TN-Chennai > TN-Madurai > TN-Ooty",
@@ -1071,7 +1071,7 @@ const tourPackages = [
     "title": "Tamil Nadu Heritage Tour",
     "place": "Tamil Nadu",
     "image": {
-      "url": "https://landing.journawayholidays.com/wp-content/uploads/2023/01/tn2.png"
+      "url": "https://www.tamilnadutourism.tn.gov.in/virtualtour-pkg/img/mamallapuram_virtualtour.jpg"
     },
     "price": 13999,
     "route": "TN-Madurai > TN-Kanyakumari > TN-Chennai",
@@ -1083,7 +1083,7 @@ const tourPackages = [
     "title": "Tamil Nadu Scenic Escape",
     "place": "Tamil Nadu",
     "image": {
-      "url": "https://landing.journawayholidays.com/wp-content/uploads/2023/01/tn3.png"
+      "url": "https://donnawanderer.com/wp-content/uploads/2022/03/Kanyakumari.jpg"
     },
     "price": 14999,
     "route": "TN-Ooty > TN-Madurai > TN-Chennai",
@@ -1095,7 +1095,7 @@ const tourPackages = [
     "title": "Tamil Nadu Explorer Package",
     "place": "Tamil Nadu",
     "image": {
-      "url": "https://landing.journawayholidays.com/wp-content/uploads/2023/01/tn4.png"
+      "url": "https://i0.wp.com/www.tusktravel.com/blog/wp-content/uploads/2022/05/Coimbatore-Tamil-Nadu.jpg?resize=1200%2C968&ssl=1"
     },
     "price": 15999,
     "route": "TN-Kanyakumari > TN-Chennai > TN-Madurai",
@@ -1107,7 +1107,7 @@ const tourPackages = [
     "title": "Tripura Heritage Expedition",
     "place": "Tripura",
     "image": {
-      "url": "https://landing.journawayholidays.com/wp-content/uploads/2023/01/tr1.png"
+      "url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR_MZKNLFcXHEk_AWh5lE0XRbOo1W05aWaOUw&s"
     },
     "price": 12999,
     "route": "TR-Agartala > TR-Udaipur > TR-Dharmanagar",
@@ -1119,7 +1119,7 @@ const tourPackages = [
     "title": "Tripura Cultural Journey",
     "place": "Tripura",
     "image": {
-      "url": "https://landing.journawayholidays.com/wp-content/uploads/2023/01/tr2.png"
+      "url": "https://upload.wikimedia.org/wikipedia/commons/c/c8/Ujjayanta_palace_Tripura_State_Museum_Agartala_India.jpg"
     },
     "price": 13999,
     "route": "TR-Udaipur > TR-Kailasahar > TR-Agartala",
@@ -1131,7 +1131,7 @@ const tourPackages = [
     "title": "Tripura Explorer Package",
     "place": "Tripura",
     "image": {
-      "url": "https://landing.journawayholidays.com/wp-content/uploads/2023/01/tr3.png"
+      "url": "https://etimg.etb2bimg.com/thumb/msid-99783071,imgsize-1628992,width-1200,height=765,overlay-ettravel/destination/states/tripura-to-invest-inr-1000-crore-to-boost-tourism-infrastructure.jpg"
     },
     "price": 14999,
     "route": "TR-Dharmanagar > TR-Agartala > TR-Udaipur",
@@ -1143,7 +1143,7 @@ const tourPackages = [
     "title": "Tripura Adventure Tour",
     "place": "Tripura",
     "image": {
-      "url": "https://landing.journawayholidays.com/wp-content/uploads/2023/01/tr4.png"
+      "url": "https://www.tusktravel.com/blog/wp-content/uploads/2023/06/unique-things-to-do-in-tripura.jpg"
     },
     "price": 15999,
     "route": "TR-Kailasahar > TR-Dharmanagar > TR-Agartala",
@@ -1155,7 +1155,7 @@ const tourPackages = [
     "title": "Telangana Royal Tour",
     "place": "Telangana",
     "image": {
-      "url": "https://landing.journawayholidays.com/wp-content/uploads/2023/01/ts1.png"
+      "url": "https://images.nativeplanet.com/img/2015/01/08-1420715094-bidar1.jpg"
     },
     "price": 12999,
     "route": "TS-Hyderabad > TS-Warangal > TS-Nizamabad",
@@ -1167,7 +1167,7 @@ const tourPackages = [
     "title": "Telangana Cultural Sojourn",
     "place": "Telangana",
     "image": {
-      "url": "https://landing.journawayholidays.com/wp-content/uploads/2023/01/ts2.png"
+      "url": "https://static-blog.treebo.com/wp-content/uploads/2022/10/Ramappa-Temple-1024x675.jpg"
     },
     "price": 13999,
     "route": "TS-Warangal > TS-Karimnagar > TS-Hyderabad",
@@ -1179,7 +1179,7 @@ const tourPackages = [
     "title": "Telangana Heritage Expedition",
     "place": "Telangana",
     "image": {
-      "url": "https://landing.journawayholidays.com/wp-content/uploads/2023/01/ts3.png"
+      "url": "https://www.treebo.com/blog/wp-content/uploads/2022/10/Blog-Header-2.jpg"
     },
     "price": 14999,
     "route": "TS-Nizamabad > TS-Hyderabad > TS-Warangal",
@@ -1191,7 +1191,7 @@ const tourPackages = [
     "title": "Telangana Explorer Package",
     "place": "Telangana",
     "image": {
-      "url": "https://landing.journawayholidays.com/wp-content/uploads/2023/01/ts4.png"
+      "url": "https://assets-news.housing.com/news/wp-content/uploads/2022/08/18075254/telangana-top-destinations-places-to-visit-FEATURE-compressed.jpg"
     },
     "price": 15999,
     "route": "TS-Karimnagar > TS-Hyderabad > TS-Warangal",
@@ -1203,7 +1203,7 @@ const tourPackages = [
     "title": "UP Historical & Cultural Tour",
     "place": "Uttar Pradesh",
     "image": {
-      "url": "https://landing.journawayholidays.com/wp-content/uploads/2023/01/up1.png"
+      "url": "https://www.tourmyindia.com/socialimg/uttarpradesh-tourism.jpg"
     },
     "price": 12999,
     "route": "UP-Agra > UP-Varanasi > UP-Lucknow",
@@ -1215,7 +1215,7 @@ const tourPackages = [
     "title": "UP Spiritual Journey",
     "place": "Uttar Pradesh",
     "image": {
-      "url": "https://landing.journawayholidays.com/wp-content/uploads/2023/01/up2.png"
+      "url": "https://static.toiimg.com/photo/62251292.cms"
     },
     "price": 13999,
     "route": "UP-Varanasi > UP-Prayagraj > UP-Agra",
@@ -1227,7 +1227,7 @@ const tourPackages = [
     "title": "UP Heritage Expedition",
     "place": "Uttar Pradesh",
     "image": {
-      "url": "https://landing.journawayholidays.com/wp-content/uploads/2023/01/up3.png"
+      "url": "https://www.godigit.com/content/dam/godigit/directportal/en/contenthm/tourist-places-uttar-pradesh.jpg"
     },
     "price": 14999,
     "route": "UP-Lucknow > UP-Agra > UP-Varanasi",
@@ -1239,7 +1239,7 @@ const tourPackages = [
     "title": "UP Explorer Package",
     "place": "Uttar Pradesh",
     "image": {
-      "url": "https://landing.journawayholidays.com/wp-content/uploads/2023/01/up4.png"
+      "url": "https://www.godigit.com/content/dam/godigit/directportal/en/contenthm/vrindavan-up.jpg"
     },
     "price": 15999,
     "route": "UP-Prayagraj > UP-Lucknow > UP-Agra",
@@ -1251,7 +1251,7 @@ const tourPackages = [
     "title": "Uttarakhand Hill Retreat",
     "place": "Uttarakhand",
     "image": {
-      "url": "https://landing.journawayholidays.com/wp-content/uploads/2023/01/uk1.png"
+      "url": "https://www.corbett-national-park.com/socialimg/uttarakhand-tourism.jpg"
     },
     "price": 12999,
     "route": "UK-Dehradun > UK-Mussoorie > UK-Rishikesh",
@@ -1263,7 +1263,7 @@ const tourPackages = [
     "title": "Uttarakhand Adventure Tour",
     "place": "Uttarakhand",
     "image": {
-      "url": "https://landing.journawayholidays.com/wp-content/uploads/2023/01/uk2.png"
+      "url": "https://travelogyindia.b-cdn.net/storage/app/upload/auli.jpg"
     },
     "price": 13999,
     "route": "UK-Mussoorie > UK-Nainital > UK-Dehradun",
@@ -1275,7 +1275,7 @@ const tourPackages = [
     "title": "Uttarakhand Spiritual Journey",
     "place": "Uttarakhand",
     "image": {
-      "url": "https://landing.journawayholidays.com/wp-content/uploads/2023/01/uk3.png"
+      "url": "https://www.asparkholidays.com/uploads/80594_Uttarakhand%20Tour.jpg"
     },
     "price": 14999,
     "route": "UK-Rishikesh > UK-Dehradun > UK-Mussoorie",
@@ -1287,7 +1287,7 @@ const tourPackages = [
     "title": "Uttarakhand Explorer Package",
     "place": "Uttarakhand",
     "image": {
-      "url": "https://landing.journawayholidays.com/wp-content/uploads/2023/01/uk4.png"
+      "url": "https://static.toiimg.com/photo/63317260.cms"
     },
     "price": 15999,
     "route": "UK-Nainital > UK-Rishikesh > UK-Dehradun",
@@ -1299,7 +1299,7 @@ const tourPackages = [
     "title": "West Bengal Cultural Sojourn",
     "place": "West Bengal",
     "image": {
-      "url": "https://landing.journawayholidays.com/wp-content/uploads/2023/01/wb1.png"
+      "url": "https://www.aryavrittravels.com/wp-content/uploads/2024/02/Places-to-Visit-in-West-Bengal.jpg"
     },
     "price": 12999,
     "route": "WB-Kolkata > WB-Darjeeling > WB-Sundarbans",
@@ -1311,7 +1311,7 @@ const tourPackages = [
     "title": "West Bengal Heritage Tour",
     "place": "West Bengal",
     "image": {
-      "url": "https://landing.journawayholidays.com/wp-content/uploads/2023/01/wb2.png"
+      "url": "https://i0.wp.com/www.tusktravel.com/blog/wp-content/uploads/2024/01/Places-to-Visit-West-Bengal-in-March.jpg?fit=1200%2C800&ssl=1"
     },
     "price": 13999,
     "route": "WB-Darjeeling > WB-Shantiniketan > WB-Kolkata",
@@ -1323,7 +1323,7 @@ const tourPackages = [
     "title": "West Bengal Explorer Package",
     "place": "West Bengal",
     "image": {
-      "url": "https://landing.journawayholidays.com/wp-content/uploads/2023/01/wb3.png"
+      "url": "https://www.akshartours.com/wp-content/uploads/2020/06/Best-Time-to-Visit-West-Bengal-02.jpg"
     },
     "price": 14999,
     "route": "WB-Sundarbans > WB-Kolkata > WB-Darjeeling",
@@ -1335,7 +1335,7 @@ const tourPackages = [
     "title": "West Bengal Cultural Expedition",
     "place": "West Bengal",
     "image": {
-      "url": "https://landing.journawayholidays.com/wp-content/uploads/2023/01/wb4.png"
+      "url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTUmxxA-Ap8ZLlfLtWck6UXpINfePNtDAVSag&s"
     },
     "price": 15999,
     "route": "WB-Shantiniketan > WB-Darjeeling > WB-Kolkata",
@@ -1347,7 +1347,7 @@ const tourPackages = [
     "title": "Andaman Island Escape",
     "place": "Andaman & Nicobar",
     "image": {
-      "url": "https://landing.journawayholidays.com/wp-content/uploads/2023/01/an1.png"
+      "url": "https://www.tourmyindia.com/blog/wp-content/uploads/2021/09/Best-Places-to-Visit-in-Andaman.jpg"
     },
     "price": 12999,
     "route": "AN-Port Blair > AN-Havelock Island > AN-Neil Island",
@@ -1359,7 +1359,7 @@ const tourPackages = [
     "title": "Andaman Coastal Adventure",
     "place": "Andaman & Nicobar",
     "image": {
-      "url": "https://landing.journawayholidays.com/wp-content/uploads/2023/01/an2.png"
+      "url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR067qfQL8TY-i2pOsXbDIZIQwVhfhR1rci8w&s"
     },
     "price": 13999,
     "route": "AN-Havelock Island > AN-Ross Island > AN-Port Blair",
@@ -1371,7 +1371,7 @@ const tourPackages = [
     "title": "Andaman Explorer Package",
     "place": "Andaman & Nicobar",
     "image": {
-      "url": "https://landing.journawayholidays.com/wp-content/uploads/2023/01/an3.png"
+      "url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT5HAxAx8GwDEoouc2sDlUqQpvaJPz61e3kDA&s"
     },
     "price": 14999,
     "route": "AN-Neil Island > AN-Port Blair > AN-Havelock Island",
@@ -1383,7 +1383,7 @@ const tourPackages = [
     "title": "Andaman Scenic Retreat",
     "place": "Andaman & Nicobar",
     "image": {
-      "url": "https://landing.journawayholidays.com/wp-content/uploads/2023/01/an4.png"
+      "url": "https://www.indiantempletour.com/wp-content/uploads/2022/08/Andaman-and-Nicobar-Islands-Package-1.jpg"
     },
     "price": 15999,
     "route": "AN-Ross Island > AN-Neil Island > AN-Havelock Island",
@@ -1395,7 +1395,7 @@ const tourPackages = [
     "title": "Chandigarh Urban Retreat",
     "place": "Chandigarh",
     "image": {
-      "url": "https://landing.journawayholidays.com/wp-content/uploads/2023/01/ch1.png"
+      "url": "https://www.holidify.com/images/cmsuploads/compressed/attr_1391_20210713122024.jpg"
     },
     "price": 12999,
     "route": "CH-Chandigarh > CH-Sukhna Lake > CH-Rock Garden",
@@ -1407,7 +1407,7 @@ const tourPackages = [
     "title": "Chandigarh Cultural Tour",
     "place": "Chandigarh",
     "image": {
-      "url": "https://landing.journawayholidays.com/wp-content/uploads/2023/01/ch2.png"
+      "url": "https://media.holidify.com/images/cmsuploads/compressed/hgknvathof3c1_20241129151412.jpg"
     },
     "price": 13999,
     "route": "CH-Rock Garden > CH-Chandigarh > CH-Zakir Hussain Rose Garden",
@@ -1419,7 +1419,7 @@ const tourPackages = [
     "title": "Chandigarh Explorer Package",
     "place": "Chandigarh",
     "image": {
-      "url": "https://landing.journawayholidays.com/wp-content/uploads/2023/01/ch3.png"
+      "url": "https://www.holidaylandmark.com/blog/wp-content/uploads/2024/08/Chandigarh.jpg"
     },
     "price": 14999,
     "route": "CH-Chandigarh > CH-Zakir Hussain Rose Garden > CH-Rock Garden",
@@ -1431,7 +1431,7 @@ const tourPackages = [
     "title": "Chandigarh Discovery Tour",
     "place": "Chandigarh",
     "image": {
-      "url": "https://landing.journawayholidays.com/wp-content/uploads/2023/01/ch4.png"
+      "url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSmjOVwOTyy0-qp24okeU4_ICIs1I8U8qhu3w&s"
     },
     "price": 15999,
     "route": "CH-Sukhna Lake > CH-Chandigarh > CH-Rock Garden",
@@ -1443,7 +1443,7 @@ const tourPackages = [
     "title": "Daman & Diu Beach Getaway",
     "place": "Daman and Diu",
     "image": {
-      "url": "https://landing.journawayholidays.com/wp-content/uploads/2023/01/dd1.png"
+      "url": "https://s3.india.com/wp-content/uploads/2024/06/Feature-Image-_-Daman-and-diu.jpg?impolicy=Medium_Widthonly&w=350&h=263"
     },
     "price": 12999,
     "route": "DD-Daman > DD-Diu > DD-Nagoa Beach",
@@ -1455,7 +1455,7 @@ const tourPackages = [
     "title": "Daman & Diu Coastal Retreat",
     "place": "Daman and Diu",
     "image": {
-      "url": "https://landing.journawayholidays.com/wp-content/uploads/2023/01/dd2.png"
+      "url": "https://tripventure.in/wp-content/uploads/2024/08/Travel-to-Daman-and-Diu-A-Comprehensive-Guide.jpg "
     },
     "price": 13999,
     "route": "DD-Diu > DD-Jampore Beach > DD-Daman",
@@ -1467,7 +1467,7 @@ const tourPackages = [
     "title": "Daman & Diu Explorer Package",
     "place": "Daman and Diu",
     "image": {
-      "url": "https://landing.journawayholidays.com/wp-content/uploads/2023/01/dd3.png"
+      "url": "https://www.tourmyindia.com/socialimg/daman-diu-tourism.jpg"
     },
     "price": 14999,
     "route": "DD-Nagoa Beach > DD-Daman > DD-Diu",
@@ -1479,7 +1479,7 @@ const tourPackages = [
     "title": "Daman & Diu Discovery Tour",
     "place": "Daman and Diu",
     "image": {
-      "url": "https://landing.journawayholidays.com/wp-content/uploads/2023/01/dd4.png"
+      "url": "https://static.toiimg.com/thumb/msid-96107709,width-1070,height-580,resizemode-75/96107709,pt-32,y_pad-40/96107709.jpg"
     },
     "price": 15999,
     "route": "DD-Jampore Beach > DD-Nagoa Beach > DD-Daman",
@@ -1491,7 +1491,7 @@ const tourPackages = [
     "title": "Delhi Heritage and Urban Tour",
     "place": "Delhi",
     "image": {
-      "url": "https://landing.journawayholidays.com/wp-content/uploads/2023/01/dl1.png"
+      "url": "https://www.planetware.com/photos-large/IND/india-delhi-red-fort.jpg"
     },
     "price": 12999,
     "route": "DL-New Delhi > DL-Red Fort > DL-Qutub Minar",
@@ -1503,7 +1503,7 @@ const tourPackages = [
     "title": "Delhi Cultural Exploration",
     "place": "Delhi",
     "image": {
-      "url": "https://landing.journawayholidays.com/wp-content/uploads/2023/01/dl2.png"
+      "url": "https://www.holidify.com/images/bgImages/DELHI.jpg"
     },
     "price": 13999,
     "route": "DL-Qutub Minar > DL-India Gate > DL-New Delhi",
@@ -1515,7 +1515,7 @@ const tourPackages = [
     "title": "Delhi Explorer Package",
     "place": "Delhi",
     "image": {
-      "url": "https://landing.journawayholidays.com/wp-content/uploads/2023/01/dl3.png"
+      "url": "https://tripxl.com/blog/wp-content/uploads/2024/09/Places-To-Visit-In-Delhi-Cover-Photo-840x425.jpg"
     },
     "price": 14999,
     "route": "DL-Red Fort > DL-New Delhi > DL-Qutub Minar",
@@ -1527,7 +1527,7 @@ const tourPackages = [
     "title": "Delhi Discovery Tour",
     "place": "Delhi",
     "image": {
-      "url": "https://landing.journawayholidays.com/wp-content/uploads/2023/01/dl4.png"
+      "url": "https://www.hotelkabli.com/img/tour/louts.jpg"
     },
     "price": 15999,
     "route": "DL-India Gate > DL-Red Fort > DL-New Delhi",
@@ -1587,7 +1587,7 @@ const tourPackages = [
     "title": "Exclusive Kashmir Retreat Package",
     "place": "Kashmir",
     "image": {
-      "url": "https://landing.journawayholidays.com/wp-content/uploads/2023/01/ks1.png"
+      "url": "https://www.bontravelindia.com/wp-content/uploads/2021/12/Best-Places-to-Visit-in-Kashmir-Dal-Lake-scaled.jpg"
     },
     "price": 12999,
     "route": "KS-Srinagar > KS-Gulmarg > KS-Pahalgam",
@@ -1599,7 +1599,7 @@ const tourPackages = [
     "title": "Kashmir Valley Explorer",
     "place": "Kashmir",
     "image": {
-      "url": "https://landing.journawayholidays.com/wp-content/uploads/2023/01/ks2.png"
+      "url": "https://www.holidify.com/images/cmsuploads/compressed/attr_986_20200729162341.jpg"
     },
     "price": 13999,
     "route": "KS-Srinagar > KS-Pahalgam > KS-Gulmarg",
@@ -1611,7 +1611,7 @@ const tourPackages = [
     "title": "Kashmir Adventure Tour",
     "place": "Kashmir",
     "image": {
-      "url": "https://landing.journawayholidays.com/wp-content/uploads/2023/01/ks3.png"
+      "url": "https://im.hunt.in/cg/jk/About/Tourism/jamm.jpg"
     },
     "price": 14999,
     "route": "KS-Gulmarg > KS-Srinagar > KS-Pahalgam",
@@ -1623,7 +1623,7 @@ const tourPackages = [
     "title": "Kashmir Explorer Package",
     "place": "Kashmir",
     "image": {
-      "url": "https://landing.journawayholidays.com/wp-content/uploads/2023/01/ks4.png"
+      "url": "https://www.akshartours.com/wp-content/uploads/2020/09/Things-to-Do-in-Jammu-and-Kashmir.jpg"
     },
     "price": 15999,
     "route": "KS-Pahalgam > KS-Gulmarg > KS-Srinagar",
@@ -1635,7 +1635,7 @@ const tourPackages = [
     "title": "Lakshadweep Island Hopping Tour",
     "place": "Lakshadweep",
     "image": {
-      "url": "https://landing.journawayholidays.com/wp-content/uploads/2023/01/ld1.png"
+      "url": "https://miro.medium.com/v2/resize:fit:1200/0*wWfIKxAcCGjtKCgE.jpg"
     },
     "price": 12999,
     "route": "LD-Kavaratti > LD-Agatti > LD-Minicoy",
@@ -1647,7 +1647,7 @@ const tourPackages = [
     "title": "Lakshadweep Beach Escape",
     "place": "Lakshadweep",
     "image": {
-      "url": "https://landing.journawayholidays.com/wp-content/uploads/2023/01/ld2.png"
+      "url": "https://www.thestatesman.com/wp-content/uploads/2024/01/lakshadweep-tourism.jpg"
     },
     "price": 13999,
     "route": "LD-Agatti > LD-Andrott > LD-Kavaratti",
@@ -1659,7 +1659,7 @@ const tourPackages = [
     "title": "Lakshadweep Explorer Package",
     "place": "Lakshadweep",
     "image": {
-      "url": "https://landing.journawayholidays.com/wp-content/uploads/2023/01/ld3.png"
+      "url": "https://blog.explurger.com/wp-content/uploads/2024/01/Bangaram-Island-1-1.jpg"
     },
     "price": 14999,
     "route": "LD-Minicoy > LD-Kavaratti > LD-Agatti",
@@ -1671,7 +1671,7 @@ const tourPackages = [
     "title": "Lakshadweep Cultural Retreat",
     "place": "Lakshadweep",
     "image": {
-      "url": "https://landing.journawayholidays.com/wp-content/uploads/2023/01/ld4.png"
+      "url": "https://res.cloudinary.com/dyiffrkzh/image/upload/c_fill,f_auto,fl_progressive.strip_profile,g_center,h_400,q_auto,w_700/v1688718561/banbanjara/qxosucugqhanvnky4dss.jpg"
     },
     "price": 15999,
     "route": "LD-Andrott > LD-Minicoy > LD-Kavaratti",
@@ -1735,7 +1735,7 @@ const tourPackages = [
       "title": "Delhi Historical Study Tour",
       "place": "Delhi",
       "image": {
-        "url": "https://upload.wikimedia.org/wikipedia/commons/3/3e/India_Gate_in_New_Delhi_03-2016_img3.jpg"
+        "url": "https://confusedparent.in/wp-content/uploads/2018/10/National-Museum-Delhi.jpg"
       },
       "price": 12999,
       "route": "Delhi > Agra > Jaipur",
@@ -1747,7 +1747,7 @@ const tourPackages = [
       "title": "Mumbai Science & Technology Exploration",
       "place": "Mumbai",
       "image": {
-        "url": "https://upload.wikimedia.org/wikipedia/commons/5/5d/Nehru_Science_Center%2C_Mumbai.jpg"
+        "url": "https://confusedparent.in/wp-content/uploads/2019/04/Nehru-Planetarium.jpg"
       },
       "price": 13999,
       "route": "Mumbai > Pune > Lonavala",
@@ -1759,7 +1759,7 @@ const tourPackages = [
       "title": "Bangalore IT & Space Research Tour",
       "place": "Bangalore",
       "image": {
-        "url": "https://upload.wikimedia.org/wikipedia/commons/d/d5/ISRO_Satellite_Centre_-_Bangalore.jpg"
+        "url": "https://assets-news.housing.com/news/wp-content/uploads/2022/08/25004235/names-of-places-in-Bangalore-FEATURE-compressed.jpg"
       },
       "price": 14999,
       "route": "Bangalore > Mysore > Coorg",
@@ -1771,7 +1771,7 @@ const tourPackages = [
       "title": "Chennai Cultural & Literary Expedition",
       "place": "Chennai",
       "image": {
-        "url": "https://upload.wikimedia.org/wikipedia/commons/d/db/The_Government_Museum%2C_Chennai.jpg"
+        "url": "https://media-cdn.tripadvisor.com/media/photo-s/0e/f0/3b/16/the-welcome-effect.jpg"
       },
       "price": 11999,
       "route": "Chennai > Mahabalipuram > Pondicherry",
@@ -1783,7 +1783,7 @@ const tourPackages = [
       "title": "Hyderabad Science & Cultural Tour",
       "place": "Hyderabad",
       "image": {
-        "url": "https://upload.wikimedia.org/wikipedia/commons/a/a5/Birla_Science_Museum_Hyderabad.jpg"
+        "url": "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/07/48/ec/54/hasrat-mohani-district.jpg?w=500&h=500&s=1"
       },
       "price": 12999,
       "route": "Hyderabad > Warangal > Nizamabad",
@@ -1795,7 +1795,7 @@ const tourPackages = [
       "title": "Kolkata Heritage & Literature Tour",
       "place": "Kolkata",
       "image": {
-        "url": "https://upload.wikimedia.org/wikipedia/commons/e/e5/Indian_Museum%2C_Kolkata.jpg"
+        "url": "https://media-cdn.tripadvisor.com/media/photo-s/0d/c1/3a/52/science-city.jpg"
       },
       "price": 11999,
       "route": "Kolkata > Shantiniketan > Howrah",
@@ -1807,7 +1807,7 @@ const tourPackages = [
       "title": "Pune Educational & Historical Tour",
       "place": "Pune",
       "image": {
-        "url": "https://upload.wikimedia.org/wikipedia/commons/2/27/Fergusson_College_2.jpg"
+        "url": "https://www.edutour.org.in/wp-content/uploads/2016/09/Pune-Tour.jpg"
       },
       "price": 13999,
       "route": "Pune > Nashik > Ahmednagar",
@@ -1819,7 +1819,7 @@ const tourPackages = [
       "title": "Ahmedabad Science & Heritage Study Tour",
       "place": "Ahmedabad",
       "image": {
-        "url": "https://upload.wikimedia.org/wikipedia/commons/d/da/Science_City_Ahmedabad.jpg"
+        "url": "https://s7ap1.scene7.com/is/image/incredibleindia/science-city-ahmedabad-gujarat-hero-hs?qlt=82&ts=1726735158700"
       },
       "price": 12999,
       "route": "Ahmedabad > Gandhinagar > Vadodara",
@@ -1831,7 +1831,7 @@ const tourPackages = [
       "title": "Jaipur History & Architecture Tour",
       "place": "Jaipur",
       "image": {
-        "url": "https://upload.wikimedia.org/wikipedia/commons/7/7a/Albert_Hall_Museum%2C_Jaipur.jpg"
+        "url": "https://confusedparent.in/wp-content/uploads/2019/05/Jantar-Mantar-Observatory-1024x683.jpg"
       },
       "price": 11999,
       "route": "Jaipur > Ajmer > Pushkar",
@@ -1843,7 +1843,7 @@ const tourPackages = [
       "title": "Lucknow Cultural & History Exploration",
       "place": "Lucknow",
       "image": {
-        "url": "https://upload.wikimedia.org/wikipedia/commons/6/64/Bara_Imambara_Lucknow_2014-07_img3.jpg"
+        "url": "https://lucknowpulse.com/wp-content/uploads/2023/05/ig-planetarium-1-1.jpg"
       },
       "price": 12999,
       "route": "Lucknow > Varanasi > Allahabad",
@@ -1855,7 +1855,7 @@ const tourPackages = [
       "title": "Mysore Royal History & Cultural Tour",
       "place": "Mysore",
       "image": {
-        "url": "https://upload.wikimedia.org/wikipedia/commons/3/37/Mysore_Palace_Front_View.jpg"
+        "url": "https://cdn.britannica.com/27/242227-050-48358A10/Mysore-Palace-Mysuru-Karnataka-India.jpg"
       },
       "price": 12999,
       "route": "Mysore > Srirangapatna > Coorg",
@@ -1867,7 +1867,7 @@ const tourPackages = [
       "title": "Bhubaneswar Archaeological & Heritage Tour",
       "place": "Bhubaneswar",
       "image": {
-        "url": "https://upload.wikimedia.org/wikipedia/commons/1/1f/Konark_Sun_Temple%2C_Odisha%2C_India.jpg"
+        "url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTUWLPg1vHW2AfKowaeA-c4h1QS4t77zELOGQ&s"
       },
       "price": 13999,
       "route": "Bhubaneswar > Puri > Konark",
@@ -1879,7 +1879,7 @@ const tourPackages = [
       "title": "Patna Historical & Museum Tour",
       "place": "Patna",
       "image": {
-        "url": "https://upload.wikimedia.org/wikipedia/commons/7/7e/Kumhrar_Park%2C_Patna.jpg"
+        "url": "https://res.cloudinary.com/local-tourism/images/c_scale,w_648,h_339,dpr_2/f_webp,q_auto/v1684314821/Post/The%20Best%20Places%20to%20Visit%20in%20Patna:%20A%20Traveler's%20Guide/Golghar_jsgzmf/Golghar_jsgzmf.webp?_i=AA"
       },
       "price": 12999,
       "route": "Patna > Bodh Gaya > Nalanda",
@@ -1891,7 +1891,7 @@ const tourPackages = [
       "title": "Shimla Environmental & Ecotourism Study",
       "place": "Shimla",
       "image": {
-        "url": "https://upload.wikimedia.org/wikipedia/commons/d/d1/Shimla_Mall_Road.jpg"
+        "url": "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/18/0f/81/51/advance-study-shimla.jpg?w=500&h=500&s=1"
       },
       "price": 13999,
       "route": "Shimla > Kufri > Manali",
@@ -1903,7 +1903,7 @@ const tourPackages = [
       "title": "Guwahati Natural & Cultural Studies Tour",
       "place": "Guwahati",
       "image": {
-        "url": "https://upload.wikimedia.org/wikipedia/commons/3/3e/Kaziranga_rhinos.jpg"
+        "url": "https://nexplore.org/blog/wp-content/uploads/2023/04/Assam-State-Museum-e1681654893168-1024x734.jpg"
       },
       "price": 14999,
       "route": "Guwahati > Kaziranga > Shillong",
@@ -1918,7 +1918,7 @@ const tourPackages = [
       "title": "Varanasi Kashi Vishwanath Darshan",
       "place": "Varanasi",
       "image": {
-        "url": "https://upload.wikimedia.org/wikipedia/commons/4/49/Kashi_Vishwanath_Temple.jpg"
+        "url": "https://img.staticmb.com/mbcontent/images/crop/uploads/2024/4/places-to-visit-in-varanasi_0_1200.jpg"
       },
       "price": 14999,
       "route": "Varanasi > Sarnath > Gaya",
@@ -1930,7 +1930,7 @@ const tourPackages = [
       "title": "Haridwar & Rishikesh Ganga Aarti Tour",
       "place": "Haridwar",
       "image": {
-        "url": "https://upload.wikimedia.org/wikipedia/commons/d/db/Haridwar_Ganga_Aarti.jpg"
+        "url": "https://rishikeshdaytour.com/blog/wp-content/uploads/2020/12/Haridwar-A-Historical-and-Mythological-City-1.jpg"
       },
       "price": 13999,
       "route": "Haridwar > Rishikesh > Devprayag",
@@ -1942,7 +1942,7 @@ const tourPackages = [
       "title": "Tirupati Balaji Pilgrimage",
       "place": "Tirupati",
       "image": {
-        "url": "https://upload.wikimedia.org/wikipedia/commons/1/1d/Tirumala_Venkateswara_temple_gopuram.jpg"
+        "url": "https://tirupatibalajitravels.co.in/wp-content/uploads/2024/01/balaji-temple-1.webp"
       },
       "price": 15999,
       "route": "Tirupati > Srikalahasti > Kanipakam",
@@ -1954,7 +1954,7 @@ const tourPackages = [
       "title": "Amritsar Golden Temple & Sikh Heritage",
       "place": "Amritsar",
       "image": {
-        "url": "https://upload.wikimedia.org/wikipedia/commons/d/d0/Golden_Temple%2C_Amritsar.jpg"
+        "url": "https://blogs.tripzygo.in/wp-content/uploads/2025/01/places-to-visit-in-amritsar.jpg"
       },
       "price": 12999,
       "route": "Amritsar > Anandpur Sahib > Wagah Border",
@@ -1966,7 +1966,7 @@ const tourPackages = [
       "title": "Dwarka & Somnath Jyotirlinga Yatra",
       "place": "Dwarka",
       "image": {
-        "url": "https://upload.wikimedia.org/wikipedia/commons/3/38/Dwarkadhish_Temple_Dwarka.jpg"
+        "url": "https://ihplb.b-cdn.net/wp-content/uploads/2020/11/Swami-Narayan-Temple-640x430.jpg"
       },
       "price": 16999,
       "route": "Dwarka > Somnath > Girnar",
@@ -1978,7 +1978,7 @@ const tourPackages = [
       "title": "Badrinath & Kedarnath Char Dham Yatra",
       "place": "Uttarakhand",
       "image": {
-        "url": "https://upload.wikimedia.org/wikipedia/commons/2/2a/Kedarnath_Temple_2016.jpg"
+        "url": "https://static2.tripoto.com/media/filter/tst/img/1033536/TripDocument/1574352537_nikon_105_01.jpeg"
       },
       "price": 24999,
       "route": "Haridwar > Kedarnath > Badrinath",
@@ -1990,7 +1990,7 @@ const tourPackages = [
       "title": "Shirdi Sai Baba Darshan",
       "place": "Shirdi",
       "image": {
-        "url": "https://upload.wikimedia.org/wikipedia/commons/5/54/Shirdi_Sai_Baba.jpg"
+        "url": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhmgbfy2KiDoEOKXQ2XTiAMw0l3nc0JisOT3uPMVi1H5DhkcAQZzP-33J6oWhQKjaQCfCDl6pfV7dMgZkLMic8GAyYPWNQW1wzwt_CAWM2-VaUxt252I-TFiCO39j1yEzNggHqO6fSj-rtP_4JSJleKpIYyJWT2G30_8oGPuw07cpAZZ6v87Q4qRWixyTsk/s550/SAi.png"
       },
       "price": 12999,
       "route": "Shirdi > Nashik > Trimbakeshwar",
@@ -2002,7 +2002,7 @@ const tourPackages = [
       "title": "Puri Jagannath Temple Pilgrimage",
       "place": "Puri",
       "image": {
-        "url": "https://upload.wikimedia.org/wikipedia/commons/b/bf/Jagannath_Puri_Temple.jpg"
+        "url": "https://i.pinimg.com/736x/bc/2e/31/bc2e3178e1b4cb6d9a825824fbee9507.jpg"
       },
       "price": 13999,
       "route": "Puri > Konark > Bhubaneswar",
@@ -2014,7 +2014,7 @@ const tourPackages = [
       "title": "Ayodhya Ram Mandir Tour",
       "place": "Ayodhya",
       "image": {
-        "url": "https://upload.wikimedia.org/wikipedia/commons/7/72/Ayodhya_Ram_Mandir.jpg"
+        "url": "https://tourtoreview.com/wp-content/uploads/2024/02/places-to-visit-in-Ayodhya.webp"
       },
       "price": 11999,
       "route": "Ayodhya > Prayagraj > Chitrakoot",
@@ -2026,7 +2026,7 @@ const tourPackages = [
       "title": "Madurai Meenakshi Temple Pilgrimage",
       "place": "Madurai",
       "image": {
-        "url": "https://upload.wikimedia.org/wikipedia/commons/7/75/Meenakshi_Amman_Temple_-_Tower_View.jpg"
+        "url": "https://www.tourmyindia.com/states/tamilnadu/images/aayiram-kaal-mandapam.jpg"
       },
       "price": 13999,
       "route": "Madurai > Rameswaram > Kanyakumari",
@@ -2038,7 +2038,7 @@ const tourPackages = [
       "title": "Ujjain Mahakaleshwar Jyotirlinga Tour",
       "place": "Ujjain",
       "image": {
-        "url": "https://upload.wikimedia.org/wikipedia/commons/1/18/Mahakal_Temple_Ujjain.jpg"
+        "url": "https://www.bontravelindia.com/wp-content/uploads/2024/01/Ujjain-Tourism-Best-Places-to-Visit-in-Ujjain.jpg"
       },
       "price": 12999,
       "route": "Ujjain > Omkareshwar > Indore",
@@ -2050,7 +2050,7 @@ const tourPackages = [
       "title": "Kolkata Kali Temple & Dakshineswar Tour",
       "place": "Kolkata",
       "image": {
-        "url": "https://upload.wikimedia.org/wikipedia/commons/2/2b/Dakshineswar_Kali_Temple.jpg"
+        "url": "https://upload.wikimedia.org/wikipedia/commons/3/32/Dakhineshwar_Temple_beside_the_Hoogly%2C_West_Bengal.JPG"
       },
       "price": 11999,
       "route": "Kolkata > Dakshineswar > Belur Math",
@@ -2062,7 +2062,7 @@ const tourPackages = [
       "title": "Kamakhya Temple Guwahati Tour",
       "place": "Guwahati",
       "image": {
-        "url": "https://upload.wikimedia.org/wikipedia/commons/5/5c/Kamakhya_Temple%2C_Guwahati.jpg"
+        "url": "https://t.eucdn.in/tourism/lg-jpg/kamakhya-devi-temple-5020865.jpg"
       },
       "price": 13999,
       "route": "Guwahati > Kamakhya > Shillong",
@@ -2074,7 +2074,7 @@ const tourPackages = [
       "title": "Rameswaram Jyotirlinga & Pilgrimage Tour",
       "place": "Rameswaram",
       "image": {
-        "url": "https://upload.wikimedia.org/wikipedia/commons/a/a5/Ramanathaswamy_Temple_Corridor.jpg"
+        "url": "https://travelindiatravel.in/wp-content/uploads/2022/10/img5.jpg"
       },
       "price": 15999,
       "route": "Rameswaram > Kanyakumari > Madurai",
@@ -2086,7 +2086,7 @@ const tourPackages = [
       "title": "Vaishno Devi Yatra",
       "place": "Katra",
       "image": {
-        "url": "https://upload.wikimedia.org/wikipedia/commons/1/10/Vaishno_Devi_Bhawan.jpg"
+        "url": "https://www.kashmirtourpackage.org/blog/wp-content/uploads/2024/01/Vaishno-Devi-Temple.jpg"
       },
       "price": 16999,
       "route": "Katra > Jammu > Patnitop",
@@ -2101,7 +2101,7 @@ const tourPackages = [
     "title": "Goa Beach Weekend Getaway",
     "place": "Goa",
     "image": {
-      "url": "https://upload.wikimedia.org/wikipedia/commons/6/60/Baga_Beach_Goa.jpg"
+      "url": "https://cdn.thegoavilla.com/image/CID_0538_540e2897a539b33077f2dad6a65623de.jpg"
     },
     "price": 9999,
     "route": "Goa > Baga Beach > Palolem Beach",
@@ -2113,7 +2113,7 @@ const tourPackages = [
     "title": "Lonavala & Khandala Hill Escape",
     "place": "Lonavala",
     "image": {
-      "url": "https://upload.wikimedia.org/wikipedia/commons/9/91/Lonavla.jpg"
+      "url": "https://hblimg.mmtcdn.com/content/hubble/img/lonavaladestimgs/mmt/activities/t_ufs/m_Rajmachi_Fort_Lonavala_1_l_480_640.jpg"
     },
     "price": 7499,
     "route": "Mumbai > Lonavala > Khandala",
@@ -2125,7 +2125,7 @@ const tourPackages = [
     "title": "Coorg Coffee Plantation Retreat",
     "place": "Coorg",
     "image": {
-      "url": "https://upload.wikimedia.org/wikipedia/commons/7/7f/Coorg_India.jpg"
+      "url": "https://www.theindia.co.in/blog/wp-content/uploads/2019/07/View-of-Coorg-1.jpg"
     },
     "price": 8499,
     "route": "Bangalore > Coorg > Abbey Falls",
@@ -2137,7 +2137,7 @@ const tourPackages = [
     "title": "Pondicherry French Heritage Getaway",
     "place": "Pondicherry",
     "image": {
-      "url": "https://upload.wikimedia.org/wikipedia/commons/6/67/Rock_Beach%2C_Pondicherry.jpg"
+      "url": "https://www.asparkholidays.com/uploads/72592_pandichery-1.png"
     },
     "price": 7999,
     "route": "Chennai > Pondicherry > Auroville",
@@ -2149,7 +2149,7 @@ const tourPackages = [
     "title": "Munnar Tea Estate Weekend Retreat",
     "place": "Munnar",
     "image": {
-      "url": "https://upload.wikimedia.org/wikipedia/commons/3/35/Munnar_Hillstation.jpg"
+      "url": "https://assets.traveltriangle.com/blog/wp-content/uploads/2014/11/tea-gardens-munnar-cover.jpg"
     },
     "price": 8999,
     "route": "Kochi > Munnar > Mattupetty Dam",
@@ -2161,7 +2161,7 @@ const tourPackages = [
     "title": "Rishikesh Adventure & Yoga Tour",
     "place": "Rishikesh",
     "image": {
-      "url": "https://upload.wikimedia.org/wikipedia/commons/8/85/Laxman_Jhula%2C_Rishikesh.jpg"
+      "url": "https://www.oyorooms.com/travel-guide/wp-content/uploads/2021/05/10.png"
     },
     "price": 8499,
     "route": "Delhi > Haridwar > Rishikesh",
@@ -2173,7 +2173,7 @@ const tourPackages = [
     "title": "Jaipur Pink City Weekend Tour",
     "place": "Jaipur",
     "image": {
-      "url": "https://upload.wikimedia.org/wikipedia/commons/7/79/Hawa_Mahal_Palace.jpg"
+      "url": "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/17/d3/a8/57/images-30-largejpg.jpg?w=500&h=-1&s=1"
     },
     "price": 9499,
     "route": "Delhi > Jaipur > Amber Fort",
@@ -2185,7 +2185,7 @@ const tourPackages = [
     "title": "Darjeeling Himalayan Toy Train Ride",
     "place": "Darjeeling",
     "image": {
-      "url": "https://upload.wikimedia.org/wikipedia/commons/8/86/Darjeeling_Toy_Train.jpg"
+      "url": "https://travelsetu.com/apps/uploads/new_destinations_photos/destination/2023/12/23/d78745e603cd28bcb03d90f73c4d5fed_1000x1000.jpg"
     },
     "price": 10499,
     "route": "Kolkata > Darjeeling > Tiger Hill",
@@ -2197,7 +2197,7 @@ const tourPackages = [
     "title": "Ooty & Coonoor Nilgiri Hills Tour",
     "place": "Ooty",
     "image": {
-      "url": "https://upload.wikimedia.org/wikipedia/commons/7/7d/Ooty_Lake_View.jpg"
+      "url": "https://www.abhibus.com/blog/wp-content/uploads/2023/05/Top-20-Places-to-Visit-in-Ooty-in-2023-That-You-Never-Miss-in-Lifetime-scaled.jpg"
     },
     "price": 9499,
     "route": "Coimbatore > Ooty > Coonoor",
@@ -2209,7 +2209,7 @@ const tourPackages = [
     "title": "Andaman Islands Beach Weekend",
     "place": "Andaman & Nicobar",
     "image": {
-      "url": "https://upload.wikimedia.org/wikipedia/commons/b/bf/Radhanagar_Beach_Andaman.jpg"
+      "url": "https://onlinetourandtravel.com/wp-content/uploads/2020/06/Andaman-blog.jpg"
     },
     "price": 15999,
     "route": "Port Blair > Havelock Island > Neil Island",
@@ -2221,7 +2221,7 @@ const tourPackages = [
     "title": "Mahabaleshwar Strawberry Farm Getaway",
     "place": "Mahabaleshwar",
     "image": {
-      "url": "https://upload.wikimedia.org/wikipedia/commons/f/f1/Mahabaleshwar_Hill_View.jpg"
+      "url": "https://media.assettype.com/outlooktraveller%2F2023-08%2Ff8eada68-8751-42c3-98a2-c5e75e6d3610%2Fshutterstock_1666668379.jpg"
     },
     "price": 7999,
     "route": "Pune > Mahabaleshwar > Panchgani",
@@ -2233,7 +2233,7 @@ const tourPackages = [
     "title": "Shimla & Kufri Snow Weekend Tour",
     "place": "Shimla",
     "image": {
-      "url": "https://upload.wikimedia.org/wikipedia/commons/6/6d/Shimla_Mall_Road_Winter.jpg"
+      "url": "https://www.clubmahindra.com/blog/media/section_images/shuttersto-1a47b83e6a03271.jpg"
     },
     "price": 9999,
     "route": "Delhi > Shimla > Kufri",
@@ -2245,7 +2245,7 @@ const tourPackages = [
     "title": "Udaipur Lake & Heritage Weekend Tour",
     "place": "Udaipur",
     "image": {
-      "url": "https://upload.wikimedia.org/wikipedia/commons/2/2c/Udaipur_City_Palace.jpg"
+      "url": "https://udaipurtourism.co.in/images/places-to-visit/headers/2-days-udaipur-top-places-to-visit-udaipur-header-udaipur-tourism-cr-xsaltor.jpg"
     },
     "price": 9999,
     "route": "Jaipur > Udaipur > Mount Abu",
@@ -2257,7 +2257,7 @@ const tourPackages = [
     "title": "Mysore Palace & Bandipur Safari Tour",
     "place": "Mysore",
     "image": {
-      "url": "https://upload.wikimedia.org/wikipedia/commons/9/97/Mysore_Palace_Lighting.jpg"
+      "url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT83RDq6DqyMmv9nKsxl6zOoikIKAp4FR-iag&s"
     },
     "price": 10999,
     "route": "Bangalore > Mysore > Bandipur",
@@ -2269,7 +2269,7 @@ const tourPackages = [
     "title": "Chikmagalur Coffee Estate Weekend",
     "place": "Chikmagalur",
     "image": {
-      "url": "https://upload.wikimedia.org/wikipedia/commons/7/7a/Chikmagalur_Hills_View.jpg"
+      "url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSGMd9V4u4Oi7jXqRm8xh7SW7BO-yYKza83Iw&s"
     },
     "price": 8999,
     "route": "Bangalore > Chikmagalur > Mullayanagiri",
@@ -2285,7 +2285,7 @@ const tourPackages = [
     "title": "Paris & Swiss Alps Tour",
     "place": "Paris & Switzerland",
     "image": {
-      "url": "https://upload.wikimedia.org/wikipedia/commons/e/e6/Paris_Eiffel_Tower.jpg"
+      "url": "https://www.planetware.com/photos-large/CH/switzerland-matterhorn.jpg"
     },
     "price": 129999,
     "route": "Paris > Zurich > Interlaken",
@@ -2297,7 +2297,7 @@ const tourPackages = [
     "title": "Maldives Luxury Beach Getaway",
     "place": "Maldives",
     "image": {
-      "url": "https://upload.wikimedia.org/wikipedia/commons/3/38/Maldives_Beach.jpg"
+      "url": "https://images.wanderon.in/blogs/new/2023/10/gondola-ride-in-autumn-in-kashmir-2023-10-18t185429.618-min.png"
     },
     "price": 99999,
     "route": "Male > Maafushi > Addu Atoll",
@@ -2309,7 +2309,7 @@ const tourPackages = [
     "title": "Dubai Desert & City Adventure",
     "place": "Dubai",
     "image": {
-      "url": "https://upload.wikimedia.org/wikipedia/commons/8/89/Dubai_Skyline.jpg"
+      "url": "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/16/e2/fd/e2/photo0jpg.jpg?w=1200&h=700&s=1"
     },
     "price": 79999,
     "route": "Dubai > Abu Dhabi > Sharjah",
@@ -2321,7 +2321,7 @@ const tourPackages = [
     "title": "Thailand Island Hopping",
     "place": "Thailand",
     "image": {
-      "url": "https://upload.wikimedia.org/wikipedia/commons/3/34/Phuket_Beach.jpg"
+      "url": "https://www.holidify.com/images/bgImages/PHI-PHI-ISLANDS.jpg"
     },
     "price": 69999,
     "route": "Bangkok > Phuket > Krabi",
@@ -2333,7 +2333,7 @@ const tourPackages = [
     "title": "Bali Cultural & Beach Retreat",
     "place": "Bali",
     "image": {
-      "url": "https://upload.wikimedia.org/wikipedia/commons/d/d2/Bali_Temple.jpg"
+      "url": "https://media2.thrillophilia.com/images/photos/000/106/267/original/1530258837_shutterstock_725111986.jpg?w=753&h=450&dpr=1.5"
     },
     "price": 84999,
     "route": "Denpasar > Ubud > Nusa Penida",
@@ -2345,7 +2345,7 @@ const tourPackages = [
     "title": "Singapore & Sentosa Island Tour",
     "place": "Singapore",
     "image": {
-      "url": "https://upload.wikimedia.org/wikipedia/commons/3/3e/Singapore_Marina_Bay.jpg"
+      "url": "https://media1.thrillophilia.com/filestore/20fc6mpand4ahbvv07gqlwap0dje_shutterstock_558424639.jpg"
     },
     "price": 74999,
     "route": "Singapore > Sentosa > Gardens by the Bay",
@@ -2357,7 +2357,7 @@ const tourPackages = [
     "title": "Japan Cherry Blossom Experience",
     "place": "Tokyo & Kyoto",
     "image": {
-      "url": "https://upload.wikimedia.org/wikipedia/commons/6/6b/Tokyo_Cherry_Blossoms.jpg"
+      "url": "https://media1.thrillophilia.com/filestore/sfph4dv7mc8lgzow9zjbspez2lvb_1618899444_shutterstock_667925704.jpg?w=753&h=450&dpr=2.0"
     },
     "price": 139999,
     "route": "Tokyo > Kyoto > Osaka",
@@ -2369,7 +2369,7 @@ const tourPackages = [
     "title": "Australia Great Barrier Reef Tour",
     "place": "Australia",
     "image": {
-      "url": "https://upload.wikimedia.org/wikipedia/commons/7/73/Great_Barrier_Reef.jpg"
+      "url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTi_b6C54YsRCm5ckcWdeDjp-eLi3FObvtMbw&s"
     },
     "price": 159999,
     "route": "Sydney > Gold Coast > Great Barrier Reef",
@@ -2381,7 +2381,7 @@ const tourPackages = [
     "title": "New Zealand Adventure & Nature Tour",
     "place": "New Zealand",
     "image": {
-      "url": "https://upload.wikimedia.org/wikipedia/commons/5/5b/Milford_Sound_New_Zealand.jpg"
+      "url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRm5yYckqcOLuG2MjDuEHNi2D8UIgg64rr5gw&s"
     },
     "price": 149999,
     "route": "Auckland > Queenstown > Milford Sound",
@@ -2393,7 +2393,7 @@ const tourPackages = [
     "title": "Greece Santorini & Athens Tour",
     "place": "Greece",
     "image": {
-      "url": "https://upload.wikimedia.org/wikipedia/commons/9/91/Santorini_Sunset.jpg"
+      "url": "https://media2.thrillophilia.com/images/photos/000/369/600/original/1615900869_shutterstock_1168009126.jpg?w=753&h=450&dpr=1.5"
     },
     "price": 119999,
     "route": "Athens > Santorini > Mykonos",
@@ -2405,7 +2405,7 @@ const tourPackages = [
     "title": "Italy Historical & Romantic Tour",
     "place": "Italy",
     "image": {
-      "url": "https://upload.wikimedia.org/wikipedia/commons/5/5d/Colosseum_Rome.jpg"
+      "url": "https://willagetravel.com/uploads/0000/154/2022/09/29/pisa-tower-in-italy-tourism-1.jpg"
     },
     "price": 139999,
     "route": "Rome > Venice > Florence",
@@ -2417,7 +2417,7 @@ const tourPackages = [
     "title": "South Africa Wildlife Safari",
     "place": "South Africa",
     "image": {
-      "url": "https://upload.wikimedia.org/wikipedia/commons/6/60/Kruger_National_Park.jpg"
+      "url": "https://www.planetware.com/wpimages/2020/07/south-africa-top-attractions-intro-paragraph-giraffes-sunset.jpg"
     },
     "price": 159999,
     "route": "Cape Town > Johannesburg > Kruger National Park",
@@ -2429,7 +2429,7 @@ const tourPackages = [
     "title": "Egypt Pyramids & Nile Cruise",
     "place": "Egypt",
     "image": {
-      "url": "https://upload.wikimedia.org/wikipedia/commons/e/e3/Giza_Pyramids.jpg"
+      "url": "https://cdn.britannica.com/13/170813-131-B69A007D/Great-Pyramid-of-Cheops-Giza-Egypt.jpg"
     },
     "price": 109999,
     "route": "Cairo > Luxor > Nile Cruise",
@@ -2441,7 +2441,7 @@ const tourPackages = [
     "title": "London & Scotland Explorer",
     "place": "United Kingdom",
     "image": {
-      "url": "https://upload.wikimedia.org/wikipedia/commons/6/6e/London_Big_Ben.jpg"
+      "url": "https://www.planetware.com/wpimages/2023/01/england-london-top-attractions-things-to-do-intro-paragraph-big-ben-thames-bridge.jpg"
     },
     "price": 129999,
     "route": "London > Edinburgh > Isle of Skye",
@@ -2453,7 +2453,7 @@ const tourPackages = [
     "title": "Canada Rockies & Niagara Falls Tour",
     "place": "Canada",
     "image": {
-      "url": "https://upload.wikimedia.org/wikipedia/commons/7/74/Niagara_Falls_Canada.jpg"
+      "url": "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/0d/a3/8b/5f/niagara-falls.jpg?w=1200&h=1200&s=1"
     },
     "price": 149999,
     "route": "Toronto > Vancouver > Banff National Park",
