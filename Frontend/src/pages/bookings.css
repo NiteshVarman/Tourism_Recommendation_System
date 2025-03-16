@@ -1,0 +1,58 @@
+/* Bookings.css */
+.bookings-container {
+    max-width: 800px;
+    margin: 1.5rem auto;
+    padding: 1rem;
+    background-color: white;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
+.bookings-title {
+    font-size: 1.25rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+}
+
+.bookings-list {
+    border-top: 1px solid #ccc;
+}
+
+.booking-item {
+    padding: 1rem;
+    border-bottom: 1px solid #ddd;
+}
+
+.booking-name {
+    font-size: 1.125rem;
+    font-weight: bold;
+}
+
+.booking-details {
+    font-size: 0.875rem;
+    color: #4a4a4a;
+}
+
+.booking-status {
+    font-size: 0.875rem;
+    font-weight: bold;
+}
+
+.status-completed {
+    color: #16a34a;
+}
+
+.status-pending {
+    color: #dc2626;
+}
+
+.loading-text {
+    text-align: center;
+    font-size: 1rem;
+    font-weight: bold;
+}
+
+.error-text {
+    text-align: center;
+    color: #dc2626;
+}

@@ -3,7 +3,6 @@ import { useNavigate } from "react-router-dom";
 import "./Home.css";
 import { FaMapMarkedAlt, FaDollarSign, FaClock, FaUserTie } from "react-icons/fa";
 
-// Video data with corresponding title & subtext
 const videoData = [
   {
     src: "https://tecdn.b-cdn.net/img/video/Tropical.mp4",
@@ -63,6 +62,7 @@ export default function Home({ firstLoading, setFirstLoading }) {
   const [fade, setFade] = useState(true);
   const [showSplash, setShowSplash] = useState(true);
   const [animationKey, setAnimationKey] = useState(Date.now());
+  const [isLoggedIn, setIsLoggedIn] = useState(!!localStorage.getItem("token"));
 
   useEffect(() => {
     if (firstLoading) {
@@ -99,6 +99,12 @@ export default function Home({ firstLoading, setFirstLoading }) {
     }, 100);
   };
 
+  const handleLogout = () => {
+    localStorage.removeItem("token"); // Remove token
+    setIsLoggedIn(false);
+    navigate("/login"); // Redirect to login
+  };
+
   return (
     <div className="home-wrapper">
       {showSplash && firstLoading ? (
@@ -124,7 +130,13 @@ export default function Home({ firstLoading, setFirstLoading }) {
 
               <li id="nav-title" onClick={() => navigate("/explore")}>Explore</li>
               <li id="nav-title" onClick={() => navigate("/about")}>About</li>
-              <li id="nav-title" onClick={() => navigate("/login")}>Signin</li>
+              <li id="nav-title" onClick={() => navigate("/bookings")}>My Bookings</li>
+              {!isLoggedIn ? (
+                <li id="nav-title" onClick={() => navigate("/login")}>Signin</li>
+              ) : (
+                <li id="nav-title" onClick={handleLogout}>Logout</li>
+              )}
+
               <li id="nav-title" onClick={() => navigate("/profile")}>Profile</li>
             </ul>
           </nav>

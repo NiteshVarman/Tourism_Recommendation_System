@@ -3,6 +3,7 @@ const express = require('express');
 const app = express();
 const mongoose = require('mongoose');
 const Listing = require('./models/listing');
+const Payment = require('./models/payment');
 const { User, OTP } = require("./models/user");
 const path = require('path');
 const Transporter = require('./utils/email');
@@ -13,11 +14,31 @@ const jwt = require("jsonwebtoken");
 const cors = require("cors");
 const nodemailer = require("nodemailer");
 const crypto = require("crypto");
+const Razorpay = require("razorpay");
+const passport = require("passport");
+const session = require("express-session");
+const GoogleStrategy = require("passport-google-oauth20").Strategy;
+const generateBookingPDF = require("./utils/generatepdf");
+const { google } = require("googleapis");
 
 const mongo_url = "mongodb://127.0.0.1:27017/project";
 
 app.use(express.json());
 app.use(cors());
+
+app.use(session({ secret: "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", resave: false, saveUninitialized: true }));
+app.use(passport.initialize());
+app.use(passport.session());
+
+app.use((req, res, next) => {
+    res.setHeader(
+        "Content-Security-Policy",
+        "script-src 'self' 'unsafe-inline' 'unsafe-eval' blob: data: https://www.gstatic.com;"
+    );
+    next();
+});
+
+
 
 async function main() {
     await mongoose.connect(mongo_url, {
@@ -41,7 +62,10 @@ app.set('views', path.join(__dirname, 'views'));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, 'public')));
 
-
+const razorpay = new Razorpay({
+    key_id: process.env.RAZORPAY_KEY_ID,
+    key_secret: process.env.RAZORPAY_KEY_SECRET
+});
 
 app.get('/', (req, res) => {
     res.render('home');
@@ -54,12 +78,123 @@ app.get('/listings', async (req, res) => {
     // res.render("listings/index", { allListings });
 });
 
-//Show route
-// app.get('/listings/:id', async (req, res) => {
-//     let { id } = req.params;
-//     const listing = await Listing.findById(id);
-//     // res.render("listings/show", { listing });
-// }); 
+
+const oAuth2Client = new google.auth.OAuth2(
+    process.env.GOOGLE_CLIENT_ID,
+    process.env.GOOGLE_CLIENT_SECRET,
+    process.env.REDIRECT_URI
+);
+
+
+
+passport.use(new GoogleStrategy({
+    clientID: process.env.GOOGLE_CLIENT_ID,
+    clientSecret: process.env.GOOGLE_CLIENT_SECRET,
+    callbackURL: "http://localhost:8080/auth/google/callback",
+    scope: ["profile", "email", "https://www.googleapis.com/auth/calendar.events"],
+    accessType: "offline",
+    prompt: "consent"
+}, async (accessToken, refreshToken, profile, done) => {
+    console.log("Google OAuth Tokens:", { accessToken, refreshToken });
+
+    // ✅ Store Both Access and Refresh Tokens
+    const user = {
+        googleId: profile.id,
+        accessToken,
+        refreshToken // 🔥 Save Refresh Token for Auto-Renewal
+    };
+
+    return done(null, user);
+}));
+
+passport.serializeUser((user, done) => {
+    done(null, user);
+});
+
+passport.deserializeUser((user, done) => {
+    done(null, user);
+});
+
+// 🔥 Generate JWT (Without Refresh Token)
+function generateJWT(user) {
+    return jwt.sign(
+        { googleId: user.googleId, accessToken: user.accessToken, refreshToken: user.refreshToken },
+        process.env.JWT_SECRET,
+        { expiresIn: "1h" } // Adjust as needed
+    );
+}
+
+// ✅ Google OAuth Routes
+app.get("/auth/google", passport.authenticate("google", { scope: ["profile", "email", "https://www.googleapis.com/auth/calendar.events"] }));
+
+app.get('/auth/google/callback', passport.authenticate('google', {
+    failureRedirect: '/login',
+}), (req, res) => {
+    console.log("Google Profile:", req.user);
+    const token = generateJWT(req.user); // Generate JWT token
+    res.redirect(`http://localhost:5173/bookings?token=${token}`); // ✅ Corrected Syntax
+});
+
+async function refreshAccessToken(refreshToken) {
+    try {
+        oAuth2Client.setCredentials({ refresh_token: refreshToken });
+        const { credentials } = await oAuth2Client.refreshAccessToken();
+        console.log("🔄 New Access Token:", credentials.access_token);
+        return credentials.access_token;
+    } catch (error) {
+        console.error("❌ Error refreshing access token:", error);
+        throw new Error("Failed to refresh access token");
+    }
+}
+
+app.post("/google/sync-calendar", async (req, res) => {
+    try {
+        const { booking } = req.body;
+        const authHeader = req.headers.authorization;
+        if (!authHeader) return res.status(401).json({ error: "Unauthorized" });
+
+        const token = authHeader.split(" ")[1];
+        const decoded = jwt.verify(token, process.env.JWT_SECRET);
+
+        let accessToken = decoded.accessToken;
+        const refreshToken = decoded.refreshToken;
+
+        // ✅ Auto-Refresh Access Token if Expired
+        if (!accessToken) {
+            accessToken = await refreshAccessToken(refreshToken);
+        }
+
+        // ✅ Use Updated Access Token
+        oAuth2Client.setCredentials({ access_token: accessToken });
+
+        const calendar = google.calendar({ version: "v3", auth: oAuth2Client });
+
+        const event = {
+            summary: booking.listing?.title || "Unknown Booking",
+            description: `Type: ${booking.listing?.type || "Unknown Type"}\nAmount: ₹${booking.amount}\nGuests: ${booking.numAdults} Adults, ${booking.numChildren} Children\nStatus: ${booking.paymentStatus}`,
+            start: { 
+                dateTime: new Date(`${booking.date}T${booking.time}:00`).toISOString(), 
+                timeZone: "Asia/Kolkata" 
+            },
+            end: { 
+                dateTime: new Date(new Date(`${booking.date}T${booking.time}:00`).getTime() + 3600000).toISOString(), 
+                timeZone: "Asia/Kolkata" 
+            },
+        };
+
+        const response = await calendar.events.insert({
+            calendarId: "primary",
+            resource: event,
+        });
+
+        res.json({ message: "Event added to Google Calendar", eventId: response.data.id });
+    } catch (error) {
+        console.error("❌ Error syncing event:", error);
+        res.status(500).json({ error: "Failed to sync event to Google Calendar" });
+    }
+});
+
+
 
 // Register Route
 app.post("/register", async (req, res) => {
@@ -213,6 +348,155 @@ app.post("/reset-password", async (req, res) => {
     } catch (error) {
         console.error("Error resetting password:", error);
         res.status(500).json({ message: "Internal server error" });
+    }
+});
+
+app.post("/payments/create-order", async (req, res) => {
+    try {
+        const { userId, listingId, amount, date, time, numAdults, numChildren, guestNames, contactNumber, altContactNumber, address } = req.body;
+
+        const order = await razorpay.orders.create({
+            amount: amount * 100, // Convert to paise
+            currency: "INR",
+            receipt: `receipt_${Date.now()}`,
+            payment_capture: 1,
+        });
+
+        res.json({
+            success: true,
+            orderId: order.id,
+            amount,
+            userId,
+            listingId,
+            date,
+            time,
+            numAdults,
+            numChildren,
+            guestNames,
+            contactNumber,
+            altContactNumber,
+            address
+        });
+        
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ success: false, message: "Order creation failed", error });
+    }
+});
+
+
+// Verify Payment Route (Dummy)
+app.post("/payments/verify-payment", async (req, res) => {
+    try {
+        const { orderId, paymentId, userId, listingId, amount, date, time, numAdults, numChildren, guestNames, contactNumber, altContactNumber, address } = req.body;
+
+        // Convert to IST (Indian Standard Time)
+        const now = new Date();
+        const istOffset = 5.5 * 60 * 60 * 1000; // Offset in milliseconds
+        const istTime = new Date(now.getTime() + istOffset);
+
+        const newPayment = new Payment({
+            orderId,
+            transactionId: paymentId,
+            user: new mongoose.Types.ObjectId(userId),  // Ensure ObjectId
+            listing: new mongoose.Types.ObjectId(listingId),
+            amount,
+            date,
+            time,
+            numAdults,
+            numChildren,
+            guestNames,
+            contactNumber,
+            altContactNumber,
+            address,
+            status: "Paid",
+            paymentStatus: "Completed",
+            paymentMethod: "Razorpay",
+            paymentGateway: "Razorpay",
+            paymentDate: istTime.toISOString().split("T")[0], // YYYY-MM-DD
+            paymentTime: istTime.toISOString().split("T")[1].split(".")[0], // HH:MM:SS
+        });
+
+        await newPayment.save();
+        res.json({ success: true, message: "Payment successful!", payment: newPayment });
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ success: false, message: "Payment verification failed", error });
+    }
+});
+
+app.get("/generate-pdf/:orderId", async (req, res) => {
+    try {
+        const { orderId } = req.params;
+        const bookingDetails = await Payment.findOne({ orderId });
+
+        if (!bookingDetails) {
+            return res.status(404).json({ success: false, message: "Booking not found!" });
+        }
+
+        generateBookingPDF(bookingDetails, res);
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ success: false, message: "Failed to generate PDF", error });
+    }
+});
+
+app.get("/payments/my-bookings", authMiddleware, async (req, res) => {
+    try {
+        const userId = req.userId; // Extracted from JWT
+
+        // Find all payments made by this user
+        const bookings = await Payment.find({ user: userId }).populate("listing", "title state type"); // Populate listing details
+        res.json({ success: true, bookings });
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ success: false, message: "Failed to fetch bookings", error });
+    }
+});
+
+app.delete("/payments/cancel/:id", authMiddleware, async (req, res) => {
+    try {
+        const { id } = req.params;
+        const userId = req.userId; // Extracted from JWT
+
+        // Find and delete only if the user owns the booking
+        const deletedBooking = await Payment.findOneAndDelete({ _id: id, user: userId });
+
+        if (!deletedBooking) {
+            return res.status(404).json({ success: false, message: "Booking not found or unauthorized" });
+        }
+
+        res.json({ success: true, message: "Booking cancelled successfully" });
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ success: false, message: "Failed to cancel booking" });
+    }
+});
+
+app.put("/payments/update/:id", authMiddleware, async (req, res) => {
+    try {
+        const { id } = req.params;
+        let { guestNames, contactNumber } = req.body;
+        const userId = req.userId;
+        
+        if (!Array.isArray(guestNames)) {
+            guestNames = [guestNames]; // Convert string to array if needed
+        }
+        // Update only if the user owns the booking
+        const updatedBooking = await Payment.findOneAndUpdate(
+            { _id: id, user: userId },
+            { guestNames, contactNumber },
+            { new: true } // Return updated document
+        );
+
+        if (!updatedBooking) {
+            return res.status(404).json({ success: false, message: "Booking not found or unauthorized" });
+        }
+
+        res.json({ success: true, message: "Booking updated successfully", booking: updatedBooking });
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ success: false, message: "Failed to update booking" });
     }
 });
 

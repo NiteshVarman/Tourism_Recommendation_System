@@ -7,7 +7,7 @@
   
   body {
     font-family: 'Arial', sans-serif;
-    animation: backgroundCycle 20s infinite ease-in-out;
+    /* animation: backgroundCycle 20s infinite ease-in-out; */
     background-size: cover;
     background-position: center;
     background-color: #f4f4f4;

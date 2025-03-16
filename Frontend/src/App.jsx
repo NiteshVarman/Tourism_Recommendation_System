@@ -14,6 +14,9 @@ import ResetPassword from "./pages/reset";
 import Profile from "./pages/profile";
 import Explore from "./pages/explore";
 import { useState } from "react";
+import Payment from "./pages/payment";
+import MyBookings from "./pages/bookings";
+
 
 export default function App() {
   const [firstLoading, setFirstLoading] = useState(true);
@@ -33,6 +36,8 @@ export default function App() {
         <Route path="/reset-password" element={<ResetPassword />} />
         <Route path="/place/:stateName" element={<Place />} />
         <Route path="/explore" element={<Explore />} />
+        <Route path="/payment/:placeId" element={<Payment />} />
+        <Route path="/bookings" element={<MyBookings />} />
         <Route path="*" element={<h1>404 Not Found</h1>} />
       </Routes>
     </Router>

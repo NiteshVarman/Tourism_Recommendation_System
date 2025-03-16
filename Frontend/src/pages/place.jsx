@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import "./place.css";
 
 const Place = () => {
     const { stateName } = useParams();
+    const navigate = useNavigate();
     const [places, setPlaces] = useState([]);
 
     useEffect(() => {
@@ -19,6 +20,11 @@ const Place = () => {
         fetchPlaces();
     }, [stateName]);
 
+    // Redirect to Payment Page
+    const handleBookNow = (place) => {
+        navigate(`/payment/${place._id}`, { state: place });
+    };
+
     return (
         <div className="place-container">
             <h2>Tour Packages for {stateName}</h2>
@@ -32,6 +38,7 @@ const Place = () => {
                             <p>Duration: {place.duration}</p>
                             <p>Route: {place.route}</p>
                             <p>Price: ₹{place.price}</p>
+                            <button onClick={() => handleBookNow(place)}>Book Now</button>
                         </div>
                     ))
                 ) : (
