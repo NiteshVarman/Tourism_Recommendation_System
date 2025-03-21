@@ -90,7 +90,8 @@ body, html {
     margin: 0;
     padding: 0;
     height: 100%;
-    overflow: hidden; /* Prevents full page scrolling */
+    overflow: hidden; 
+    font-family: 'Arial', sans-serif;/* Prevents full page scrolling */
 
 }
 

@@ -1,0 +1,234 @@
+/* Reviews Page Styles */
+.reviews-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+    color: #333;
+    background: #f5f5f5;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Header and Navigation */
+h2 {
+    text-align: center;
+    font-size: 32px;
+    color: #2c3e50;
+    margin-bottom: 20px;
+}
+
+button {
+    background: #3498db;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    margin: 10px 0;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background 0.3s;
+}
+
+button:hover {
+    background: #2980b9;
+}
+
+/* Review Form Styles */
+.review-form {
+    background: #ffffff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    margin-bottom: 30px;
+}
+
+.review-form h3 {
+    font-size: 24px;
+    margin-bottom: 15px;
+    color: #2c3e50;
+}
+
+.review-form label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.review-form input,
+.review-form textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    transition: border 0.3s;
+}
+
+.review-form input:focus,
+.review-form textarea:focus {
+    border: 1px solid #3498db;
+    outline: none;
+}
+
+.review-form button {
+    width: 100%;
+    padding: 12px;
+    font-size: 18px;
+    background: #27ae60;
+    color: #fff;
+    transition: background 0.3s;
+}
+
+.review-form button:hover {
+    background: #2ecc71;
+}
+
+/* Review Card Styles */
+.review-card {
+    background: #fff;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.review-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+}
+
+.review-card h3 {
+    color: #2c3e50;
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.review-card p {
+    font-size: 16px;
+    color: #555;
+    line-height: 1.6;
+}
+
+/* Photo Display */
+.review-photos {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-top: 10px;
+}
+
+.review-photos img {
+    width: 120px;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 8px;
+    transition: transform 0.3s, box-shadow 0.3s;
+    cursor: pointer;
+}
+
+.review-photos img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Response Section */
+.review-card input {
+    width: calc(50% - 5px);
+    padding: 10px;
+    margin: 5px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    transition: border 0.3s;
+}
+
+.review-card input:focus {
+    border: 1px solid #3498db;
+    outline: none;
+}
+
+.review-card button {
+    background: #f39c12;
+    color: #fff;
+    padding: 10px 15px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.review-card button:hover {
+    background: #e67e22;
+}
+
+/* Preview Photos */
+.preview-photos {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+    flex-wrap: wrap;
+}
+
+.preview-photos img {
+    width: 120px;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 8px;
+    transition: transform 0.3s, box-shadow 0.3s;
+    cursor: pointer;
+}
+
+.preview-photos img:hover {
+    transform: scale(1.1);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Buttons Group */
+.btn-group {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 15px;
+}
+
+.btn-group button {
+    background: #e74c3c;
+    color: #fff;
+    padding: 8px 16px;
+    border-radius: 5px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.btn-group button:hover {
+    background: #c0392b;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+    .review-card {
+        padding: 15px;
+    }
+
+    .review-form input,
+    .review-form textarea {
+        width: 100%;
+    }
+
+    .btn-group {
+        flex-direction: column;
+    }
+
+    .btn-group button {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+
+    .review-photos img,
+    .preview-photos img {
+        width: 100px;
+        height: 100px;
+    }
+}

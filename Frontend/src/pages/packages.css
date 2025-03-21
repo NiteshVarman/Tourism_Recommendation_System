@@ -1,0 +1,113 @@
+/* Packages Container */
+.packages-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px 20px;
+    text-align: center;
+}
+
+/* Search Bar */
+.search-bar {
+    margin-bottom: 20px;
+    text-align: center;
+    position: relative;
+}
+
+
+.search-bar input {
+    width: 60%;
+    padding: 10px 15px;
+    font-size: 16px;
+    border: 2px solid #ccc;
+    border-radius: 8px;
+    transition: border 0.3s;
+}
+
+.search-bar input:focus {
+    outline: none;
+    border: 2px solid #ffcc00;
+}
+
+/* Grid Layout */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+    justify-content: center;
+}
+
+/* Card Styling */
+.card {
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+    overflow: hidden;
+    padding: 15px;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 20px rgba(255, 204, 0, 0.2);
+}
+
+/* Image Styling */
+.card img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border-bottom: 1px solid #ddd;
+}
+
+/* Text Styling */
+.card h3 {
+    font-size: 20px;
+    margin: 10px 0;
+    color: #333;
+}
+
+.card p {
+    font-size: 16px;
+    color: #555;
+    margin: 5px 0;
+}
+
+.history-dropdown {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60%;
+    background: #fff;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    z-index: 10;
+    border-radius: 8px;
+    max-height: 200px;
+    overflow-y: auto;
+    border: 1px solid #ccc;
+}
+
+.history-item {
+    padding: 12px;
+    border-bottom: 1px solid #f0f0f0;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.history-item:hover {
+    background: #f1f1f1;
+}
+
+/* Clear History Button */
+.clear-history {
+    width: 100%;
+    background: #ff6666;
+    color: white;
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.clear-history:hover {
+    background: #cc0000;
+}

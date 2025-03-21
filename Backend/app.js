@@ -20,11 +20,14 @@ const session = require("express-session");
 const GoogleStrategy = require("passport-google-oauth20").Strategy;
 const generateBookingPDF = require("./utils/generatepdf");
 const { google } = require("googleapis");
+const multer = require("multer");
+const Review = require('./models/reviews');
 
 const mongo_url = "mongodb://127.0.0.1:27017/project";
 
 app.use(express.json());
 app.use(cors());
+app.use('/uploads/reviews', express.static(path.join(__dirname, 'uploads/reviews')));
 
 app.use(session({ secret: "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", resave: false, saveUninitialized: true }));
 app.use(passport.initialize());
@@ -61,6 +64,8 @@ app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, 'public')));
+app.use("/uploads", express.static("uploads"));
+
 
 const razorpay = new Razorpay({
     key_id: process.env.RAZORPAY_KEY_ID,
@@ -196,20 +201,25 @@ app.post("/google/sync-calendar", async (req, res) => {
 
 
 
-// Register Route
+// Register Route with detailed error log
 app.post("/register", async (req, res) => {
     const { name, email, password } = req.body;
     try {
         const existingUser = await User.findOne({ email });
         if (existingUser) return res.status(400).json({ message: "Email already exists" });
+
         const hashedPassword = await bcrypt.hash(password, 10);
         const newUser = new User({ name, email, password: hashedPassword });
+
         await newUser.save();
-        res.status(201).json({ message: "User registered successfully" });
+        res.status(201).json({ message: "User registered suc    cessfully" });
+
     } catch (error) {
-        res.status(500).json({ message: "Server error" });
+        console.error("Registration Error:", error);  // 🔥 Log the actual error
+        res.status(500).json({ message: "Server error", error: error.message });
     }
 });
+
 
 // Login Route
 app.post("/login", async (req, res) => {
@@ -243,16 +253,89 @@ const authMiddleware = (req, res, next) => {
     }
 };
 
+
+const profileStorage = multer.diskStorage({
+    destination: "./uploads/profiles/",         // Separate folder for profiles
+    filename: (req, file, cb) => {
+        cb(null, `${req.userId}_${Date.now()}${path.extname(file.originalname)}`);
+    }
+});
+
+// Storage for review images
+const reviewStorage = multer.diskStorage({
+    destination: "./uploads/reviews/",          // Separate folder for reviews
+    filename: (req, file, cb) => {
+        cb(null, `review_${Date.now()}${path.extname(file.originalname)}`);
+    }
+});
+
+// Multer upload middleware
+const uploadProfile = multer({ storage: profileStorage });   // For profiles
+const uploadReview = multer({ storage: reviewStorage }); 
+
+// API to upload profile picture
+app.post("/upload-profile-image", authMiddleware, uploadProfile.single("image"), async (req, res) => {
+    try {
+        if (!req.file) {
+            return res.status(400).json({ message: "No file uploaded" });
+        }
+
+        const imageUrl = `/uploads/${req.file.filename}`; // File path
+        await User.findByIdAndUpdate(req.userId, { profileImage: imageUrl });
+
+        res.status(200).json({ message: "Profile image updated", imageUrl });
+
+    } catch (error) {
+        console.error("Error uploading image:", error);
+        res.status(500).json({ message: "Server error" });
+    }
+});
+
+app.post(
+    "/upload-review-image",
+    uploadReview.single("image"),         // Use review middleware
+    async (req, res) => {
+        try {
+            if (!req.file) {
+                return res.status(400).json({ message: "No file uploaded" });
+            }
+
+            const imageUrl = `/uploads/reviews/${req.file.filename}`;
+            res.status(200).json({ message: "Review image uploaded", imageUrl });
+
+        } catch (error) {
+            console.error("Error uploading review image:", error);
+            res.status(500).json({ message: "Server error" });
+        }
+    }
+);
+
+
 // Profile Route
 app.get("/profile", authMiddleware, async (req, res) => {
     try {
-        const user = await User.findById(req.userId).select("name"); // Fetch username
+        const user = await User.findById(req.userId).select("name email profileImage");
         if (!user) return res.status(404).json({ message: "User not found" });
-        console.log(user);
-        res.status(200).json({ name: user.name });
-        
+
+        res.status(200).json({ 
+            name: user.name, 
+            email: user.email, 
+            profileImage: user.profileImage 
+        });
+
     } catch (error) {
+        console.error("Error fetching profile:", error);
         res.status(500).json({ message: "Server error" });
+    }
+});
+
+app.get("/packages", async (req, res) => {
+    try {
+        const packages = await Listing.find(); // Fetch all packages from MongoDB
+        res.json(packages);
+    } catch (error) {
+        console.error("Error fetching packages:", error);
+        res.status(500).json({ error: "Internal server error" });
     }
 });
 
@@ -497,6 +580,124 @@ app.put("/payments/update/:id", authMiddleware, async (req, res) => {
     } catch (error) {
         console.error(error);
         res.status(500).json({ success: false, message: "Failed to update booking" });
+    }
+});
+
+
+// Get reviews by title
+app.get("/reviews/:listingId", async (req, res) => {
+    try {
+        const reviews = await Review.find({ listing: req.params.listingId })
+        .populate("responses")
+        .exec();
+        res.status(200).json(reviews);
+    } catch (error) {
+        res.status(500).json({ message: "Failed to fetch reviews", error });
+    }
+});
+
+
+
+// Add a review
+app.post("/reviews", async (req, res) => {
+    const { name, listing, rating, comment, photos } = req.body;
+
+    if (!name || !listing || !rating || !comment) {
+        return res.status(400).json({ message: "All fields are required" });
+    }
+
+    try {
+        const newReview = new Review({
+            name,                                // ✅ Save name manually
+            listing,
+            rating,
+            comment,
+            photos
+        });
+
+        await newReview.save();
+        res.status(201).json(newReview);
+    } catch (error) {
+        res.status(500).json({ message: "Failed to create review", error });
+    }
+});
+
+app.put("/reviews/:id", async (req, res) => {
+    const { name, rating, comment, photos } = req.body;
+
+    try {
+        const updatedReview = await Review.findByIdAndUpdate(
+            req.params.id,
+            { name, rating, comment, photos },
+            { new: true }
+        );
+
+        if (!updatedReview) {
+            return res.status(404).json({ message: "Review not found" });
+        }
+
+        res.status(200).json(updatedReview);
+    } catch (error) {
+        res.status(500).json({ message: "Failed to update review", error });
+    }
+});
+
+app.delete("/reviews/:id", async (req, res) => { 
+    try {
+        const deletedReview = await Review.findByIdAndDelete(req.params.id);
+        if (!deletedReview) {
+            return res.status(404).json({ message: "Review not found" });
+        }
+        res.json({ message: "Review deleted" });
+    } catch (err) {
+        res.status(500).json({ error: err.message });
+    }
+});
+
+
+app.post("/reviews/:reviewId/respond", async (req, res) => {
+const { reviewId } = req.params;
+    const { name, comment } = req.body;
+
+    if (!name || !comment) {
+        return res.status(400).json({ error: "Name and comment are required." });
+    }
+
+    try {
+        const review = await Review.findById(reviewId);
+
+        if (!review) {
+            return res.status(404).json({ error: "Review not found" });
+        }
+
+        // Add the response
+        review.responses.push({ name, comment });
+        await review.save();
+
+        res.status(200).json({ message: "Response added successfully", review });
+
+    } catch (error) {
+        console.error("Error responding to review:", error);
+        res.status(500).json({ error: "Failed to add response" });
+    }
+});
+
+
+app.put("/reviews/:id/upvote", async (req, res) => {
+    try {
+        const review = await Review.findByIdAndUpdate(
+            req.params.id,
+            { $inc: { upvotes: 1 } },    // Increment upvote by 1
+            { new: true }
+        );
+
+        if (!review) {
+            return res.status(404).json({ message: "Review not found" });
+        }
+
+        res.status(200).json(review);
+    } catch (error) {
+        res.status(500).json({ message: "Failed to upvote review", error });
     }
 });
 

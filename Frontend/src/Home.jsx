@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import "./Home.css";
-import { FaMapMarkedAlt, FaDollarSign, FaClock, FaUserTie } from "react-icons/fa";
+import { FaMapMarkedAlt, FaDollarSign, FaClock, FaUserTie, FaSearch } from "react-icons/fa";
 
 const videoData = [
   {
@@ -117,17 +117,10 @@ export default function Home({ firstLoading, setFirstLoading }) {
         </div>
       ) : (
         <>
-          {/* Fixed Navbar */}
           <nav className="navbar">
             <ul className="nav-list">
-              <li id="nav-title" onClick={() => {
-                document.getElementById("video-slider")?.scrollIntoView({ behavior: "smooth" });
-              }}>Home</li>
-
-              <li id="nav-title" onClick={() => {
-                document.getElementById("packages-section")?.scrollIntoView({ behavior: "smooth" });
-              }}>Packages</li>
-
+              <li id="nav-title" onClick={() => document.getElementById("video-slider")?.scrollIntoView({ behavior: "smooth" })}>Home</li>
+              <li id="nav-title" onClick={() => navigate("/packages")}>Packages</li>
               <li id="nav-title" onClick={() => navigate("/explore")}>Explore</li>
               <li id="nav-title" onClick={() => navigate("/about")}>About</li>
               <li id="nav-title" onClick={() => navigate("/bookings")}>My Bookings</li>
@@ -136,29 +129,23 @@ export default function Home({ firstLoading, setFirstLoading }) {
               ) : (
                 <li id="nav-title" onClick={handleLogout}>Logout</li>
               )}
-
               <li id="nav-title" onClick={() => navigate("/profile")}>Profile</li>
             </ul>
           </nav>
 
-          {/* Scrollable Main Content */}
           <div className="main-content">
-            {/* Video Slider with Buttons */}
             <div id="video-slider" className={`video-slider ${fade ? "fade-in" : "fade-out"}`}>
               <video key={currentVideo} autoPlay muted loop className="video">
                 <source src={videoData[currentVideo].src} type="video/mp4" />
               </video>
               <button className="video-btn left" onClick={handlePrev}>❮</button>
               <button className="video-btn right" onClick={handleNext}>❯</button>
-
-              {/* Dynamic Video Text */}
               <div key={animationKey} className="video-text fade-slide-in">
                 <h1>{videoData[currentVideo].title}</h1>
                 <p>{videoData[currentVideo].subtext}</p>
               </div>
             </div>
 
-            {/* Highlights Section */}
             <div className="highlights-section">
               {highlights.map((item, index) => (
                 <div key={index} className="highlight-card">
@@ -169,7 +156,6 @@ export default function Home({ firstLoading, setFirstLoading }) {
               ))}
             </div>
 
-            {/* Package Section */}
             <div className="section-divider">
               <h1 id="packages-section" className="section-heading">Smart Packages</h1>
               <div className="home-container">

@@ -25,6 +25,11 @@ const Place = () => {
         navigate(`/payment/${place._id}`, { state: place });
     };
 
+    // Navigate to Reviews Page
+    const handleViewReviews = (placeId) => {
+        navigate(`/reviews/${placeId}`);   // Navigate to Reviews page
+    };
+
     return (
         <div className="place-container">
             <h2>Tour Packages for {stateName}</h2>
@@ -38,7 +43,11 @@ const Place = () => {
                             <p>Duration: {place.duration}</p>
                             <p>Route: {place.route}</p>
                             <p>Price: ₹{place.price}</p>
-                            <button onClick={() => handleBookNow(place)}>Book Now</button>
+
+                            <div className="btn-group">
+                                <button onClick={() => handleBookNow(place)}>Book Now</button>
+                                <button onClick={() => handleViewReviews(place._id)}>View Reviews</button>
+                            </div>
                         </div>
                     ))
                 ) : (
