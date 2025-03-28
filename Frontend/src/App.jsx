@@ -18,6 +18,7 @@ import Payment from "./pages/payment";
 import MyBookings from "./pages/bookings";
 import Packages from "./pages/packages";
 import Reviews from "./pages/reviews";
+import PackageDetails from "./pages/packagedetails";
 
 
 export default function App() {
@@ -42,6 +43,7 @@ export default function App() {
         <Route path="/bookings" element={<MyBookings />} />
         <Route path="/packages" element={<Packages />} />
         <Route path="/reviews/:listingId" element={<Reviews />} />
+        <Route path="/place/:stateName/:title" element={<PackageDetails />} />
         <Route path="*" element={<h1>404 Not Found</h1>} />
       </Routes>
     </Router>

@@ -339,6 +339,28 @@ app.get("/packages", async (req, res) => {
     }
 });
 
+app.get("/packagedetails", async (req, res) => {
+    try {
+        const { title } = req.query;
+        if (!title) {
+            return res.status(400).json({ error: "Title is required" });
+        }
+        
+        const decodedTitle = decodeURIComponent(title);
+        const packageDetails = await Listing.find({ title: decodedTitle });
+        
+        if (packageDetails.length === 0) {
+            return res.status(404).json({ error: "Package not found" });
+        }
+        
+        res.json(packageDetails);
+    } catch (error) {
+        console.error("Error fetching package details:", error);
+        res.status(500).json({ error: "Internal server error" });
+    }
+});
+
+
 app.get('/india', async (req, res, next) => {
     try {
         const indiaPackages = await Listing.find({ country: "India" }); 

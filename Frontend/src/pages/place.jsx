@@ -30,6 +30,12 @@ const Place = () => {
         navigate(`/reviews/${placeId}`);   // Navigate to Reviews page
     };
 
+    const handleViewDetails = (place) => {
+        // Encode the title to handle spaces and special characters
+        const encodedTitle = encodeURIComponent(place.title);
+        navigate(`/place/${stateName}/${encodedTitle}`);
+    };
+
     return (
         <div className="place-container">
             <h2>Tour Packages for {stateName}</h2>
@@ -47,6 +53,7 @@ const Place = () => {
                             <div className="btn-group">
                                 <button onClick={() => handleBookNow(place)}>Book Now</button>
                                 <button onClick={() => handleViewReviews(place._id)}>View Reviews</button>
+                                <button onClick={() => handleViewDetails(place)}>View Details</button>
                             </div>
                         </div>
                     ))
