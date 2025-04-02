@@ -339,6 +339,30 @@ app.get("/packages", async (req, res) => {
     }
 });
 
+app.get("/api/recommendations", async (req, res) => {
+    const { lat, lon } = req.query;
+    if (!lat || !lon) return res.status(400).json({ error: "Latitude and Longitude required" });
+  
+    try {
+      // Query Overpass API (OSM) for tourist attractions within 5km radius
+      const query = `[out:json];node(around:5000, ${lat}, ${lon})["tourism"];out;`;
+      const url = `https://overpass-api.de/api/interpreter?data=${encodeURIComponent(query)}`;
+  
+      const response = await axios.get(url);
+      const places = response.data.elements.map((place) => ({
+        name: place.tags.name || "Unknown",
+        type: place.tags.tourism,
+        lat: place.lat,
+        lon: place.lon,
+      }));
+  
+      res.json(places);
+    } catch (error) {
+      console.error("Error fetching OSM data:", error);
+      res.status(500).json({ error: "Failed to fetch data" });
+    }
+  });
+
 app.get("/packagedetails", async (req, res) => {
     try {
         const { title } = req.query;
@@ -732,7 +756,6 @@ app.get('/place', async (req, res) => {
     try {
         const placeName = req.query.name; // Get place from URL (e.g., Goa)
         const filteredPackages = await Listing.find({ place: placeName }); // Fetch packages for the place
-        // res.render('place', { placeName, filteredPackages }); // Pass data to place.ejs
         res.json(filteredPackages);
     } catch (error) {
         console.log(error);

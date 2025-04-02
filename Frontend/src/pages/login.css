@@ -16,6 +16,7 @@ body {
     width: 50vw;
     min-height: 480px;
     max-width: 100%;
+    z-index: 2;
 }
 
 .content button {
@@ -71,6 +72,7 @@ body {
     width: 200%;
     transform: translateX(0);
     transition: all 0.6s ease-in-out;
+    z-index: 1;
 }
 
 .content.active .switch {
@@ -89,7 +91,9 @@ body {
     padding: 0 30px;
     text-align: center;
     top: 0;
+    z-index: 1;
     transition: all 0.6s ease-in-out;
+    z-index: 1;
 }
 
 .switch-left {

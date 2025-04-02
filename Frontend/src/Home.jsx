@@ -2,6 +2,8 @@
 
 import { useState, useEffect, useRef } from "react"
 import { useNavigate } from "react-router-dom"
+import { Link } from "react-router-dom"
+
 import {
   FaMapMarkedAlt,
   FaDollarSign,
@@ -44,31 +46,31 @@ const highlights = [
 
 const smartPackages = [
   {
-    video: "https://tecdn.b-cdn.net/img/video/Agua-natural.mp4",
+    video: "https://videos.pexels.com/video-files/29555043/12721445_1920_1080_60fps.mp4",
     title: "Indian Tour Packages",
     description: "Explore the diverse culture and heritage of India with our expertly crafted tours.",
     link: "/listings/indian",
   },
   {
-    video: "https://tecdn.b-cdn.net/img/video/forest.mp4",
+    video: "https://videos.pexels.com/video-files/5396819/5396819-uhd_2560_1440_30fps.mp4",
     title: "International Packages",
     description: "Discover the world with our international tour packages to exotic destinations.",
     link: "/listings/international",
   },
   {
-    video: "https://tecdn.b-cdn.net/img/video/Tropical.mp4",
+    video: "https://videos.pexels.com/video-files/15364666/15364666-hd_1920_1080_50fps.mp4",
     title: "Devotional Packages",
     description: "Spiritual journeys to sacred sites and pilgrimage destinations across the country.",
     link: "/listings/devotional",
   },
   {
-    video: "https://tecdn.b-cdn.net/img/video/Agua-natural.mp4",
+    video: "https://videos.pexels.com/video-files/16133439/uhd_60fps.mp4",
     title: "Educational Packages",
     description: "Educational tours designed to enhance learning with real-world experiences.",
     link: "/listings/educational",
   },
   {
-    video: "https://tecdn.b-cdn.net/img/video/forest.mp4",
+    video: "https://videos.pexels.com/video-files/31209305/13331383_2560_1440_60fps.mp4",
     title: "Weekend Tour Packages",
     description: "Quick getaways to rejuvenate and refresh yourself from the daily grind.",
     link: "/listings/weekend",
@@ -252,7 +254,10 @@ export default function Home({ firstLoading, setFirstLoading }) {
         </div>
       ) : (
         <>
-          <nav className={`navbar ${isScrolled ? "scrolled" : ""}`} style={{ padding: isScrolled ? "10px 5%" : "15px 5%" }}>
+          <nav
+            className={`navbar ${isScrolled ? "scrolled" : ""}`}
+            style={{ padding: isScrolled ? "10px 5%" : "15px 5%" }}
+          >
             <div className="logo">
               <span>Travel</span>Explorer
             </div>
@@ -262,7 +267,10 @@ export default function Home({ firstLoading, setFirstLoading }) {
               </li>
               <li onClick={() => navigate("/packages")}>Packages</li>
               <li onClick={() => navigate("/explore")}>Explore</li>
-              <li onClick={() => navigate("/about")}>About</li>
+              <li onClick={() => window.scrollTo({ top: document.body.scrollHeight, behavior: "smooth" })}>
+                About
+              </li>
+
               <li onClick={() => navigate("/bookings")}>My Bookings</li>
               <li className="theme-toggle" onClick={toggleTheme} style={{ color: isDarkTheme ? "#fff" : "#333" }}>
                 {isDarkTheme ? <FaSun /> : <FaMoon />}
@@ -333,10 +341,12 @@ export default function Home({ firstLoading, setFirstLoading }) {
             </div>
 
             <div className="highlights-section" ref={highlightsRef}>
-              <div className="parallax-bg" ref={parallaxBgRef} ></div>
+              <div className="parallax-bg" ref={parallaxBgRef}></div>
               <div className="section-title reveal-up animate">
+                
+                <div className="title-decoration">
                 <h2>Why Choose Us</h2>
-                <div className="title-underline"></div>
+                </div>
               </div>
               <div className="highlights-container">
                 {highlights.map((item, index) => (
@@ -387,21 +397,25 @@ export default function Home({ firstLoading, setFirstLoading }) {
                 {smartPackages.map((pkg, index) => (
                   <div key={index} className={`package ${index % 2 !== 0 ? "reverse" : ""}`}>
                     <div className="package-content">
-                      <span className="package-number" style={{ color: isDarkTheme ? "rgb(71, 70, 70)" : "rgba(2, 2, 2, 0.05)" }}>
+                      <span
+                        className="package-number"
+                        style={{ color: isDarkTheme ? "rgb(71, 70, 70)" : "rgba(2, 2, 2, 0.05)" }}
+                      >
                         0{index + 1}
                       </span>
                       <h2>{pkg.title}</h2>
                       <p>{pkg.description}</p>
-                      <a href={pkg.link} className="package-btn">
+
+                      <Link to={pkg.link} className="package-btn" onClick={() => setFirstLoading(false)}>
                         Explore More
-                      </a>
+                      </Link>
                     </div>
                     <div className="package-video-container">
                       <div className="package-video video-card">
                         <div className="section-mask_container">
                           <div className="section-image_container">
                             <div className="image-ratio_container">
-                              <video autoPlay loop muted className="image-ratio_asset">
+                              <video autoPlay loop muted className="image-ratio_asset" style={{ display: "block" }}>
                                 <source src={pkg.video} type="video/mp4" />
                                 Your browser does not support the video tag.
                               </video>
@@ -416,9 +430,10 @@ export default function Home({ firstLoading, setFirstLoading }) {
             </div>
 
             <div className="testimonials-section">
-              <div className="section-title">
-                <h2>What Our Travelers Say</h2>
-                <div className="title-underline"></div>
+              <div className="section-title">                
+                <div className="title-decoration">
+                  <h2>What Our Travelers Say</h2>
+                </div>
               </div>
               <div className="testimonial-container">
                 <div className="testimonial-card">
@@ -510,8 +525,8 @@ export default function Home({ firstLoading, setFirstLoading }) {
                 <div className="footer-section">
                   <h3>Contact Us</h3>
                   <p>Email: info@travelexplorer.com</p>
-                  <p>Phone: +1 234 567 8900</p>
-                  <p>Address: 123 Travel Street, Mumbai, India</p>
+                  <p>Phone: +91 9966009916</p>
+                  <p>Address: Amrita Vishwa Vidyapeetham,Coimbatore,TamilNadu,India</p>
                 </div>
                 <div className="footer-section">
                   <h3>Newsletter</h3>
@@ -532,3 +547,4 @@ export default function Home({ firstLoading, setFirstLoading }) {
     </div>
   )
 }
+
