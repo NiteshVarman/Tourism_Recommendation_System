@@ -1,1 +1,65 @@
+name: Full-Stack CI/CD Pipeline
 
+on:
+  push:
+    branches:
+      - main  # Runs on push to main
+  pull_request:
+    branches:
+      - main  # Runs on PR to main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest  # Run on an Ubuntu environment
+
+    services:
+      mongodb:
+        image: mongo:latest
+        ports:
+          - 27017:27017  # Expose MongoDB for tests
+
+    steps:
+      # Step 1: Checkout Repository
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      # Step 2: Set Up Node.js for Backend
+      - name: Set up Node.js (Backend)
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+          cache: 'npm'
+          working-directory: backend
+
+      # Step 3: Install Dependencies (Backend)
+      - name: Install Backend Dependencies
+        run: npm install
+        working-directory: backend
+
+      # Step 4: Run Backend Tests
+      - name: Run Backend Tests
+        run: npm test
+        working-directory: backend
+
+      # Step 5: Set Up Node.js for Frontend (React)
+      - name: Set up Node.js (Frontend)
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+          cache: 'npm'
+          working-directory: frontend
+
+      # Step 6: Install Dependencies (Frontend)
+      - name: Install Frontend Dependencies
+        run: npm install
+        working-directory: frontend
+
+      # Step 7: Run Frontend Tests
+      - name: Run Frontend Tests
+        run: npm test
+        working-directory: frontend
+
+      # Step 8: Build the Frontend (React)
+      - name: Build Frontend
+        run: npm run build
+        working-directory: frontend
