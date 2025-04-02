@@ -1,65 +1,59 @@
-name: Full-Stack CI/CD Pipeline
+name: CI/CD Pipeline
 
 on:
   push:
     branches:
-      - main  # Runs on push to main
+      - main  # Runs on push to main branch
   pull_request:
     branches:
-      - main  # Runs on PR to main
+      - main  # Runs on pull requests to main branch
 
 jobs:
-  build:
-    runs-on: ubuntu-latest  # Run on an Ubuntu environment
-
-    services:
-      mongodb:
-        image: mongo:latest
-        ports:
-          - 27017:27017  # Expose MongoDB for tests
+  backend:
+    runs-on: ubuntu-latest
 
     steps:
-      # Step 1: Checkout Repository
       - name: Checkout Code
         uses: actions/checkout@v4
 
-      # Step 2: Set Up Node.js for Backend
-      - name: Set up Node.js (Backend)
+      - name: Set up Node.js
         uses: actions/setup-node@v4
         with:
           node-version: '18'
-          cache: 'npm'
-          working-directory: backend
 
-      # Step 3: Install Dependencies (Backend)
       - name: Install Backend Dependencies
-        run: npm install
-        working-directory: backend
+        run: |
+          cd Backend  # Corrected directory name
+          npm install
 
-      # Step 4: Run Backend Tests
       - name: Run Backend Tests
-        run: npm test
-        working-directory: backend
+        run: |
+          cd Backend
+          npm test
 
-      # Step 5: Set Up Node.js for Frontend (React)
-      - name: Set up Node.js (Frontend)
+      - name: Build Backend
+        run: |
+          cd Backend
+          npm run build
+
+  frontend:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
         uses: actions/setup-node@v4
         with:
           node-version: '18'
-          cache: 'npm'
-          working-directory: frontend
 
-      # Step 6: Install Dependencies (Frontend)
       - name: Install Frontend Dependencies
-        run: npm install
-        working-directory: frontend
+        run: |
+          cd Frontend  # Corrected directory name
+          npm install
 
-      # Step 7: Run Frontend Tests
-      - name: Run Frontend Tests
-        run: npm test
-        working-directory: frontend
-
-      # Step 8: Build the Frontend (React)
       - name: Build Frontend
-        run: npm run build
-        working-directory: frontend
+        run: |
+          cd Frontend
+          npm run build
