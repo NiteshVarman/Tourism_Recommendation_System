@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { MapPin, Clock, Route, DollarSign, Info } from 'lucide-react';
-import "./packageDetails.css";
+import "./packagedetails.css";
 
 const PackageDetails = () => {
     const navigate = useNavigate();
