@@ -235,6 +235,22 @@ export default function Home({ firstLoading, setFirstLoading }) {
     <div className={`home-wrapper ${isDarkTheme ? "dark-theme" : ""}`}>
       {showSplash && firstLoading ? (
         <div className="splash-screen">
+          <div className="splash-bg-elements">
+            {[...Array(10)].map((_, i) => (
+              <div
+                key={i}
+                className="bg-element"
+                style={{
+                  width: `${Math.random() * 100 + 50}px`,
+                  height: `${Math.random() * 100 + 50}px`,
+                  left: `${Math.random() * 100}%`,
+                  top: `${Math.random() * 100}%`,
+                  animationDuration: `${Math.random() * 10 + 10}s`,
+                  animationDelay: `${Math.random() * 5}s`,
+                }}
+              ></div>
+            ))}
+          </div>
           <div className="splash-content">
             <img
               src="https://thumbs.dreamstime.com/b/travel-around-world-poster-tourism-vacation-earth-world-journey-global-vector-illustration-world-travel-concept-banner-73263954.jpg"
@@ -243,12 +259,6 @@ export default function Home({ firstLoading, setFirstLoading }) {
             />
             <div className="splash-text">
               <h1>Discover the World</h1>
-              <div className="loading-container">
-                <div className="loading-circle"></div>
-                <div className="loading-circle"></div>
-                <div className="loading-circle"></div>
-                <div className="loading-circle"></div>
-              </div>
             </div>
           </div>
         </div>
@@ -267,9 +277,7 @@ export default function Home({ firstLoading, setFirstLoading }) {
               </li>
               <li onClick={() => navigate("/packages")}>Packages</li>
               <li onClick={() => navigate("/explore")}>Explore</li>
-              <li onClick={() => window.scrollTo({ top: document.body.scrollHeight, behavior: "smooth" })}>
-                About
-              </li>
+              <li onClick={() => window.scrollTo({ top: document.body.scrollHeight, behavior: "smooth" })}>About</li>
 
               <li onClick={() => navigate("/bookings")}>My Bookings</li>
               <li className="theme-toggle" onClick={toggleTheme} style={{ color: isDarkTheme ? "#fff" : "#333" }}>
@@ -343,9 +351,8 @@ export default function Home({ firstLoading, setFirstLoading }) {
             <div className="highlights-section" ref={highlightsRef}>
               <div className="parallax-bg" ref={parallaxBgRef}></div>
               <div className="section-title reveal-up animate">
-                
                 <div className="title-decoration">
-                <h2>Why Choose Us</h2>
+                  <h2>Why Choose Us</h2>
                 </div>
               </div>
               <div className="highlights-container">
@@ -430,7 +437,7 @@ export default function Home({ firstLoading, setFirstLoading }) {
             </div>
 
             <div className="testimonials-section">
-              <div className="section-title">                
+              <div className="section-title">
                 <div className="title-decoration">
                   <h2>What Our Travelers Say</h2>
                 </div>

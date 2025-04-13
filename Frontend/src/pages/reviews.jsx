@@ -1,23 +1,23 @@
 import React, { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
+import { ArrowLeft, Star, ThumbsUp, MessageSquare, Camera, Send, Edit, Trash2, X, Upload, User } from 'lucide-react';
 import axios from "axios";
 import "./reviews.css";
 
 const Reviews = () => {
-    const { listingId } = useParams();  // Get listing ID from URL
+    const { listingId } = useParams();
     const navigate = useNavigate();
 
     const [reviews, setReviews] = useState([]);
     const [name, setName] = useState("");
     const [rating, setRating] = useState(0);
     const [comment, setComment] = useState("");
-    const [photos, setPhotos] = useState([]);
     const [editId, setEditId] = useState(null);
     const [previewPhotos, setPreviewPhotos] = useState([]);
     const [uploadedPhotos, setUploadedPhotos] = useState([]);
-    
-    // Local response state for each review
     const [responses, setResponses] = useState({});
+    const [loading, setLoading] = useState(true);
+    const [selectedPhoto, setSelectedPhoto] = useState(null);
 
     useEffect(() => {
         fetchReviews();
@@ -26,6 +26,7 @@ const Reviews = () => {
     // Fetch reviews
     const fetchReviews = async () => {
         try {
+            setLoading(true);
             const response = await axios.get(`http://localhost:8080/reviews/${listingId}`);
             setReviews(response.data);
 
@@ -35,9 +36,10 @@ const Reviews = () => {
                 initialResponses[review._id] = { name: "", comment: "" };
             });
             setResponses(initialResponses);
-            
         } catch (error) {
             console.error("Error fetching reviews:", error);
+        } finally {
+            setLoading(false);
         }
     };
 
@@ -113,7 +115,7 @@ const Reviews = () => {
 
     const handleUpvote = async (reviewId) => {
         try {
-            const response = await axios.put(`http://localhost:8080/reviews/${reviewId}/upvote`);
+            await axios.put(`http://localhost:8080/reviews/${reviewId}/upvote`);
             
             // Update the upvote count locally to reflect instantly
             setReviews((prevReviews) => 
@@ -131,6 +133,11 @@ const Reviews = () => {
     // Handle review submission
     const handleSubmit = async (e) => {
         e.preventDefault();
+
+        if (rating === 0) {
+            alert("Please select a rating!");
+            return;
+        }
 
         const reviewData = {
             listing: listingId,
@@ -152,7 +159,6 @@ const Reviews = () => {
             setName("");
             setRating(0);
             setComment("");
-            setPhotos([]);
             setPreviewPhotos([]);
             setUploadedPhotos([]);
             fetchReviews();
@@ -167,29 +173,90 @@ const Reviews = () => {
         setName(review.name || "");
         setRating(review.rating);
         setComment(review.comment);
-        setPhotos(review.photos);
+        setUploadedPhotos(review.photos || []);
+        setPreviewPhotos(review.photos || []);
     };
 
     // Delete Review
     const handleDelete = async (id) => {
-        try {
-            await axios.delete(`http://localhost:8080/reviews/${id}`);
-            fetchReviews();
-        } catch (error) {
-            console.error("Error deleting review:", error);
+        if (window.confirm("Are you sure you want to delete this review?")) {
+            try {
+                await axios.delete(`http://localhost:8080/reviews/${id}`);
+                fetchReviews();
+            } catch (error) {
+                console.error("Error deleting review:", error);
+            }
         }
+    };
+
+    // Handle star rating selection
+    const handleStarClick = (selectedRating) => {
+        setRating(selectedRating);
+    };
+
+    // Get initials for avatar
+    const getInitials = (name) => {
+        if (!name) return "?";
+        return name
+            .split(" ")
+            .map(word => word[0])
+            .join("")
+            .toUpperCase()
+            .substring(0, 2);
+    };
+
+    // Format date
+    const formatDate = (dateString) => {
+        if (!dateString) return "";
+        const date = new Date(dateString);
+        return date.toLocaleDateString("en-US", {
+            year: "numeric",
+            month: "short",
+            day: "numeric"
+        });
+    };
+
+    // Render stars for display
+    const renderStars = (count) => {
+        const stars = [];
+        for (let i = 0; i < 5; i++) {
+            stars.push(
+                <Star 
+                    key={i} 
+                    size={16} 
+                    fill={i < count ? "#FFD700" : "transparent"} 
+                    stroke={i < count ? "#FFD700" : "#ccc"} 
+                />
+            );
+        }
+        return stars;
+    };
+
+    // Open photo modal
+    const openPhotoModal = (url) => {
+        setSelectedPhoto(url);
+    };
+
+    // Close photo modal
+    const closePhotoModal = () => {
+        setSelectedPhoto(null);
     };
 
     return (
         <div className="reviews-container">
             <h2>Reviews for Tour Package</h2>
-            <button onClick={() => navigate(-1)}>Back</button>
+            
+            <button className="back-button" onClick={() => navigate(-1)}>
+                <ArrowLeft size={18} />
+                Back to Package
+            </button>
 
             {/* Review Form */}
             <form onSubmit={handleSubmit} className="review-form">
-                <h3>{editId ? "Edit Review" : "Write a Review"}</h3>
-                <div>
-                    <label>Name:</label>
+                <h3>{editId ? "Edit Your Review" : "Write a Review"}</h3>
+                
+                <div className="form-group">
+                    <label>Your Name</label>
                     <input 
                         type="text"
                         value={name}
@@ -198,106 +265,230 @@ const Reviews = () => {
                         placeholder="Enter your name"
                     />
                 </div>
-                <div>
-                    <label>Rating:</label>
-                    <input 
-                        type="number" 
-                        min="1" 
-                        max="5" 
-                        value={rating} 
-                        onChange={(e) => setRating(e.target.value)} 
-                        required 
-                    />
-                </div>
-                <div>
-                    <label>Comment:</label>
-                    <textarea 
-                        value={comment} 
-                        onChange={(e) => setComment(e.target.value)} 
-                        required 
-                    />
-                </div>
-                <div>
-                    <label>Photos:</label>
-                    <input 
-                        type="file" 
-                        multiple 
-                        onChange={handlePhotoUpload}
-                    />
-                    <div className="preview-photos">
-                        {previewPhotos.map((photo, index) => (
-                            <img key={index} src={photo} alt={`Preview ${index}`} />
+                
+                <div className="form-group">
+                    <label>Rating</label>
+                    <div className="star-rating">
+                        {[1, 2, 3, 4, 5].map((star) => (
+                            <button 
+                                key={star}
+                                type="button"
+                                className={star <= rating ? "active" : ""}
+                                onClick={() => handleStarClick(star)}
+                            >
+                                <Star 
+                                    size={24} 
+                                    fill={star <= rating ? "#FFD700" : "transparent"} 
+                                    stroke={star <= rating ? "#FFD700" : "#ccc"} 
+                                />
+                            </button>
                         ))}
                     </div>
                 </div>
-                <button type="submit">{editId ? "Update" : "Submit"}</button>
+                
+                <div className="form-group">
+                    <label>Your Review</label>
+                    <textarea 
+                        value={comment} 
+                        onChange={(e) => setComment(e.target.value)} 
+                        required
+                        placeholder="Share your experience with this tour package..."
+                    />
+                </div>
+                
+                <div className="form-group">
+                    <label>Photos (Optional)</label>
+                    <div className="file-upload">
+                        <label className="file-upload-label">
+                            <Camera size={20} />
+                            <span>Click to upload photos</span>
+                            <input 
+                                type="file" 
+                                multiple 
+                                onChange={handlePhotoUpload}
+                                accept="image/*"
+                            />
+                        </label>
+                    </div>
+                    
+                    {previewPhotos.length > 0 && (
+                        <div className="preview-photos">
+                            {previewPhotos.map((photo, index) => (
+                                <div key={index} className="preview-photo">
+                                    <img src={photo || "/placeholder.svg"} alt={`Preview ${index}`} />
+                                    <div 
+                                        className="remove-photo"
+                                        onClick={() => {
+                                            const newPreviews = [...previewPhotos];
+                                            newPreviews.splice(index, 1);
+                                            setPreviewPhotos(newPreviews);
+                                            
+                                            const newUploaded = [...uploadedPhotos];
+                                            newUploaded.splice(index, 1);
+                                            setUploadedPhotos(newUploaded);
+                                        }}
+                                    >
+                                        <X size={16} />
+                                    </div>
+                                </div>
+                            ))}
+                        </div>
+                    )}
+                </div>
+                
+                <button type="submit" className="submit-button">
+                    {editId ? <Edit size={18} /> : <Upload size={18} />}
+                    {editId ? "Update Review" : "Submit Review"}
+                </button>
             </form>
 
             {/* Display Reviews */}
-            {reviews.length > 0 ? (
-                reviews.map((review) => (
-                    <div key={review._id} className="review-card">
-                        <h3>By: {review.name || "Anonymous"}</h3>
-                        <p>Rating: ⭐ {review.rating}/5</p>
-                        <p>Comment: {review.comment}</p>
-                        <p>Upvotes: 👍 {review.upvotes || 0}</p>
-
-                        <button onClick={() => handleUpvote(review._id)}>Upvote</button>
-
-                        <div className="review-photos">
-                            {review.photos?.length > 0 ? (
-                                review.photos.map((photo, index) => {
-                                    // Ensure full URL is used for image display
-                                    const imageUrl = photo.startsWith("http") 
-                                        ? photo 
-                                        : `http://localhost:8080${photo}`;   // Use full URL for local images
-
-                                    return (
-                                        <img key={index} src={imageUrl} alt={`Review ${index}`} />
-                                    );
-                                })
-                            ) : (
-                                <p>No photos available</p>
-                            )}
-                        </div>
-
-                        {review.responses?.length > 0 && (
-                            <div>
-                                <strong>Responses:</strong>
-                                {review.responses.map((resp, index) => (
-                                    <p key={index}>
-                                        <strong>{resp.name}:</strong> {resp.comment}
-                                    </p>
-                                ))}
-                            </div>
-                        )}
-
-                        {/* Response Input */}
-                        <div>
-                            <input
-                                type="text"
-                                placeholder="Your Name"
-                                value={responses[review._id]?.name || ""}
-                                onChange={(e) => handleResponseChange(review._id, "name", e.target.value)}
-                            />
-                            <input
-                                type="text"
-                                placeholder="Your Response"
-                                value={responses[review._id]?.comment || ""}
-                                onChange={(e) => handleResponseChange(review._id, "comment", e.target.value)}
-                            />
-                            <button onClick={() => handleRespond(review._id)}>Respond</button>
-                        </div>
-
-                        <div className="btn-group">
-                            <button onClick={() => handleEdit(review)}>Edit</button>
-                            <button onClick={() => handleDelete(review._id)}>Delete</button>
-                        </div>
-                    </div>
-                ))
+            {loading ? (
+                <div className="loading">
+                    <div className="loading-spinner"></div>
+                </div>
             ) : (
-                <p>No reviews available.</p>
+                <div className="reviews-list">
+                    {reviews.length > 0 ? (
+                        reviews.map((review) => (
+                            <div key={review._id} className="review-card">
+                                <div className="review-header">
+                                    <div className="reviewer-info">
+                                        <div className="reviewer-avatar">
+                                            {getInitials(review.name)}
+                                        </div>
+                                        <div>
+                                            <div className="reviewer-name">{review.name || "Anonymous"}</div>
+                                            <div className="review-date">{formatDate(review.createdAt)}</div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div className="edit-delete-buttons">
+                                        <button className="edit-button" onClick={() => handleEdit(review)}>
+                                            <Edit size={16} />
+                                            Edit
+                                        </button>
+                                        <button className="delete-button" onClick={() => handleDelete(review._id)}>
+                                            <Trash2 size={16} />
+                                            Delete
+                                        </button>
+                                    </div>
+                                </div>
+                                
+                                <div className="review-rating">
+                                    <div className="stars">
+                                        {renderStars(review.rating)}
+                                    </div>
+                                    <span>{review.rating}/5</span>
+                                </div>
+                                
+                                <div className="review-content">
+                                    {review.comment}
+                                </div>
+                                
+                                {review.photos?.length > 0 && (
+                                    <div className="review-photos">
+                                        {review.photos.map((photo, index) => {
+                                            // Ensure full URL is used for image display
+                                            const imageUrl = photo.startsWith("http") 
+                                                ? photo 
+                                                : `http://localhost:8080${photo}`;
+                                                
+                                            return (
+                                                <div 
+                                                    key={index} 
+                                                    className="review-photo"
+                                                    onClick={() => openPhotoModal(imageUrl)}
+                                                >
+                                                    <img src={imageUrl || "/placeholder.svg"} alt={`Review ${index}`} />
+                                                </div>
+                                            );
+                                        })}
+                                    </div>
+                                )}
+                                
+                                <div className="actions-bar">
+                                    <button 
+                                        className={`upvote-button ${review.upvoted ? 'active' : ''}`}
+                                        onClick={() => handleUpvote(review._id)}
+                                    >
+                                        <ThumbsUp size={16} />
+                                        <span className="upvote-count">{review.upvotes || 0}</span>
+                                    </button>
+                                </div>
+                                
+                                {review.responses?.length > 0 && (
+                                    <div className="responses-section">
+                                        <div className="responses-title">
+                                            <MessageSquare size={16} />
+                                            Responses
+                                        </div>
+                                        
+                                        {review.responses.map((resp, index) => (
+                                            <div key={index} className="response-item">
+                                                <div className="response-header">
+                                                    <User size={14} />
+                                                    <span className="response-name">{resp.name}</span>
+                                                </div>
+                                                <div className="response-content">
+                                                    {resp.comment}
+                                                </div>
+                                            </div>
+                                        ))}
+                                    </div>
+                                )}
+                                
+                                <div className="response-form">
+                                    <div className="responses-title">
+                                        <MessageSquare size={16} />
+                                        Add Response
+                                    </div>
+                                    <div className="response-inputs">
+                                        <input
+                                            type="text"
+                                            placeholder="Your Name"
+                                            value={responses[review._id]?.name || ""}
+                                            onChange={(e) => handleResponseChange(review._id, "name", e.target.value)}
+                                        />
+                                        <input
+                                            type="text"
+                                            placeholder="Your Response"
+                                            value={responses[review._id]?.comment || ""}
+                                            onChange={(e) => handleResponseChange(review._id, "comment", e.target.value)}
+                                        />
+                                    </div>
+                                    <button 
+                                        className="respond-button"
+                                        onClick={() => handleRespond(review._id)}
+                                    >
+                                        <Send size={16} />
+                                        Respond
+                                    </button>
+                                </div>
+                            </div>
+                        ))
+                    ) : (
+                        <div className="empty-state">
+                            <img 
+                                src="/placeholder.svg?height=200&width=200" 
+                                alt="No reviews" 
+                            />
+                            <h3>No Reviews Yet</h3>
+                            <p>Be the first to share your experience with this tour package!</p>
+                        </div>
+                    )}
+                </div>
             )}
+            
+            {/* Photo Modal */}
+            <div className={`photo-modal ${selectedPhoto ? 'active' : ''}`} onClick={closePhotoModal}>
+                <div className="modal-content" onClick={(e) => e.stopPropagation()}>
+                    {selectedPhoto && <img src={selectedPhoto || "/placeholder.svg"} alt="Full size" />}
+                    <button className="close-modal" onClick={closePhotoModal}>
+                        <X size={24} />
+                    </button>
+                </div>
+            </div>
         </div>
     );
 };

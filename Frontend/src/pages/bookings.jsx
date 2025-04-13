@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import { MapPin, Calendar, Clock, Users, DollarSign, CheckCircle, XCircle, Edit, Trash2, CalendarIcon, ArrowRight, Loader } from 'lucide-react';
+import "./bookings.css";
 
 const Bookings = () => {
     const [bookings, setBookings] = useState([]);
@@ -16,12 +18,11 @@ const Bookings = () => {
         const googleToken = urlParams.get("token");
     
         if (googleToken) {
-            localStorage.setItem("googleToken", googleToken); // Store for future use
+            localStorage.setItem("googleToken", googleToken);
             setGoogleSignedIn(true);
         }
     }, []);
     
-    // 🔥 NEW useEffect: Fetch bookings after jwtToken is updated
     useEffect(() => {
         if (jwtToken) {
             fetchBookings();
@@ -39,7 +40,6 @@ const Bookings = () => {
             const response = await axios.get("http://localhost:8080/payments/my-bookings", {
                 headers: { Authorization: `Bearer ${jwtToken}` },
             });
-
     
             setBookings(response.data.bookings);
         } catch (err) {
@@ -58,8 +58,6 @@ const Bookings = () => {
             return;
         }
     
-        console.log("Google Token being sent:", googleToken);
-    
         try {
             await axios.post("http://localhost:8080/google/sync-calendar", 
                 { booking },
@@ -73,18 +71,15 @@ const Bookings = () => {
         }
     };
     
-
-    // ✅ Handle Google OAuth Redirect
     const handleGoogleSignIn = () => {
-        window.location.href = "http://localhost:8080/auth/google"; // Redirect to backend OAuth
+        window.location.href = "http://localhost:8080/auth/google";
     };
 
-   
-    
-
-
-    // Cancel a booking
     const cancelBooking = async (id) => {
+        if (!window.confirm("Are you sure you want to cancel this booking?")) {
+            return;
+        }
+        
         try {
             const token = localStorage.getItem("token");
             await axios.delete(`http://localhost:8080/payments/cancel/${id}`, {
@@ -94,21 +89,19 @@ const Bookings = () => {
             setBookings(bookings.filter((booking) => booking._id !== id));
         } catch (error) {
             console.error("Failed to cancel booking:", error);
+            alert("Failed to cancel booking. Please try again.");
         }
     };
 
-    // Open edit modal
     const openEditModal = (booking) => {
         setEditData({ ...booking });
     };
 
-    // Handle edit input changes
     const handleEditChange = (e) => {
         if (!editData) return;
         setEditData({ ...editData, [e.target.name]: e.target.value });
     };
 
-    // Save edited booking
     const saveEdit = async () => {
         try {
             const token = localStorage.getItem("token");
@@ -122,81 +115,173 @@ const Bookings = () => {
             setEditData(null);
         } catch (error) {
             console.error("Failed to update booking:", error);
+            alert("Failed to update booking. Please try again.");
         }
     };
 
-    if (loading) return <p className="text-center text-lg font-semibold">Loading bookings...</p>;
-    if (error) return <p className="text-center text-red-500">{error}</p>;
+    // Format date for display
+    const formatDate = (dateString) => {
+        if (!dateString) return "";
+        const date = new Date(dateString);
+        return date.toLocaleDateString("en-US", {
+            year: "numeric",
+            month: "long",
+            day: "numeric"
+        });
+    };
+
+    if (loading) {
+        return (
+            <div className="bookings-container">
+                <div className="loading-container">
+                    <div className="loading-spinner"></div>
+                    <p className="loading-text">Loading your bookings...</p>
+                </div>
+            </div>
+        );
+    }
+
+    if (error) {
+        return (
+            <div className="bookings-container">
+                <div className="error-container">
+                    <div className="error-icon">⚠️</div>
+                    <p className="error-text">{error}</p>
+                </div>
+            </div>
+        );
+    }
 
     return (
-        <div className="max-w-4xl mx-auto mt-6 p-4 bg-white shadow-lg rounded-lg">
-            <h2 className="text-xl font-bold mb-4">My Bookings</h2>
-            {!googleSignedIn && (
-                <div className="mb-4">
-                    <button
-                        onClick={handleGoogleSignIn}
-                        className="px-4 py-2 bg-blue-500 text-white rounded hover:opacity-80"
-                    >
-                        Sign in with Google
-                    </button>
-                </div>
-            )}
-            {bookings.length === 0 ? (
-                <p className="text-gray-600">No bookings found.</p>
-            ) : (
-                <ul className="divide-y divide-gray-300">
-                    {bookings.map((booking) => (
-                        <li key={booking._id} className="p-4">
-                        
-                            <h3 className="text-lg font-semibold">{booking.listing?.title || "Unknown Tour"}</h3>
-                            <p className="text-sm text-gray-600">
-                                {booking.listing?.place} | {booking.listing?.type}
-                            </p>
-                            <p className="text-sm text-gray-700">
-                                <strong>Amount:</strong> ₹{booking.amount} | <strong>Date:</strong> {booking.date} | <strong>Time:</strong> {booking.time}
-                            </p>
-                            <p className="text-sm text-gray-500">
-                                <strong>Guests:</strong> {booking.numAdults} Adults, {booking.numChildren} Children
-                            </p>
-                            <p className={`text-sm font-semibold ${booking.paymentStatus === "Completed" ? "text-green-600" : "text-red-600"}`}>
-                                Status: {booking.paymentStatus}
-                            </p>
+        <div className="bookings-container">
+            <div className="bookings-header">
+                <h2 className="bookings-title">My Travel Bookings</h2>
+                <p className="bookings-subtitle">Manage all your tour bookings in one place</p>
+                
+                {!googleSignedIn && (
+                    <div className="google-signin">
+                        <button
+                            onClick={handleGoogleSignIn}
+                            className="google-button"
+                        >
+                            <img 
+                            src="https://www.google.com/favicon.ico" 
+                            alt="Google" 
+                            width={20} 
+                            height={20} 
+                            />
+                            Sign in with Google to sync bookings
+                        </button>
+                    </div>
+                )}
+            </div>
 
-                            {/* Buttons for Edit, Cancel, and Calendar Sync */}
-                            <div className="mt-2 space-x-3">
-                                <button onClick={() => openEditModal(booking)} className="text-blue-600 hover:opacity-80">Edit</button>
-                                <button onClick={() => cancelBooking(booking._id)} className="text-red-600 hover:opacity-80">Cancel</button>
-                                <button onClick={() => syncToCalendar(booking)} className="text-green-600 hover:opacity-80">Sync to Calendar</button>
+            {bookings.length === 0 ? (
+                <div className="empty-bookings">
+                    <img src="/placeholder.svg?height=200&width=200" alt="No bookings" />
+                    <h3>No Bookings Found</h3>
+                    <p>You haven't made any bookings yet. Start exploring our tour packages!</p>
+                </div>
+            ) : (
+                <div className="bookings-list">
+                    {bookings.map((booking) => (
+                        <div key={booking._id} className="booking-item">
+                            <h3 className="booking-name">{booking.listing?.title || "Unknown Tour"}</h3>
+                            
+                            <div className="booking-location">
+                                <MapPin size={16} />
+                                <span>{booking.listing?.place || "Unknown Location"} | {booking.listing?.type || "Tour"}</span>
                             </div>
-                        </li>
+                            
+                            <div className="booking-details">
+                                <div className="detail-item">
+                                    <span className="detail-label">Amount</span>
+                                    <span className="detail-value">₹{booking.amount}</span>
+                                </div>
+                                
+                                <div className="detail-item">
+                                    <span className="detail-label">Date</span>
+                                    <span className="detail-value">{formatDate(booking.date)}</span>
+                                </div>
+                                
+                                <div className="detail-item">
+                                    <span className="detail-label">Time</span>
+                                    <span className="detail-value">{booking.time || "Not specified"}</span>
+                                </div>
+                                
+                                <div className="detail-item">
+                                    <span className="detail-label">Guests</span>
+                                    <span className="detail-value">{booking.numAdults} Adults, {booking.numChildren} Children</span>
+                                </div>
+                            </div>
+                            
+                            <div className={`booking-status ${booking.paymentStatus === "Completed" ? "status-completed" : "status-pending"}`}>
+                                {booking.paymentStatus === "Completed" ? <CheckCircle size={16} /> : <XCircle size={16} />}
+                                {booking.paymentStatus}
+                            </div>
+                            
+                            <div className="booking-actions">
+                                <button onClick={() => openEditModal(booking)} className="action-button edit-button">
+                                    <Edit size={16} />
+                                    Edit Details
+                                </button>
+                                
+                                <button onClick={() => cancelBooking(booking._id)} className="action-button cancel-button">
+                                    <Trash2 size={16} />
+                                    Cancel Booking
+                                </button>
+                                
+                                <button onClick={() => syncToCalendar(booking)} className="action-button sync-button">
+                                    <CalendarIcon size={16} />
+                                    Sync to Calendar
+                                </button>
+                            </div>
+                        </div>
                     ))}
-                </ul>
+                </div>
             )}
 
             {/* Edit Modal */}
             {editData && (
-                <div className="fixed inset-0 flex items-center justify-center bg-gray-800 bg-opacity-50">
-                    <div className="bg-white p-6 rounded-lg shadow-lg w-96">
-                        <h3 className="text-lg font-bold mb-4">Edit Booking</h3>
-                        <label className="block text-sm">Guest Name:</label>
-                        <input
-                            type="text"
-                            name="guestNames"
-                            value={editData.guestNames}
-                            onChange={handleEditChange}
-                            className="w-full border p-2 rounded mb-2"
-                        />
-                        <label className="block text-sm">Contact Number:</label>
-                        <input
-                            type="text"
-                            name="contactNumber"
-                            value={editData.contactNumber}
-                            onChange={handleEditChange}
-                            className="w-full border p-2 rounded mb-4"
-                        />
-                        <div className="flex justify-end space-x-3">
-                            <button onClick={saveEdit} className="px-4 py-2 bg-blue-500 text-white rounded hover:opacity-80">Save</button>
-                            <button onClick={() => setEditData(null)} className="px-4 py-2 bg-gray-300 rounded hover:opacity-80">Cancel</button>
+                <div className="modal-overlay">
+                    <div className="modal-content">
+                        <div className="modal-header">
+                            <h3 className="modal-title">Edit Booking Details</h3>
+                        </div>
+                        
+                        <div className="modal-body">
+                            <div className="form-group">
+                                <label className="form-label">Guest Names</label>
+                                <input
+                                    type="text"
+                                    name="guestNames"
+                                    value={editData.guestNames || ""}
+                                    onChange={handleEditChange}
+                                    className="form-input"
+                                    placeholder="Enter guest names"
+                                />
+                            </div>
+                            
+                            <div className="form-group">
+                                <label className="form-label">Contact Number</label>
+                                <input
+                                    type="text"
+                                    name="contactNumber"
+                                    value={editData.contactNumber || ""}
+                                    onChange={handleEditChange}
+                                    className="form-input"
+                                    placeholder="Enter contact number"
+                                />
+                            </div>
+                        </div>
+                        
+                        <div className="modal-footer">
+                            <button onClick={() => setEditData(null)} className="modal-button cancel-modal-button">
+                                Cancel
+                            </button>
+                            <button onClick={saveEdit} className="modal-button save-button">
+                                Save Changes
+                            </button>
                         </div>
                     </div>
                 </div>
