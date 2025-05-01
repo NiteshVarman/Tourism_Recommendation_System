@@ -29,7 +29,7 @@ const PackagesPage = () => {
     const fetchPackages = async () => {
       try {
         setLoading(true)
-        const response = await fetch("http://localhost:8080/packages", {
+        const response = await fetch("http://localhost:8080/listings/", {
           headers: { Accept: "application/json" },
           timeout: 10000,
         })

@@ -19,7 +19,7 @@ const PackageDetails = () => {
 
             try {
                 setLoading(true);
-                const res = await fetch(`http://localhost:8080/packagedetails?title=${encodeURIComponent(title)}`);
+                const res = await fetch(`http://localhost:8080/listings/packagedetails?title=${encodeURIComponent(title)}`);
 
                 if (!res.ok) {
                     throw new Error(`HTTP error! Status: ${res.status}`);

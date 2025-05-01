@@ -22,7 +22,7 @@ const Profile = () => {
       }
 
       try {
-        const response = await fetch("http://127.0.0.1:8080/profile", {
+        const response = await fetch("http://127.0.0.1:8080/users/profile", {
           method: "GET",
           headers: {
             Authorization: `Bearer ${token}`,
@@ -76,7 +76,7 @@ const Profile = () => {
     const token = localStorage.getItem("token")
     try {
       setIsLoading(true)
-      const response = await fetch("http://127.0.0.1:8080/upload-profile-image", {
+      const response = await fetch("http://127.0.0.1:8080/users/upload-profile-image", {
         method: "POST",
         headers: { Authorization: `Bearer ${token}` },
         body: formData,
@@ -139,16 +139,6 @@ const Profile = () => {
           </div>
         </div>
 
-        {previewImage && (
-          <div className="profile-section">
-            <h2 className="section-title">Image Preview</h2>
-            <p className="preview-text">Your new profile picture is ready to upload</p>
-            <button onClick={handleUpload} className="upload-button">
-              <Upload size={18} />
-              Upload Profile Picture
-            </button>
-          </div>
-        )}
       </div>
     </div>
   )

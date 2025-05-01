@@ -11,7 +11,7 @@ const ForgotPassword = () => {
 
   const sendOtp = async () => {
     try {
-      const response = await axios.post("http://localhost:8080/forgot-password", { email });
+      const response = await axios.post("http://localhost:8080/auth/forgot-password", { email });
       setStep(2);
       setMessage(response.data.message);
     } catch (error) {
@@ -21,7 +21,7 @@ const ForgotPassword = () => {
 
   const verifyOtp = async () => {
     try {
-      const response = await axios.post("http://localhost:8080/verify-otp", { email, otp });
+      const response = await axios.post("http://localhost:8080/auth/verify-otp", { email, otp });
       console.log(response.data);
       setStep(3);
       setMessage(response.data.message);

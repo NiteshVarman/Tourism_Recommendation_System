@@ -4,7 +4,7 @@
   },
   "scripts": {
     "start": "concurrently \"npm run server\" \"npm run client\" \"npm run python\"",
-    "server": "cd backend && nodemon app.js",
+    "server": "cd backend && nodemon server.js",
     "client": "cd frontend && npm run dev",
     "python": "cd backend && python app.py"
   },

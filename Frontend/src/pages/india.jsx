@@ -13,7 +13,7 @@ const India = () => {
         if (!stateName) return;
         setSelectedState(stateName);
         try {
-            const response = await fetch(`http://localhost:8080/place?name=${stateName}`);
+            const response = await fetch(`http://localhost:8080/listings/place?name=${stateName}`);
             const data = await response.json(); 
             console.log("Fetched Data:", data); 
             navigate(`/place/${stateName}`);
