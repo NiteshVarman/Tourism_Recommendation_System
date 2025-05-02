@@ -1,2 +1,4 @@
 node_modules
-backend/.env
+Backend/.env
+Backend/uploads/profiles
+Backend/uploads/reviews
