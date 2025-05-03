@@ -37,7 +37,7 @@ const Bookings = () => {
                 return;
             }
     
-            const response = await axios.get("http://localhost:8080/bookings/my-bookings", {
+            const response = await axios.get("${process.env.API_URL}/bookings/my-bookings", {
                 headers: { Authorization: `Bearer ${jwtToken}` },
             });
     
@@ -59,7 +59,7 @@ const Bookings = () => {
         }
     
         try {
-            await axios.post("http://localhost:8080/auth/google/sync-calendar", 
+            await axios.post("${process.env.API_URL}/auth/google/sync-calendar", 
                 { booking },
                 { headers: { Authorization: `Bearer ${googleToken}` } }
             );
@@ -72,7 +72,7 @@ const Bookings = () => {
     };
     
     const handleGoogleSignIn = () => {
-        window.location.href = "http://localhost:8080/auth/google";
+        window.location.href = "${process.env.API_URL}/auth/google";
     };
 
     const cancelBooking = async (id) => {
@@ -82,7 +82,7 @@ const Bookings = () => {
         
         try {
             const token = localStorage.getItem("token");
-            await axios.delete(`http://localhost:8080/bookings/cancel/${id}`, {
+            await axios.delete(`${process.env.API_URL}/bookings/cancel/${id}`, {
                 headers: { Authorization: `Bearer ${token}` },
             });
 
@@ -106,7 +106,7 @@ const Bookings = () => {
         try {
             const token = localStorage.getItem("token");
             await axios.put(
-                `http://localhost:8080/bookings/update/${editData._id}`,
+                `${process.env.API_URL}/bookings/update/${editData._id}`,
                 { guestNames: editData.guestNames, contactNumber: editData.contactNumber },
                 { headers: { Authorization: `Bearer ${token}` } }
             );

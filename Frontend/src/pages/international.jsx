@@ -12,7 +12,7 @@ const InternationalListings = () => {
         const fetchListings = async () => {
             try {
                 setLoading(true);
-                const response = await fetch("http://localhost:8080/listings/international");
+                const response = await fetch(`${process.env.API_URL}/listings/international`);
                 const data = await response.json();
                 setListings(data);
             } catch (error) {

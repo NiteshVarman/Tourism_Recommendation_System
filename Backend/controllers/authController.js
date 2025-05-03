@@ -37,7 +37,7 @@ async function refreshAccessToken(refreshToken) {
 }
 
 const googleAuth = (req, res) => {
-  res.redirect(`http://localhost:5173/bookings?token=${generateJWT(req.user)}`);
+  res.redirect(`${process.env.API_URL}/bookings?token=${generateJWT(req.user)}`);
 };
 
 const syncCalendar = async (req, res) => {

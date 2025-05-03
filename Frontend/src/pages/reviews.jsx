@@ -27,7 +27,7 @@ const Reviews = () => {
     const fetchReviews = async () => {
         try {
             setLoading(true);
-            const response = await axios.get(`http://localhost:8080/reviews/${listingId}`);
+            const response = await axios.get(`${process.env.API_URL}/reviews/${listingId}`);
             setReviews(response.data);
 
             // Initialize response state for each review
@@ -59,7 +59,7 @@ const Reviews = () => {
 
                 try {
                     const response = await axios.post(
-                        "http://localhost:8080/upload-review-image",
+                        `${process.env.API_URL}/upload-review-image`,
                         formData,
                         { headers: { "Content-Type": "multipart/form-data" } }
                     );
@@ -96,7 +96,7 @@ const Reviews = () => {
         }
 
         try {
-            await axios.post(`http://localhost:8080/reviews/${reviewId}/respond`, {
+            await axios.post(`${process.env.API_URL}/reviews/${reviewId}/respond`, {
                 name,
                 comment
             });
@@ -115,7 +115,7 @@ const Reviews = () => {
 
     const handleUpvote = async (reviewId) => {
         try {
-            await axios.put(`http://localhost:8080/reviews/${reviewId}/upvote`);
+            await axios.put(`${process.env.API_URL}/reviews/${reviewId}/upvote`);
             
             // Update the upvote count locally to reflect instantly
             setReviews((prevReviews) => 
@@ -149,10 +149,10 @@ const Reviews = () => {
 
         try {
             if (editId) {
-                await axios.put(`http://localhost:8080/reviews/${editId}`, reviewData);
+                await axios.put(`${process.env.API_URL}/reviews/${editId}`, reviewData);
                 setEditId(null);
             } else {
-                await axios.post("http://localhost:8080/reviews", reviewData);
+                await axios.post(`${process.env.API_URL}/reviews`, reviewData);
             }
 
             // Reset form
@@ -181,7 +181,7 @@ const Reviews = () => {
     const handleDelete = async (id) => {
         if (window.confirm("Are you sure you want to delete this review?")) {
             try {
-                await axios.delete(`http://localhost:8080/reviews/${id}`);
+                await axios.delete(`${process.env.API_URL}/reviews/${id}`);
                 fetchReviews();
             } catch (error) {
                 console.error("Error deleting review:", error);
@@ -392,7 +392,7 @@ const Reviews = () => {
                                             // Ensure full URL is used for image display
                                             const imageUrl = photo.startsWith("http") 
                                                 ? photo 
-                                                : `http://localhost:8080${photo}`;
+                                                : `${process.env.API_URL}${photo}`;
                                                 
                                             return (
                                                 <div 

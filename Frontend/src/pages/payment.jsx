@@ -100,7 +100,7 @@ const Payment = () => {
 
     try {
       // Create Razorpay Order
-      const orderResponse = await fetch("http://localhost:8080/bookings/create-order", {
+      const orderResponse = await fetch(`${process.env.API_URL}/bookings/create-order`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -137,7 +137,7 @@ const Payment = () => {
         order_id: orderData.orderId,
         handler: async (response) => {
           try {
-            const verifyResponse = await fetch("http://localhost:8080/bookings/verify-payment", {
+            const verifyResponse = await fetch(`${process.env.API_URL}/bookings/verify-payment`, {
               method: "POST",
               headers: {
                 "Content-Type": "application/json",
@@ -195,7 +195,7 @@ const Payment = () => {
   const downloadPDF = async (orderId, token) => {
     setIsGeneratingPDF(true);
     try {
-      const response = await axios.get(`http://localhost:8080/bookings/generate-pdf/${orderId}`, {
+      const response = await axios.get(`${process.env.API_URL}/bookings/generate-pdf/${orderId}`, {
         headers: { Authorization: `Bearer ${token}` },
         responseType: "blob",
       });
