@@ -13,9 +13,10 @@ const India = () => {
         if (!stateName) return;
         setSelectedState(stateName);
         try {
-            const response = await fetch(`https://backend-4cae.onrender.com/listings/place?name=${stateName}`);
+            const response = await fetch(`${process.env.REACT_APP_API_URL}/listings/place?name=${encodeURIComponent(stateName)}`);
             const data = await response.json(); 
-            console.log("Fetched Data:", data); 
+            console.log("Fetched Url:", url); 
+            console.log("API URL:", process.env.REACT_APP_API_URL);
             navigate(`/place/${stateName}`);
         } catch (error) {
             console.error("Error fetching data:", error);
@@ -61,7 +62,6 @@ const India = () => {
           Andhra Pradesh
         </text>
       </g>
-      <a href="C:\Users\samit\Desktop\uid project\arunachal p.html">
         <g className="state">
           <path
             id="IN-AR"
@@ -71,7 +71,6 @@ const India = () => {
           />
           <text className="state-name" x="540" y="220">Arunachal Pradesh</text>
         </g>
-      </a>
       <g className="state">
         <path
           id="IN-AS"
@@ -190,7 +189,7 @@ const India = () => {
         />
         <text className="state-name" x="329" y="323">Jharkhand</text>
       </g>
-      <a href="C:\Users\samit\Desktop\uid project\j&k.html">
+      
         <g className="state">
           <path
             id="IN-JK"
@@ -200,7 +199,7 @@ const India = () => {
           />
           <text className="state-name" x="120" y="70">Jammu and Kashmir</text>
         </g>
-      </a>
+      
       <g className="state">
         <path
           id="IN-KA"
@@ -210,7 +209,6 @@ const India = () => {
         />
         <text className="state-name" x="120" y="550">Karnataka</text>
       </g>
-      <a href="C:\Users\samit\Desktop\uid project\kerala.html">
         <g className="state">
           <path
             id="IN-KL"
@@ -220,7 +218,6 @@ const India = () => {
           />
           <text className="state-name" x="120" y="620">Kerala</text>
         </g>
-      </a>
       <g className="state">
         <path
           id="IN-LD"
@@ -329,7 +326,6 @@ const India = () => {
         />
         <text className="state-name" x="420" y="220">Sikkim</text>
       </g>
-      <a href="C:\Users\samit\Desktop\uid project\telangana.html">
         <g className="state">
           <path
             id="IN-TG"
@@ -339,8 +335,6 @@ const India = () => {
           />
           <text className="state-name" x="205" y="465">Telangana</text>
         </g>
-      </a>
-      <a href="C:\Users\samit\Desktop\uid project\tamilnadu.html">
         <g className="state">
           <path
             id="IN-TN"
@@ -351,7 +345,6 @@ const India = () => {
 
           <text className="state-name" x="180" y="610">Tamil Nadu</text>
         </g>
-      </a>
       <g className="state">
         <path
           id="IN-TR"
