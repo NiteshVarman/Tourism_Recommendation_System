@@ -17,7 +17,7 @@ const VerifyOTP = () => {
     }
 
     try {
-      const response = await fetch(`${process.env.API_URL}/auth/verify-otp`, {
+      const response = await fetch(`${process.env.REACT_APP_API_URL}/auth/verify-otp`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ email, otp }),

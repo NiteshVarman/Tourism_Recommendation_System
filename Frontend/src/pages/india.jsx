@@ -13,7 +13,7 @@ const India = () => {
         if (!stateName) return;
         setSelectedState(stateName);
         try {
-            const response = await fetch(`${process.env.API_URL}/listings/place?name=${stateName}`);
+            const response = await fetch(`https://backend-4cae.onrender.com/listings/place?name=${stateName}`);
             const data = await response.json(); 
             console.log("Fetched Data:", data); 
             navigate(`/place/${stateName}`);
