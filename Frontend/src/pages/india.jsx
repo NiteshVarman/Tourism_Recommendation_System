@@ -14,6 +14,9 @@ const India = () => {
         setSelectedState(stateName);
         try {
             const response = await fetch(`${process.env.REACT_APP_API_URL}/listings/place?name=${stateName}`);
+            console.log("API URL:", process.env.REACT_APP_API_URL);
+            console.log("Fetching URL:", url);  
+            console.log("hi");
             const data = await response.json(); 
             console.log("API URL:", process.env.REACT_APP_API_URL);
             navigate(`/place/${stateName}`);
