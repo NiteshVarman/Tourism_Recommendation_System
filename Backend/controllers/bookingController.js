@@ -1,15 +1,16 @@
 const Booking = require("../models/booking");
+const Listing = require("../models/listing");
 const razorpay = require("../config/razorpay");
 const generateBookingPDF = require("../utils/generatepdf");
 const mongoose = require("mongoose");
 
 const createOrder = async (req, res) => {
   try {
-    const { userId, listingId, amount, date, time, numAdults, numChildren, guestNames, contactNumber, altContactNumber, address } = req.body;
+    const { userId, listingTitle, amount, date, time, numAdults, numChildren, guestNames, contactNumber, altContactNumber, address } = req.body;
     
-    const listing = await Listing.findById(listingId);
+    const listing = await Listing.findOne({ title: listingTitle });
     if (!listing) {
-      return res.status(400).json({ success: false, message: "Invalid listing ID" });
+      return res.status(400).json({ success: false, message: "Invalid listing title" });
     }
     
     const order = await razorpay.orders.create({
@@ -24,7 +25,7 @@ const createOrder = async (req, res) => {
       orderId: order.id,
       amount,
       userId,
-      listingId,
+      listingTitle,
       date,
       time,
       numAdults,
@@ -42,7 +43,12 @@ const createOrder = async (req, res) => {
 
 const verifyPayment = async (req, res) => {
   try {
-    const { orderId, paymentId, userId, listingId, amount, date, time, numAdults, numChildren, guestNames, contactNumber, altContactNumber, address } = req.body;
+    const { orderId, paymentId, userId, listingTitle, amount, date, time, numAdults, numChildren, guestNames, contactNumber, altContactNumber, address } = req.body;
+
+    const listing = await Listing.findOne({ title: listingTitle });
+    if (!listing) {
+      return res.status(400).json({ success: false, message: "Invalid listing title" });
+    }
 
     const now = new Date();
     const istOffset = 5.5 * 60 * 60 * 1000;
@@ -52,7 +58,7 @@ const verifyPayment = async (req, res) => {
       orderId,
       transactionId: paymentId,
       user: new mongoose.Types.ObjectId(userId),
-      listing: new mongoose.Types.ObjectId(listingId),
+      listing: listingTitle,
       amount,
       date,
       time,
@@ -97,8 +103,17 @@ const generatePDF = async (req, res) => {
 const getMyBookings = async (req, res) => {
   try {
     const userId = req.userId;
-    const bookings = await Booking.find({ user: userId }).populate("listing", "title place type");
-    res.json({ success: true, bookings });
+    const bookings = await Booking.find({ user: userId });
+    const populatedBookings = await Promise.all(
+      bookings.map(async (booking) => {
+        const listing = await Listing.findOne({ title: booking.listing });
+        return {
+          ...booking._doc,
+          listing: listing ? { title: listing.title, place: listing.place, type: listing.type } : null,
+        };
+      })
+    );
+    res.json({ success: true, bookings: populatedBookings });
   } catch (error) {
     console.error("Error fetching bookings:", error);
     res.status(500).json({ success: false, message: "Failed to fetch bookings", error });

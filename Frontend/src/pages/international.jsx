@@ -26,12 +26,12 @@ const InternationalListings = () => {
 
     // Redirect to Payment Page
     const handleBookNow = (listing) => {
-        navigate(`/payment/${listing._id}`, { state: listing });
+        navigate(`/payment/${encodeURIComponent(listing.title)}`, { state: listing });
     };
 
     // Navigate to Reviews Page
     const handleViewReviews = (placeId) => {
-        navigate(`/reviews/${placeId}`);
+        navigate(`/reviews/${encodeURIComponent(placeTitle)}`);
     };
 
     const handleViewDetails = (place) => {
@@ -116,7 +116,7 @@ const InternationalListings = () => {
                                 
                                 <div className="btn-group">
                                     <button onClick={() => handleBookNow(listing)}>Book Now</button>
-                                    <button onClick={() => handleViewReviews(listing._id)}>View Reviews</button>
+                                    <button onClick={() => handleViewReviews(place.title)}>View Reviews</button>
                                     <button onClick={() => handleViewDetails(listing)}>View Details</button>
                                 </div>
                             </div>

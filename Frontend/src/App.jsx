@@ -19,7 +19,6 @@ import MyBookings from "./pages/bookings";
 import Packages from "./pages/packages";
 import Reviews from "./pages/reviews";
 import PackageDetails from "./pages/packagedetails";
-import MapComponent from "./pages/map";
 
 
 export default function App() {
@@ -41,10 +40,10 @@ export default function App() {
         <Route path="/reset-password" element={<ResetPassword />} />
         <Route path="/place/:stateName" element={<Place />} />
         <Route path="/explore" element={<Explore />} />
-        <Route path="/payment/:placeId" element={<Payment />} />
+        <Route path="/payment/:title" element={<Payment />} />
         <Route path="/bookings" element={<MyBookings />} />
         <Route path="/packages" element={<Packages userLocation={userLocation} />} />
-        <Route path="/reviews/:listingId" element={<Reviews />} />
+        <Route path="/reviews/:listingTitle" element={<Reviews />} />
         <Route path="/packagedetails" element={<PackageDetails />} />
         <Route path="*" element={<h1>404 Not Found</h1>} />
       </Routes>

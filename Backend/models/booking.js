@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 
 const BookingSchema = new mongoose.Schema({
     user: { type: mongoose.Schema.Types.ObjectId, ref: "User", required: true },
-    listing: { type: mongoose.Schema.Types.ObjectId, ref: "Listing", required: true },
+    listing: { type: String, required: true },
     amount: { type: Number, required: true },
     taxAmount: { type: Number, default: 0 },
     discountAmount: { type: Number, default: 0 },

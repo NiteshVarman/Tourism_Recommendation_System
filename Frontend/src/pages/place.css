@@ -16,9 +16,9 @@
     display: inline-block;
     text-align: center;
     width: 100%;
-  }
-  
-  .place-container h2::after {
+}
+
+.place-container h2::after {
     content: "";
     position: absolute;
     bottom: -10px;
@@ -27,7 +27,7 @@
     width: 80px;
     height: 4px;
     background: var(--primary-color, #ff7e5f);
-  }
+}
   
   /* Places Grid */
   .places-list {
@@ -35,64 +35,65 @@
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
     gap: 30px;
     margin-top: 40px;
-  }
+}
+
+/* Place Card */
+.place-card {
+  background: white;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.07);
+  transition: all 0.5s cubic-bezier(0.25, 0.8, 0.25, 1);
+  position: relative;
+  z-index: 1;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
   
-  /* Place Card */
-  .place-card {
-    background: white;
-    border-radius: 20px;
-    overflow: hidden;
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.07);
-    transition: all 0.5s cubic-bezier(0.25, 0.8, 0.25, 1);
-    position: relative;
-    z-index: 1;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-  }
-  
-  .place-card::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(135deg, rgba(255, 126, 95, 0.05) 0%, rgba(255, 126, 95, 0.1) 100%);
-    z-index: -1;
-    opacity: 0;
-    transition: opacity 0.5s ease;
-  }
-  
-  .place-card:hover {
-    transform: translateY(-15px);
-    box-shadow: 0 20px 40px rgba(255, 126, 95, 0.2);
-  }
-  
-  .place-card:hover::before {
-    opacity: 1;
-  }
-  
+.place-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, rgba(255, 126, 95, 0.05) 0%, rgba(255, 126, 95, 0.1) 100%);
+  z-index: -1;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+.place-card:hover {
+  transform: translateY(-15px);
+  box-shadow: 0 20px 40px rgba(255, 126, 95, 0.2);
+}
+
+.place-card:hover::before {
+  opacity: 1;
+}
+
+
   /* Image Container */
   .place-card .image-container {
     position: relative;
     overflow: hidden;
     height: 220px;
-  }
-  
-  .place-image {
+}
+
+.place-image {
     width: 100%;
     height: 220px;
     object-fit: cover;
     transition: transform 0.8s cubic-bezier(0.25, 0.8, 0.25, 1);
-  }
-  
-  .place-card:hover .place-image {
+}
+
+.place-card:hover .place-image {
     transform: scale(1.1);
-  }
-  
-  /* Image Overlay */
-  .place-card .image-container::after {
+}
+
+/* Image Overlay */
+.place-card .image-container::after {
     content: "";
     position: absolute;
     top: 0;
@@ -101,7 +102,7 @@
     height: 100%;
     background: linear-gradient(to top, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0) 50%);
     z-index: 1;
-  }
+}
   
   /* Card Content */
   .place-card-content {
@@ -117,6 +118,12 @@
     margin-bottom: 15px;
     color: var(--dark-color, #333);
     transition: color 0.3s ease;
+    min-height: 3.5rem; /* Add minimum height for title to ensure consistency */
+    display: -webkit-box;
+    -webkit-line-clamp: 2; /* Limit to 2 lines */
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
   
   .place-card:hover h3 {
@@ -129,50 +136,61 @@
     grid-template-columns: repeat(2, 1fr);
     gap: 12px;
     margin-bottom: 20px;
+    min-height: 120px; /* Set minimum height to accommodate varying content */
   }
-  
+
   .detail-item {
     display: flex;
-    align-items: center;
+    align-items: center; /* Center align items vertically */
     gap: 8px;
   }
   
+
   .detail-icon {
     color: var(--primary-color, #ff7e5f);
     background: rgba(255, 126, 95, 0.1);
-    padding: 6px;
+    width: 28px; /* Fixed width to ensure consistency */
+    height: 28px; /* Fixed height to match width for a perfect circle */
+    padding: 0; /* Remove padding to control size with width/height */
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-shrink: 0; /* Prevent icon from shrinking */
   }
-  
+
   .detail-text {
     font-size: 0.95rem;
     color: var(--text-color, #666);
+    line-height: 1.3; /* Improved line height for better readability */
+    display: flex;
+    flex-direction: row; /* Change to row to place text next to strong tag */
+    align-items: center; /* Center content vertically */
+    flex-wrap: wrap; /* Allow wrapping for longer text */
   }
-  
+
   .detail-text strong {
     color: var(--dark-color, #333);
     font-weight: 600;
+    margin-right: 5px; /* Add space between label and value */
   }
-  
-  /* Price Tag */
-  .price-tag {
-    position: absolute;
-    top: 20px;
-    right: 20px;
-    background: var(--primary-color, #ff7e5f);
-    color: white;
-    padding: 8px 15px;
-    border-radius: 50px;
-    font-weight: 600;
-    font-size: 1.1rem;
-    box-shadow: 0 5px 15px rgba(255, 126, 95, 0.3);
-    z-index: 2;
-    transform: translateY(0);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-  }
+
+/* Price Tag */
+.price-tag {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: var(--primary-color, #ff7e5f);
+  color: white;
+  padding: 8px 15px;
+  border-radius: 50px;
+  font-weight: 600;
+  font-size: 1.1rem;
+  box-shadow: 0 5px 15px rgba(255, 126, 95, 0.3);
+  z-index: 2;
+  transform: translateY(0);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
   
   .place-card:hover .price-tag {
     transform: translateY(-5px);

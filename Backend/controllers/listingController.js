@@ -116,6 +116,21 @@ const getWeekendListings = async (req, res) => {
   }
 };
 
+const getListingByTitle = async (req, res) => {
+  try {
+    const { title } = req.params;
+    const decodedTitle = decodeURIComponent(title);
+    const listing = await Listing.findOne({ title: decodedTitle });
+    if (!listing) {
+      return res.status(404).json({ success: false, message: "Listing not found" });
+    }
+    res.json(listing);
+  } catch (error) {
+    console.error("Error fetching listing by title:", error);
+    res.status(500).json({ success: false, message: "Failed to fetch listing", error });
+  }
+};
+
 module.exports = {
   getAllListings,
   getIndiaPackages,
@@ -126,4 +141,5 @@ module.exports = {
   getEducationalListings,
   getDevotionalListings,
   getWeekendListings,
+  getListingByTitle,
 };

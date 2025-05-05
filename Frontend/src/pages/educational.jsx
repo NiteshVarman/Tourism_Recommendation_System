@@ -31,7 +31,7 @@ const EducationalListings = () => {
 
     // Navigate to Reviews Page
     const handleViewReviews = (placeId) => {
-        navigate(`/reviews/${placeId}`);
+        navigate(`/reviews/${encodeURIComponent(placeTitle)}`);
     };
 
     const handleViewDetails = (listing) => {
@@ -114,7 +114,7 @@ const EducationalListings = () => {
                                 
                                 <div className="btn-group">
                                     <button onClick={() => handleBookNow(listing)}>Book Now</button>
-                                    <button onClick={() => handleViewReviews(listing._id)}>View Reviews</button>
+                                    <button onClick={() => handleViewReviews(place.title)}>View Reviews</button>
                                     <button onClick={() => handleViewDetails(listing)}>View Details</button>
                                 </div>
                             </div>

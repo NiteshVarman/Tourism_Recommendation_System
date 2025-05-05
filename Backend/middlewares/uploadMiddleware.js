@@ -9,7 +9,7 @@ const profileStorage = multer.diskStorage({
 });
 
 const reviewStorage = multer.diskStorage({
-  destination: "./Uploads/reviews/",
+  destination: "./uploads/reviews/",
   filename: (req, file, cb) => {
     cb(null, `review_${Date.now()}${path.extname(file.originalname)}`);
   },

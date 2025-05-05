@@ -10,49 +10,51 @@ const Profile = () => {
   const [profileImage, setProfileImage] = useState(null)
   const [previewImage, setPreviewImage] = useState(null)
   const [isLoading, setIsLoading] = useState(true)
+  const [error, setError] = useState(null)
 
-  useEffect(() => {
-    const fetchProfile = async () => {
-      setIsLoading(true)
-      const token = localStorage.getItem("token")
-      if (!token) {
-        console.error("No token found, please log in.")
-        setIsLoading(false)
-        return
-      }
-
-      try {
-        const response = await fetch("http://127.0.0.1:8080/users/profile", {
-          method: "GET",
-          headers: {
-            Authorization: `Bearer ${token}`,
-            "Content-Type": "application/json",
-          },
-        })
-
-        if (!response.ok) {
-          throw new Error("Failed to fetch profile")
-        }
-
-        const data = await response.json()
-        setUsername(data.name)
-        setEmail(data.email)
-
-        // Check if image path is relative or full URL
-        if (data.profileImage) {
-          const imageUrl = data.profileImage.startsWith("http")
-            ? data.profileImage
-            : `http://127.0.0.1:8080${data.profileImage}`
-
-          setProfileImage(imageUrl)
-        }
-      } catch (error) {
-        console.error("Error fetching profile:", error)
-      } finally {
-        setIsLoading(false)
-      }
+  const fetchProfile = async () => {
+    setIsLoading(true)
+    setError(null)
+    const token = localStorage.getItem("token")
+    if (!token) {
+      console.error("No token found, please log in.")
+      setError("Please log in to view your profile.")
+      setIsLoading(false)
+      return
     }
 
+    try {
+      const response = await fetch(`${import.meta.env.VITE_API_URL}/users/profile`, {
+        method: "GET",
+        headers: {
+          Authorization: `Bearer ${token}`,
+          "Content-Type": "application/json",
+        },
+      })
+
+      if (!response.ok) {
+        throw new Error(`Failed to fetch profile: ${response.statusText}`)
+      }
+
+      const data = await response.json()
+      setUsername(data.name)
+      setEmail(data.email)
+
+      if (data.profileImage) {
+        const imageUrl = data.profileImage.startsWith("http")
+          ? data.profileImage
+          : `${import.meta.env.VITE_API_URL}${data.profileImage}`
+        setProfileImage(imageUrl)
+      }
+    } catch (error) {
+      console.error("Error fetching profile:", error)
+      setError("Failed to load profile. Please try again.")
+    } finally {
+      setIsLoading(false)
+    }
+  }
+
+  useEffect(() => {
     fetchProfile()
   }, [])
 
@@ -74,29 +76,38 @@ const Profile = () => {
     formData.append("image", fileInput.files[0])
 
     const token = localStorage.getItem("token")
+    if (!token) {
+      alert("Please log in to upload an image.")
+      return
+    }
+
     try {
       setIsLoading(true)
-      const response = await fetch("http://127.0.0.1:8080/users/upload-profile-image", {
+      setError(null)
+      const response = await fetch(`${import.meta.env.VITE_API_URL}/users/upload-profile-image`, {
         method: "POST",
         headers: { Authorization: `Bearer ${token}` },
         body: formData,
       })
 
       if (!response.ok) {
-        throw new Error("Failed to upload image")
+        throw new Error(`Failed to upload image: ${response.statusText}`)
       }
 
       const data = await response.json()
-
-      // Update the profile image with the full URL
       const uploadedImageUrl = data.imageUrl.startsWith("http")
         ? data.imageUrl
-        : `http://127.0.0.1:8080${data.imageUrl}`
-
+        : `${import.meta.env.VITE_API_URL}${data.imageUrl}`
       setProfileImage(uploadedImageUrl)
+      setPreviewImage(null) // Clear preview
       alert("Profile picture updated successfully!")
+
+      // Re-fetch profile to ensure consistency
+      await fetchProfile()
     } catch (error) {
       console.error("Error uploading image:", error)
+      setError("Failed to upload image. Please try again.")
+      alert("Failed to upload image. Please try again.")
     } finally {
       setIsLoading(false)
     }
@@ -104,6 +115,10 @@ const Profile = () => {
 
   if (isLoading) {
     return <div className="loading-container">Loading profile...</div>
+  }
+
+  if (error) {
+    return <div className="error-container">{error}</div>
   }
 
   return (
@@ -121,6 +136,9 @@ const Profile = () => {
             </label>
           </div>
           <input type="file" id="profileImage" accept="image/*" onChange={handleFileChange} className="file-input" />
+          <button onClick={handleUpload} className="upload-button" disabled={isLoading}>
+            <Upload size={16} /> Upload Image
+          </button>
         </div>
         <h1 className="profile-name">{name ? name : "Guest"}</h1>
         <p className="profile-email">{email || "No email available"}</p>
@@ -138,11 +156,9 @@ const Profile = () => {
             <span className="info-value">{email || "Not set"}</span>
           </div>
         </div>
-
       </div>
     </div>
   )
 }
 
 export default Profile
-

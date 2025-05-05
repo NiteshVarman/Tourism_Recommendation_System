@@ -59,7 +59,7 @@ const Bookings = () => {
         }
     
         try {
-            await axios.post("${import.meta.env.VITE_API_URL}/auth/google/sync-calendar", 
+            await axios.post(`${import.meta.env.VITE_API_URL}/auth/google/sync-calendar`, 
                 { booking },
                 { headers: { Authorization: `Bearer ${googleToken}` } }
             );
@@ -72,7 +72,7 @@ const Bookings = () => {
     };
     
     const handleGoogleSignIn = () => {
-        window.location.href = "${import.meta.env.VITE_API_URL}/auth/google";
+        window.location.href = `${import.meta.env.VITE_API_URL}/auth/google`;
     };
 
     const cancelBooking = async (id) => {
@@ -94,7 +94,7 @@ const Bookings = () => {
     };
 
     const openEditModal = (booking) => {
-        setEditData({ ...booking });
+        setEditData({ ...booking, guestNames: booking.guestNames.join(", ") });
     };
 
     const handleEditChange = (e) => {
@@ -105,13 +105,14 @@ const Bookings = () => {
     const saveEdit = async () => {
         try {
             const token = localStorage.getItem("token");
+            const guestNames = editData.guestNames.split(",").map(name => name.trim());
             await axios.put(
                 `${import.meta.env.VITE_API_URL}/bookings/update/${editData._id}`,
-                { guestNames: editData.guestNames, contactNumber: editData.contactNumber },
+                { guestNames, contactNumber: editData.contactNumber },
                 { headers: { Authorization: `Bearer ${token}` } }
             );
 
-            setBookings(bookings.map((b) => (b._id === editData._id ? editData : b)));
+            setBookings(bookings.map((b) => (b._id === editData._id ? { ...editData, guestNames } : b)));
             setEditData(null);
         } catch (error) {
             console.error("Failed to update booking:", error);
@@ -121,7 +122,7 @@ const Bookings = () => {
 
     // Format date for display
     const formatDate = (dateString) => {
-        if (!dateString) return "";
+        if (!dateString) return "Not specified";
         const date = new Date(dateString);
         return date.toLocaleDateString("en-US", {
             year: "numeric",
@@ -186,7 +187,7 @@ const Bookings = () => {
                 <div className="bookings-list">
                     {bookings.map((booking) => (
                         <div key={booking._id} className="booking-item">
-                            <h3 className="booking-name">{booking.listing?.title || "Unknown Tour"}</h3>
+                            <h3 className="booking-name">{booking.listing?.title || booking.listing || "Unknown Tour"}</h3>
                             
                             <div className="booking-location">
                                 <MapPin size={16} />
@@ -258,7 +259,7 @@ const Bookings = () => {
                                     value={editData.guestNames || ""}
                                     onChange={handleEditChange}
                                     className="form-input"
-                                    placeholder="Enter guest names"
+                                    placeholder="Enter guest names (comma-separated)"
                                 />
                             </div>
                             

@@ -2,7 +2,7 @@ const Review = require("../models/reviews");
 
 const getReviews = async (req, res) => {
   try {
-    const reviews = await Review.find({ listing: req.params.listingId })
+    const reviews = await Review.find({ listing: decodeURIComponent(req.params.listingTitle) })
       .populate("responses")
       .exec();
     res.status(200).json(reviews);
@@ -12,35 +12,45 @@ const getReviews = async (req, res) => {
 };
 
 const addReview = async (req, res) => {
-  const { name, listing, rating, comment, photos } = req.body;
+  const { name, listing, rating, comment } = req.body;
 
   if (!name || !listing || !rating || !comment) {
     return res.status(400).json({ message: "All fields are required" });
   }
 
   try {
+    // Extract file paths from uploaded files
+    const photos = req.files ? req.files.map(file => `/uploads/reviews/${file.filename}`) : [];
+
     const newReview = new Review({
       name,
       listing,
       rating,
       comment,
-      photos,
+      photos, // Store file paths
     });
 
     await newReview.save();
     res.status(201).json(newReview);
   } catch (error) {
+    console.error("Error creating review:", error);
     res.status(500).json({ message: "Failed to create review", error });
   }
 };
 
 const updateReview = async (req, res) => {
-  const { name, rating, comment, photos } = req.body;
+  const { name, rating, comment } = req.body;
 
   try {
+    // Extract file paths from uploaded files, or keep existing photos if none uploaded
+    const photos = req.files ? req.files.map(file => `/uploads/reviews/${file.filename}`) : undefined;
+
+    const updateData = { name, rating, comment };
+    if (photos) updateData.photos = photos; // Only update photos if new files were uploaded
+
     const updatedReview = await Review.findByIdAndUpdate(
       req.params.id,
-      { name, rating, comment, photos },
+      updateData,
       { new: true }
     );
 
@@ -50,6 +60,7 @@ const updateReview = async (req, res) => {
 
     res.status(200).json(updatedReview);
   } catch (error) {
+    console.error("Error updating review:", error);
     res.status(500).json({ message: "Failed to update review", error });
   }
 };

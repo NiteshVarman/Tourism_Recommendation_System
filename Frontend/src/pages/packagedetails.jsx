@@ -8,7 +8,7 @@ const PackageDetails = () => {
     const [packageDetails, setPackageDetails] = useState(null);
     const [loading, setLoading] = useState(true);
 
-    // ✅ Correct way to get query parameters
+    // Get query parameters
     const { search } = useLocation();
     const queryParams = new URLSearchParams(search);
     const title = queryParams.get("title");
@@ -121,7 +121,7 @@ const PackageDetails = () => {
                 <span className="price-per-person">per person</span>
             </div>
 
-            <button onClick={() => navigate(`/payment/${packageDetails._id}`, { state: packageDetails })}>
+            <button onClick={() => navigate(`/payment/${encodeURIComponent(packageDetails.title)}`, { state: packageDetails })}>
                 Book Now
             </button>
         </div>

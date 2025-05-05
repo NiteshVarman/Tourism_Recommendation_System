@@ -5,7 +5,7 @@ import axios from "axios";
 import "./reviews.css";
 
 const Reviews = () => {
-    const { listingId } = useParams();
+    const { listingTitle } = useParams();
     const navigate = useNavigate();
 
     const [reviews, setReviews] = useState([]);
@@ -14,20 +14,20 @@ const Reviews = () => {
     const [comment, setComment] = useState("");
     const [editId, setEditId] = useState(null);
     const [previewPhotos, setPreviewPhotos] = useState([]);
-    const [uploadedPhotos, setUploadedPhotos] = useState([]);
+    const [selectedFiles, setSelectedFiles] = useState([]); // Add selectedFiles state
     const [responses, setResponses] = useState({});
     const [loading, setLoading] = useState(true);
     const [selectedPhoto, setSelectedPhoto] = useState(null);
 
     useEffect(() => {
         fetchReviews();
-    }, [listingId]);
+    }, [listingTitle]);
 
     // Fetch reviews
     const fetchReviews = async () => {
         try {
             setLoading(true);
-            const response = await axios.get(`${import.meta.env.VITE_API_URL}/reviews/${listingId}`);
+            const response = await axios.get(`${import.meta.env.VITE_API_URL}/reviews/${encodeURIComponent(listingTitle)}`);
             setReviews(response.data);
 
             // Initialize response state for each review
@@ -44,35 +44,11 @@ const Reviews = () => {
     };
 
     // Handle photo upload
-    const handlePhotoUpload = async (e) => {
+    const handlePhotoUpload = (e) => {
         const files = Array.from(e.target.files);
-
-        // Display previews immediately
-        const previewUrls = files.map((file) => URL.createObjectURL(file));
-        setPreviewPhotos(previewUrls);
-
-        // Upload images to backend
-        const uploadedUrls = await Promise.all(
-            files.map(async (file) => {
-                const formData = new FormData();
-                formData.append("image", file);
-
-                try {
-                    const response = await axios.post(
-                        `${import.meta.env.VITE_API_URL}/upload-review-image`,
-                        formData,
-                        { headers: { "Content-Type": "multipart/form-data" } }
-                    );
-                    return response.data.imageUrl;
-                } catch (error) {
-                    console.error("Error uploading image:", error);
-                    return null;
-                }
-            })
-        );
-
-        // Store only successful uploads
-        setUploadedPhotos(uploadedUrls.filter(url => url));
+        setSelectedFiles(files); // Store File objects
+        const previewUrls = files.map(file => URL.createObjectURL(file));
+        setPreviewPhotos(previewUrls); // Store preview URLs
     };
 
     // Handle response input changes
@@ -116,11 +92,9 @@ const Reviews = () => {
     const handleUpvote = async (reviewId) => {
         try {
             await axios.put(`${import.meta.env.VITE_API_URL}/reviews/${reviewId}/upvote`);
-            
-            // Update the upvote count locally to reflect instantly
-            setReviews((prevReviews) => 
+            setReviews((prevReviews) =>
                 prevReviews.map((review) =>
-                    review._id === reviewId 
+                    review._id === reviewId
                         ? { ...review, upvotes: (review.upvotes || 0) + 1 }
                         : review
                 )
@@ -139,20 +113,25 @@ const Reviews = () => {
             return;
         }
 
-        const reviewData = {
-            listing: listingId,
-            name,
-            rating,
-            comment,
-            photos: uploadedPhotos
-        };
+        const formData = new FormData();
+        formData.append("listing", decodeURIComponent(listingTitle));
+        formData.append("name", name);
+        formData.append("rating", rating);
+        formData.append("comment", comment);
+        selectedFiles.forEach(file => {
+            formData.append("photos", file); // Append files to 'photos' field
+        });
 
         try {
             if (editId) {
-                await axios.put(`${import.meta.env.VITE_API_URL}/reviews/${editId}`, reviewData);
+                await axios.put(`${import.meta.env.VITE_API_URL}/reviews/${editId}`, formData, {
+                    headers: { "Content-Type": "multipart/form-data" }
+                });
                 setEditId(null);
             } else {
-                await axios.post(`${import.meta.env.VITE_API_URL}/reviews`, reviewData);
+                await axios.post(`${import.meta.env.VITE_API_URL}/reviews`, formData, {
+                    headers: { "Content-Type": "multipart/form-data" }
+                });
             }
 
             // Reset form
@@ -160,7 +139,7 @@ const Reviews = () => {
             setRating(0);
             setComment("");
             setPreviewPhotos([]);
-            setUploadedPhotos([]);
+            setSelectedFiles([]);
             fetchReviews();
         } catch (error) {
             console.error("Error submitting review:", error);
@@ -173,8 +152,8 @@ const Reviews = () => {
         setName(review.name || "");
         setRating(review.rating);
         setComment(review.comment);
-        setUploadedPhotos(review.photos || []);
-        setPreviewPhotos(review.photos || []);
+        setPreviewPhotos(review.photos || []); // Show existing photos as previews
+        setSelectedFiles([]); // Clear selected files for new uploads
     };
 
     // Delete Review
@@ -221,11 +200,11 @@ const Reviews = () => {
         const stars = [];
         for (let i = 0; i < 5; i++) {
             stars.push(
-                <Star 
-                    key={i} 
-                    size={16} 
-                    fill={i < count ? "#FFD700" : "transparent"} 
-                    stroke={i < count ? "#FFD700" : "#ccc"} 
+                <Star
+                    key={i}
+                    size={16}
+                    fill={i < count ? "#FFD700" : "transparent"}
+                    stroke={i < count ? "#FFD700" : "#ccc"}
                 />
             );
         }
@@ -244,20 +223,20 @@ const Reviews = () => {
 
     return (
         <div className="reviews-container">
-            <h2>Reviews for Tour Package</h2>
-            
+            <h2>Reviews for {decodeURIComponent(listingTitle)}</h2>
+
             <button className="back-button" onClick={() => navigate(-1)}>
                 <ArrowLeft size={18} />
                 Back to Package
             </button>
 
             {/* Review Form */}
-            <form onSubmit={handleSubmit} className="review-form">
+            <form onSubmit={handleSubmit} className="review-form" encType="multipart/form-data">
                 <h3>{editId ? "Edit Your Review" : "Write a Review"}</h3>
-                
+
                 <div className="form-group">
                     <label>Your Name</label>
-                    <input 
+                    <input
                         type="text"
                         value={name}
                         onChange={(e) => setName(e.target.value)}
@@ -265,67 +244,68 @@ const Reviews = () => {
                         placeholder="Enter your name"
                     />
                 </div>
-                
+
                 <div className="form-group">
                     <label>Rating</label>
                     <div className="star-rating">
                         {[1, 2, 3, 4, 5].map((star) => (
-                            <button 
+                            <button
                                 key={star}
                                 type="button"
                                 className={star <= rating ? "active" : ""}
                                 onClick={() => handleStarClick(star)}
                             >
-                                <Star 
-                                    size={24} 
-                                    fill={star <= rating ? "#FFD700" : "transparent"} 
-                                    stroke={star <= rating ? "#FFD700" : "#ccc"} 
+                                <Star
+                                    size={24}
+                                    fill={star <= rating ? "#FFD700" : "transparent"}
+                                    stroke={star <= rating ? "#FFD700" : "#ccc"}
                                 />
                             </button>
                         ))}
                     </div>
                 </div>
-                
+
                 <div className="form-group">
                     <label>Your Review</label>
-                    <textarea 
-                        value={comment} 
-                        onChange={(e) => setComment(e.target.value)} 
+                    <textarea
+                        value={comment}
+                        onChange={(e) => setComment(e.target.value)}
                         required
                         placeholder="Share your experience with this tour package..."
                     />
                 </div>
-                
+
                 <div className="form-group">
                     <label>Photos (Optional)</label>
                     <div className="file-upload">
                         <label className="file-upload-label">
                             <Camera size={20} />
                             <span>Click to upload photos</span>
-                            <input 
-                                type="file" 
-                                multiple 
+                            <input
+                                type="file"
+                                multiple
+                                name="photos"
                                 onChange={handlePhotoUpload}
                                 accept="image/*"
                             />
                         </label>
                     </div>
-                    
+
                     {previewPhotos.length > 0 && (
                         <div className="preview-photos">
                             {previewPhotos.map((photo, index) => (
                                 <div key={index} className="preview-photo">
                                     <img src={photo || "/placeholder.svg"} alt={`Preview ${index}`} />
-                                    <div 
+                                    <div
                                         className="remove-photo"
                                         onClick={() => {
                                             const newPreviews = [...previewPhotos];
                                             newPreviews.splice(index, 1);
                                             setPreviewPhotos(newPreviews);
-                                            
-                                            const newUploaded = [...uploadedPhotos];
-                                            newUploaded.splice(index, 1);
-                                            setUploadedPhotos(newUploaded);
+
+                                            const newFiles = [...selectedFiles];
+                                            newFiles.splice(index, 1);
+                                            setSelectedFiles(newFiles);
                                         }}
                                     >
                                         <X size={16} />
@@ -335,7 +315,7 @@ const Reviews = () => {
                         </div>
                     )}
                 </div>
-                
+
                 <button type="submit" className="submit-button">
                     {editId ? <Edit size={18} /> : <Upload size={18} />}
                     {editId ? "Update Review" : "Submit Review"}
@@ -362,7 +342,7 @@ const Reviews = () => {
                                             <div className="review-date">{formatDate(review.createdAt)}</div>
                                         </div>
                                     </div>
-                                    
+
                                     <div className="edit-delete-buttons">
                                         <button className="edit-button" onClick={() => handleEdit(review)}>
                                             <Edit size={16} />
@@ -374,29 +354,28 @@ const Reviews = () => {
                                         </button>
                                     </div>
                                 </div>
-                                
+
                                 <div className="review-rating">
                                     <div className="stars">
                                         {renderStars(review.rating)}
                                     </div>
                                     <span>{review.rating}/5</span>
                                 </div>
-                                
+
                                 <div className="review-content">
                                     {review.comment}
                                 </div>
-                                
+
                                 {review.photos?.length > 0 && (
                                     <div className="review-photos">
                                         {review.photos.map((photo, index) => {
-                                            // Ensure full URL is used for image display
-                                            const imageUrl = photo.startsWith("http") 
-                                                ? photo 
+                                            const imageUrl = photo.startsWith("http")
+                                                ? photo
                                                 : `${import.meta.env.VITE_API_URL}${photo}`;
-                                                
+
                                             return (
-                                                <div 
-                                                    key={index} 
+                                                <div
+                                                    key={index}
                                                     className="review-photo"
                                                     onClick={() => openPhotoModal(imageUrl)}
                                                 >
@@ -406,9 +385,9 @@ const Reviews = () => {
                                         })}
                                     </div>
                                 )}
-                                
+
                                 <div className="actions-bar">
-                                    <button 
+                                    <button
                                         className={`upvote-button ${review.upvoted ? 'active' : ''}`}
                                         onClick={() => handleUpvote(review._id)}
                                     >
@@ -416,14 +395,14 @@ const Reviews = () => {
                                         <span className="upvote-count">{review.upvotes || 0}</span>
                                     </button>
                                 </div>
-                                
+
                                 {review.responses?.length > 0 && (
                                     <div className="responses-section">
                                         <div className="responses-title">
                                             <MessageSquare size={16} />
                                             Responses
                                         </div>
-                                        
+
                                         {review.responses.map((resp, index) => (
                                             <div key={index} className="response-item">
                                                 <div className="response-header">
@@ -437,7 +416,7 @@ const Reviews = () => {
                                         ))}
                                     </div>
                                 )}
-                                
+
                                 <div className="response-form">
                                     <div className="responses-title">
                                         <MessageSquare size={16} />
@@ -457,7 +436,7 @@ const Reviews = () => {
                                             onChange={(e) => handleResponseChange(review._id, "comment", e.target.value)}
                                         />
                                     </div>
-                                    <button 
+                                    <button
                                         className="respond-button"
                                         onClick={() => handleRespond(review._id)}
                                     >
@@ -469,9 +448,9 @@ const Reviews = () => {
                         ))
                     ) : (
                         <div className="empty-state">
-                            <img 
-                                src="/placeholder.svg?height=200&width=200" 
-                                alt="No reviews" 
+                            <img
+                                src="/placeholder.svg?height=200&width=200"
+                                alt="No reviews"
                             />
                             <h3>No Reviews Yet</h3>
                             <p>Be the first to share your experience with this tour package!</p>
@@ -479,7 +458,7 @@ const Reviews = () => {
                     )}
                 </div>
             )}
-            
+
             {/* Photo Modal */}
             <div className={`photo-modal ${selectedPhoto ? 'active' : ''}`} onClick={closePhotoModal}>
                 <div className="modal-content" onClick={(e) => e.stopPropagation()}>

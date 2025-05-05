@@ -1,15 +1,16 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { useLocation, useNavigate } from "react-router-dom";
+import { useLocation, useNavigate, useParams } from "react-router-dom";
 import { jwtDecode } from "jwt-decode";
 import axios from "axios";
 import "./payment.css";
 
 const Payment = () => {
+  const { title } = useParams(); // Get title from URL
   const location = useLocation();
   const navigate = useNavigate();
-  const place = location.state;
+  const [place, setPlace] = useState(location.state); // Initialize with location.state
 
   const [date, setDate] = useState("");
   const [time, setTime] = useState("");
@@ -22,6 +23,27 @@ const Payment = () => {
   const [scriptLoaded, setScriptLoaded] = useState(false);
   const [userId, setUserId] = useState(null);
   const [isGeneratingPDF, setIsGeneratingPDF] = useState(false);
+  const [loading, setLoading] = useState(!location.state);
+
+  // Fetch place details if location.state is missing
+  useEffect(() => {
+    if (!place && title) {
+      const fetchPlace = async () => {
+        try {
+          setLoading(true);
+          const response = await axios.get(`${import.meta.env.VITE_API_URL}/listings/title/${decodeURIComponent(title)}`);
+          setPlace(response.data);
+        } catch (error) {
+          console.error("Error fetching place:", error);
+          alert("Failed to load tour details. Please select a tour.");
+          navigate("/packages");
+        } finally {
+          setLoading(false);
+        }
+      };
+      fetchPlace();
+    }
+  }, [place, title, navigate]);
 
   // Load Razorpay script
   useEffect(() => {
@@ -96,6 +118,11 @@ const Payment = () => {
       return;
     }
 
+    if (!place?.title) {
+      alert("Invalid tour selected. Please select a valid tour.");
+      return;
+    }
+
     const token = localStorage.getItem("token");
 
     try {
@@ -108,7 +135,7 @@ const Payment = () => {
         },
         body: JSON.stringify({
           userId,
-          listingId: place._id,
+          listingTitle: place.title,
           amount: place.price,
           date,
           time,
@@ -147,7 +174,7 @@ const Payment = () => {
                 orderId: orderData.orderId,
                 paymentId: response.razorpay_payment_id,
                 userId,
-                listingId: place._id,
+                listingTitle: place.title,
                 amount: place.price,
                 date,
                 time,
@@ -165,7 +192,7 @@ const Payment = () => {
               alert("Payment Successful! Booking Confirmed.");
               // Download PDF
               await downloadPDF(orderData.orderId, token);
-              navigate("/bookings"); // Redirect to bookings page
+              navigate("/bookings");
             } else {
               alert(`Payment verification failed: ${verifyData.message || "Please try again."}`);
             }
@@ -225,13 +252,24 @@ const Payment = () => {
     }
   };
 
+  if (loading) {
+    return (
+      <div className="payment-container">
+        <div className="loading-container">
+          <div className="loading-spinner"></div>
+          <p>Loading tour details...</p>
+        </div>
+      </div>
+    );
+  }
+
   return (
     <div className="payment-container">
       <div className="decoration decoration-1"></div>
       <div className="decoration decoration-2"></div>
 
-      <h2>Book {place.title}</h2>
-      <p>Price: ₹{place.price}</p>
+      <h2>Book {place?.title || "Tour"}</h2>
+      <p>Price: ₹{place?.price || "N/A"}</p>
 
       <div className="form-section">
         <div className="form-section-title">Booking Details</div>
@@ -287,7 +325,7 @@ const Payment = () => {
         />
       </div>
 
-      <button onClick={handlePayment} disabled={!scriptLoaded || isGeneratingPDF}>
+      <button onClick={handlePayment} disabled={!scriptLoaded || isGeneratingPDF || loading}>
         {isGeneratingPDF ? "Processing..." : scriptLoaded ? "Proceed to Payment" : "Loading Payment..."}
       </button>
     </div>

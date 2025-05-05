@@ -27,12 +27,13 @@ const Place = () => {
 
     // Redirect to Payment Page
     const handleBookNow = (place) => {
-        navigate(`/payment/${place._id}`, { state: place });
+        navigate(`/payment/${encodeURIComponent(place.title)}`, { state: place });
     };
 
+
     // Navigate to Reviews Page
-    const handleViewReviews = (placeId) => {
-        navigate(`/reviews/${placeId}`);
+    const handleViewReviews = (placeTitle) => {
+        navigate(`/reviews/${encodeURIComponent(placeTitle)}`);
     };
 
     const handleViewDetails = (place) => {
@@ -116,7 +117,7 @@ const Place = () => {
                                 
                                 <div className="btn-group">
                                     <button onClick={() => handleBookNow(place)}>Book Now</button>
-                                    <button onClick={() => handleViewReviews(place._id)}>View Reviews</button>
+                                    <button onClick={() => handleViewReviews(place.title)}>View Reviews</button>
                                     <button onClick={() => handleViewDetails(place)}>View Details</button>
                                 </div>
                             </div>
