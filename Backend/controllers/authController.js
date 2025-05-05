@@ -37,7 +37,7 @@ async function refreshAccessToken(refreshToken) {
 }
 
 const googleAuth = (req, res) => {
-  res.redirect(`${process.env.VITE_API_URL}/bookings?token=${generateJWT(req.user)}`);
+  res.redirect(`${process.env.FRONTEND_URL}/bookings?token=${generateJWT(req.user)}`);
 };
 
 const syncCalendar = async (req, res) => {
