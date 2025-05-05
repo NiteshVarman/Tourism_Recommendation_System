@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "concurrently \"node your-node-file.js\" \"gunicorn app:app\"",
+    "start": "concurrently \"node server.js\" \"gunicorn app:app\"",
     "dev": "nodemon server.js",
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "echo 'No build step required for backend'"
@@ -14,6 +14,7 @@
   "license": "ISC",
   "dependencies": {
     "bcryptjs": "^3.0.2",
+    "concurrently": "^9.1.2",
     "connect-flash": "^0.1.1",
     "cors": "^2.8.5",
     "crypto": "^1.0.1",
