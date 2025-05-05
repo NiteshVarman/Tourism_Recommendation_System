@@ -1,0 +1,5 @@
+flask==3.0.3
+pandas
+scikit-learn
+flask-cors
+gunicorn
