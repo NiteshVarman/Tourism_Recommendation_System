@@ -12,7 +12,7 @@ const EducationalListings = () => {
         const fetchListings = async () => {
             try {
                 setLoading(true);
-                const response = await fetch(`${process.env.REACT_APP_API_URL}/listings/educational`);
+                const response = await fetch(`${import.meta.env.VITE_API_URL}/listings/educational`);
                 const data = await response.json();
                 setListings(data);
             } catch (error) {

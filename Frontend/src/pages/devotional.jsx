@@ -11,7 +11,7 @@ const DevotionalListings = () => {
     useEffect(() => {
         const fetchListings = async () => {
             try {
-                const response = await fetch(`${process.env.REACT_APP_API_URL}/listings/devotional`);
+                const response = await fetch(`${import.meta.env.VITE_API_URL}/listings/devotional`);
                 const data = await response.json();
                 console.log("Data received:", data);
                 setListings(data);

@@ -19,7 +19,7 @@ const PackageDetails = () => {
 
             try {
                 setLoading(true);
-                const res = await fetch(`${process.env.REACT_APP_API_URL}/listings/packagedetails?title=${encodeURIComponent(title)}`);
+                const res = await fetch(`${import.meta.env.VITE_API_URL}/listings/packagedetails?title=${encodeURIComponent(title)}`);
 
                 if (!res.ok) {
                     throw new Error(`HTTP error! Status: ${res.status}`);

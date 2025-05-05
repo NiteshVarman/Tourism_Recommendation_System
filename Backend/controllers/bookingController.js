@@ -6,7 +6,12 @@ const mongoose = require("mongoose");
 const createOrder = async (req, res) => {
   try {
     const { userId, listingId, amount, date, time, numAdults, numChildren, guestNames, contactNumber, altContactNumber, address } = req.body;
-
+    
+    const listing = await Listing.findById(listingId);
+    if (!listing) {
+      return res.status(400).json({ success: false, message: "Invalid listing ID" });
+    }
+    
     const order = await razorpay.orders.create({
       amount: amount * 100,
       currency: "INR",

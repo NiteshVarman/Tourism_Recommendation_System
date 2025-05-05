@@ -13,7 +13,7 @@ const Place = () => {
         const fetchPlaces = async () => {
             try {
                 setLoading(true);
-                const response = await fetch(`${process.env.REACT_APP_API_URL}/listings/place?name=${stateName}`);
+                const response = await fetch(`${import.meta.env.VITE_API_URL}/listings/place?name=${stateName}`);
                 const data = await response.json();
                 setPlaces(data);
             } catch (error) {
