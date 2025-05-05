@@ -15,7 +15,7 @@ import Profile from "./pages/profile";
 import Explore from "./pages/explore";
 import { useState } from "react";
 import Payment from "./pages/payment";
-import MyBookings from "./pages/bookings";
+import Bookings  from "./pages/bookings";
 import Packages from "./pages/packages";
 import Reviews from "./pages/reviews";
 import PackageDetails from "./pages/packagedetails";
@@ -41,7 +41,7 @@ export default function App() {
         <Route path="/place/:stateName" element={<Place />} />
         <Route path="/explore" element={<Explore />} />
         <Route path="/payment/:title" element={<Payment />} />
-        <Route path="/bookings" element={<MyBookings />} />
+        <Route path="/bookings" element={<Bookings  />} />
         <Route path="/packages" element={<Packages userLocation={userLocation} />} />
         <Route path="/reviews/:listingTitle" element={<Reviews />} />
         <Route path="/packagedetails" element={<PackageDetails />} />

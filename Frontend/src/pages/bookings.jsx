@@ -19,6 +19,8 @@ const Bookings = () => {
     
         if (googleToken) {
             localStorage.setItem("googleToken", googleToken);
+            localStorage.setItem("token", googleToken);
+            setJwtToken(googleToken);
             setGoogleSignedIn(true);
         }
     }, []);
