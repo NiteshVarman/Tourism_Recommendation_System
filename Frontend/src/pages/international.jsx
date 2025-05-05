@@ -30,7 +30,7 @@ const InternationalListings = () => {
     };
 
     // Navigate to Reviews Page
-    const handleViewReviews = (placeId) => {
+    const handleViewReviews = (placeTitle) => {
         navigate(`/reviews/${encodeURIComponent(placeTitle)}`);
     };
 
@@ -54,93 +54,96 @@ const InternationalListings = () => {
 
     return (
         <div className="place-container">
-            <h2>International Tour Packages</h2>
-            
-            {listings.length > 0 ? (
-                <div className="places-list">
-                    {listings.map((listing, index) => (
-                        <div 
-                            key={listing._id} 
-                            className="place-card"
-                            style={{ "--animation-order": index }}
-                        >
-                            <div className="image-container">
-                                <img 
-                                    src={listing.image || "/placeholder.svg?height=220&width=400"} 
-                                    alt={listing.title} 
-                                    className="place-image" 
-                                />
-                                <div className="price-tag">₹{listing.price.toLocaleString()}</div>
-                            </div>
-                            
-                            <div className="place-card-content">
-                                <h3>{listing.title}</h3>
-                                
-                                <div className="place-details">
-                                    <div className="detail-item">
-                                        <div className="detail-icon">
-                                            <Info size={16} />
-                                        </div>
-                                        <div className="detail-text">
-                                            <strong>Type:</strong> {listing.type || "International"}
-                                        </div>
-                                    </div>
-                                    
-                                    <div className="detail-item">
-                                        <div className="detail-icon">
-                                            <Clock size={16} />
-                                        </div>
-                                        <div className="detail-text">
-                                            <strong>Duration:</strong> {listing.duration}
-                                        </div>
-                                    </div>
-                                    
-                                    <div className="detail-item">
-                                        <div className="detail-icon">
-                                            <RouteIcon size={16} />
-                                        </div>
-                                        <div className="detail-text">
-                                            <strong>Route:</strong> {listing.route}
-                                        </div>
-                                    </div>
-                                    
-                                    <div className="detail-item">
-                                        <div className="detail-icon">
-                                            <MapPin size={16} />
-                                        </div>
-                                        <div className="detail-text">
-                                            <strong>Destination:</strong> {listing.place}
-                                        </div>
-                                    </div>
-                                </div>
-                                
-                                <div className="btn-group">
-                                    <button onClick={() => handleBookNow(listing)}>Book Now</button>
-                                    <button onClick={() => handleViewReviews(place.title)}>View Reviews</button>
-                                    <button onClick={() => handleViewDetails(listing)}>View Details</button>
-                                </div>
-                            </div>
-                        </div>
-                    ))}
-                </div>
-            ) : (
-                <div className="empty-state">
-                    <img 
-                        src="/placeholder.svg?height=200&width=200" 
-                        alt="No packages found" 
+          <h2>International Tour Packages</h2>
+          {listings.length > 0 ? (
+            <div className="places-grid">
+              {listings.map((listing, index) => (
+                <div key={listing._id} className="place-card" style={{ "--animation-order": index }}>
+                  <div className="image-container">
+                    <img
+                      src={listing.image || "/placeholder.svg?height=220&width=400"}
+                      alt={listing.title}
+                      className="place-image"
                     />
-                    <h3>No International Packages Found</h3>
-                    <p>We couldn't find any international tour packages at the moment.</p>
-                    <button 
-                        className="reset-search-btn"
-                        onClick={() => navigate("/packages")}
-                    >
-                        Browse All Packages
-                    </button>
+                    <div className="price-tag">₹{listing.price.toLocaleString()}</div>
+                  </div>
+    
+                  <div className="place-card-content">
+                    <h3>{listing.title}</h3>
+    
+                    <div className="place-info-grid">
+                      <div className="info-row">
+                        <div className="info-item">
+                          <div className="info-icon">
+                            <Info size={16} />
+                          </div>
+                          <div className="info-content">
+                            <div className="info-label">Type:</div>
+                            <div className="info-value">{listing.type}</div>
+                          </div>
+                        </div>
+    
+                        <div className="info-item">
+                          <div className="info-icon">
+                            <Clock size={16} />
+                          </div>
+                          <div className="info-content">
+                            <div className="info-label">Duration:</div>
+                            <div className="info-value">{listing.duration}</div>
+                          </div>
+                        </div>
+                      </div>
+    
+                      <div className="info-row route-row">
+                        <div className="info-item full-width">
+                          <div className="info-icon">
+                            <RouteIcon size={16} />
+                          </div>
+                          <div className="info-content">
+                            <div className="info-label">Route:</div>
+                            <div className="info-value">{listing.route}</div>
+                          </div>
+                        </div>
+                      </div>
+    
+                      <div className="info-row">
+                        <div className="info-item full-width">
+                          <div className="info-icon">
+                            <MapPin size={16} />
+                          </div>
+                          <div className="info-content">
+                            <div className="info-label">Destination:</div>
+                            <div className="info-value">{listing.place || stateName}</div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+    
+                    <div className="action-buttons">
+                      <button className="book-now-btn" onClick={() => handleBookNow(listing)}>
+                        Book Now
+                      </button>
+                      <div className="secondary-buttons">
+                        <button onClick={() => handleViewReviews(listing.title)}>View Reviews</button>
+                        <button onClick={() => handleViewDetails(listing)}>View Details</button>
+                      </div>
+                    </div>
+                  </div>
                 </div>
-            )}
+              ))}
+            </div>
+          ) : (
+            <div className="empty-state">
+              <img src="/placeholder.svg?height=200&width=200" alt="No packages found" />
+              <h3>No Tour Packages Found</h3>
+              <p>We couldn't find any tour packages for at the moment.</p>
+              <button className="reset-search-btn" onClick={() => navigate("/packages")}>
+                Browse All Packages
+              </button>
+            </div>
+          )}
         </div>
-    );
-};
+      )
+    }
 
 export default InternationalListings;
