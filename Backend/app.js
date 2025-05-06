@@ -39,6 +39,7 @@ app.use('/bookings', require('./routes/bookingRoutes'));
 app.use('/listings', require('./routes/listingRoutes'));
 app.use('/reviews', require('./routes/reviewRoutes'));
 app.use('/users', require('./routes/userRoutes'));
+app.use('/recommend', require('./routes/recommendationRoutes'));
 
 // Error handling middleware
 app.use(require('./middlewares/errorHandler'));

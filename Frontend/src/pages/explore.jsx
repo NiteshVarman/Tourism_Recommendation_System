@@ -21,7 +21,7 @@ const HomePage = () => {
 
     try {
       setLoading(true)
-      const response = await fetch("http://localhost:5000/recommend", {
+      const response = await fetch(`${import.meta.env.VITE_API_URL}/recommend`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ user_input: [type, budget, time, tourPackage, days] }),
