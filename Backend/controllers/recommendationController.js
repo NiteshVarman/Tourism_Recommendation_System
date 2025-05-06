@@ -1,7 +1,6 @@
 const fs = require('fs');
 const path = require('path');
 const { TfIdf } = require('natural');
-const { cosine } = require('ml-distance');
 const csvParser = require('csv-parser');
 
 // Load dataset and preprocess it
@@ -30,6 +29,14 @@ const loadData = () => {
   });
 };
 
+function cosineSimilarity(a, b) {
+  const dot = a.reduce((sum, val, i) => sum + val * b[i], 0);
+  const magA = Math.sqrt(a.reduce((sum, val) => sum + val * val, 0));
+  const magB = Math.sqrt(b.reduce((sum, val) => sum + val * val, 0));
+  return magA && magB ? dot / (magA * magB) : 0;
+}
+
+
 const generateGoogleMapsUrl = (placeName) => {
   const baseUrl = "https://www.google.com/maps/search/?q=";
   return `${baseUrl}${placeName.replace(/ /g, '+')}`;
@@ -54,7 +61,7 @@ const recommend = async (req, res) => {
       tfidf.tfidfs(combinedFeatures[idx], (i, measure) => {
         docVector[i] = measure;
       });
-      return cosine.similarity(inputTfidfVector, docVector);
+      return cosineSimilarity(inputTfidfVector, docVector);
     });
 
     const topIndices = scores
