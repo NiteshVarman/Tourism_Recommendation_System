@@ -531,7 +531,7 @@ export default function Home({ firstLoading, setFirstLoading }) {
                 </div>
                 <div className="footer-section">
                   <h3>Contact Us</h3>
-                  <p>Email: info@travelexplorer.com</p>
+                  <p>Email: niteshvarman17@gmail.com</p>
                   <p>Phone: +91 9966009916</p>
                   <p>Address: Amrita Vishwa Vidyapeetham,Coimbatore,TamilNadu,India</p>
                 </div>
