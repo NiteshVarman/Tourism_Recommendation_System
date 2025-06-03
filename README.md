@@ -17,6 +17,12 @@ Whether you're seeking cultural adventures in India, international getaways, dev
   
 ---
 
+## 🌐 Live Demo
+[🔗 Visit Live Application](https://www.trippicker.me/)
+
+---
+
+
 ## 🛠️ Technologies Used
 
 ### Frontend
@@ -141,6 +147,7 @@ Tourism_Recommendation_System/
 ├── package-lock.json
 └── package.json
 ```
+---
 
 ## 🚀 Getting Started
 
@@ -151,8 +158,58 @@ Tourism_Recommendation_System/
 
 ### Installation
 
-#### Clone the Repository
+#### 1. Clone the Repository
 ```
 git clone https://github.com/NiteshVarman/Tourism_Recommendation_System.git
 cd Tourism_Recommendation_System
 ```
+#### 2. Install Backend Dependencies
+```
+cd Backend
+npm install
+```
+#### 3. Install Frontend Dependencies
+```
+cd Frontend
+npm install
+```
+
+#### 4. Set Up Environment Variables
+Copy .env.example to .env in the backend directory:
+```
+cp ../.env.example .env
+```
+Edit the .env file and fill in the correct values
+
+#### 5. Start the Backend Server
+````
+cd Backend
+nodemon server.js
+````
+
+#### 6. Start the Frontend Server
+````
+cd Frontend
+npm run start
+````
+---
+
+## API Utilized
+
+- **Razorpay API** – [Razorpay Documentation](https://razorpay.com/docs/api/)
+- **Google OAuth API** – [Google OAuth Documentation](https://developers.google.com/identity/protocols/oauth2)
+---
+
+## 🤝 Contributing
+
+1. Fork the repository
+2. Create a new branch (`git checkout -b feature-name`)
+3. Commit changes (`git commit -m 'Add some feature'`)
+4. Push to the branch (`git push origin feature-name`)
+5. Open a Pull Request
+---
+
+## 📜 License
+
+This project is licensed under the [MIT License](LICENSE).
+
