@@ -3,15 +3,14 @@ name: CI/CD Pipeline
 on:
   push:
     branches:
-      - main  # Runs on push to main branch
+      - main
   pull_request:
     branches:
-      - main  # Runs on pull requests to main branch
+      - main
 
 jobs:
   backend:
     runs-on: ubuntu-latest
-
     steps:
       - name: Checkout Code
         uses: actions/checkout@v4
@@ -24,7 +23,7 @@ jobs:
       - name: Install Backend Dependencies
         run: |
           cd Backend
-          npm install
+          npm ci
 
       - name: Skip Tests (No tests available)
         run: echo "Skipping tests since none are defined."
@@ -36,7 +35,6 @@ jobs:
 
   frontend:
     runs-on: ubuntu-latest
-
     steps:
       - name: Checkout Code
         uses: actions/checkout@v4
@@ -49,7 +47,7 @@ jobs:
       - name: Install Frontend Dependencies
         run: |
           cd Frontend
-          npm install
+          npm ci
 
       - name: Build Frontend
         run: |
