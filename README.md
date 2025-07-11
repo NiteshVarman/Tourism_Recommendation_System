@@ -4,7 +4,7 @@ Welcome to **Trip Picker**, a full-stack web application designed to inspire and
 
 Whether you're seeking cultural adventures in India, international getaways, devotional pilgrimages, or quick weekend escapes, **Trip Picker** has you covered!
 
----
+--
 
 ## 🌟 Features
 
