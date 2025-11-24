@@ -4,19 +4,38 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vite + React</title>
+    <title>TripPicker</title>
 
-    <!-- ✅ Minimal CSP allowing Zoho widget -->
+    <!-- ✅ CSP updated to allow Zoho + Google Fonts + Zoho CDN -->
     <meta
       http-equiv="Content-Security-Policy"
       content="
         default-src 'self';
         script-src 'self' 'unsafe-inline' 'unsafe-eval'
-          https://salesiq.zohopublic.com;
-        connect-src 'self' https://salesiq.zohopublic.com;
-        frame-src https://salesiq.zohopublic.com;
-        style-src 'self' 'unsafe-inline';
-        img-src 'self' data: https://salesiq.zohopublic.com;
+          https://salesiq.zohopublic.com
+          https://js.zohocdn.com;
+        connect-src 'self'
+          https://salesiq.zohopublic.com
+          https://js.zohocdn.com;
+        img-src 'self' data:
+          https://salesiq.zohopublic.com
+          https://*.zohocdn.com
+          https://*.zoho.com
+          https://*.zohopublic.com;
+        style-src 'self' 'unsafe-inline'
+          https://fonts.googleapis.com
+          https://css.zohocdn.com;
+        font-src 'self' data:
+          https://fonts.gstatic.com
+          https://*.zohocdn.com;
+        frame-src
+          https://salesiq.zohopublic.com
+          https://*.zoho.com
+          https://*.zohocdn.com;
+        media-src 'self'
+          https://*.zohocdn.com
+          https://*.zoho.com
+          https://*.zohopublic.com;
       "
     >
   </head>
@@ -24,7 +43,7 @@
   <body>
     <div id="root"></div>
 
-    <!-- ✅ Vite entry point -->
+    <!-- Vite entry -->
     <script type="module" src="/src/main.jsx"></script>
 
     <!-- ✅ Zoho SalesIQ initialization -->
@@ -33,12 +52,11 @@
       $zoho.salesiq = $zoho.salesiq || { ready: function () {} };
     </script>
 
-    <!-- ✅ Zoho SalesIQ widget (use your exact wc value) -->
+    <!-- ✅ Zoho SalesIQ widget (your code from Zoho) -->
     <script
       id="zsiqscript"
       src="https://salesiq.zohopublic.com/widget?wc=siq2492e0b9234b8bfb7ee9d995d075a8817c004937db1d3df5ef363fd629fd6580"
       defer
     ></script>
-
   </body>
 </html>
