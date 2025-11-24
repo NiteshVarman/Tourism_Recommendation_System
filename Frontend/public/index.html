@@ -4,41 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <meta http-equiv="Content-Security-Policy" 
+      content="script-src 'self' 'unsafe-inline' 'unsafe-eval' https://apis.google.com https://accounts.google.com https://www.gstatic.com;">
 
-    <!-- ✅ Updated CSP allowing Zoho + Google scripts -->
-    <meta http-equiv="Content-Security-Policy"
-      content="
-        default-src 'self';
-        script-src 'self' 'unsafe-inline' 'unsafe-eval'
-            https://apis.google.com
-            https://accounts.google.com
-            https://www.gstatic.com
-            https://salesiq.zoho.com;
-        connect-src 'self' https://salesiq.zoho.com;
-        frame-src https://salesiq.zoho.com;
-      ">
 </head>
-
 <body>
-
-    <!-- ✅ Google API -->
     <script src="https://apis.google.com/js/api.js" async defer></script>
-
-    <!-- ✅ Zoho SalesIQ Config -->
-    <script type="text/javascript">
-        var $zoho = $zoho || {};
-        $zoho.salesiq = $zoho.salesiq || {
-            embedversion: "2.0",
-            widgetcode: "YOUR_WIDGET_CODE", // ✅ Replace this
-            values: {},
-            ready: function () {
-                console.log("Zoho SalesIQ Loaded ✅");
-            }
-        };
-    </script>
-
-    <!-- ✅ Zoho SalesIQ Script -->
-    <script src="https://salesiq.zoho.com/widget"></script>
 
 </body>
 </html>

@@ -5,9 +5,40 @@
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Vite + React</title>
+
+    <!-- ✅ Minimal CSP allowing Zoho widget -->
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="
+        default-src 'self';
+        script-src 'self' 'unsafe-inline' 'unsafe-eval'
+          https://salesiq.zohopublic.com;
+        connect-src 'self' https://salesiq.zohopublic.com;
+        frame-src https://salesiq.zohopublic.com;
+        style-src 'self' 'unsafe-inline';
+        img-src 'self' data: https://salesiq.zohopublic.com;
+      "
+    >
   </head>
+
   <body>
     <div id="root"></div>
+
+    <!-- ✅ Vite entry point -->
     <script type="module" src="/src/main.jsx"></script>
+
+    <!-- ✅ Zoho SalesIQ initialization -->
+    <script>
+      window.$zoho = window.$zoho || {};
+      $zoho.salesiq = $zoho.salesiq || { ready: function () {} };
+    </script>
+
+    <!-- ✅ Zoho SalesIQ widget (use your exact wc value) -->
+    <script
+      id="zsiqscript"
+      src="https://salesiq.zohopublic.com/widget?wc=siq2492e0b9234b8bfb7ee9d995d075a8817c004937db1d3df5ef363fd629fd6580"
+      defer
+    ></script>
+
   </body>
 </html>
