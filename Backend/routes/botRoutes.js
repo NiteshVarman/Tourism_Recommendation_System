@@ -5,6 +5,13 @@ const Listing = require("../models/listing");
 const Booking = require("../models/booking");
 const Review = require("../models/reviews");
 
+router.post("/test", (req, res) => {
+  res.status(200).json({
+    ok: true,
+    message: "SalesIQ Test Successful",
+    timestamp: Date.now()
+  });
+});
 
 // --- 1) Featured packages ---
 router.get("/packages/featured", async (req, res, next) => {
