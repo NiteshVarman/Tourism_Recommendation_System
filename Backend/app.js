@@ -17,37 +17,30 @@ require('./config/passport');
 const botRoutes = require("./routes/botRoutes");
 
 // ───────────────────────────────────────────────
-// FIX FOR ZOHO SALESIQ PLUGS
-// Zoho cannot read gzip, chunked responses, or etags
+// ZOHO SALESIQ SAFE SETTINGS
 // ───────────────────────────────────────────────
 
-// Disable gzip compression completely
+// Disable all gzip compression (SalesIQ cannot read gzip)
 app.use(compression({ filter: () => false }));
 
-// Disable ETag
+// Disable etags (SalesIQ sometimes misreads them)
 app.disable("etag");
 
-// Disable chunked transfer encoding (force identity)
-app.use((req, res, next) => {
-    res.setHeader("Transfer-Encoding", "identity");
-    next();
-});
+// DO NOT set Transfer-Encoding manually (crashes Render)
+// ───────────────────────────────────────────────
 
-// ───────────────────────────────────────────────
+
 // Middlewares
-// ───────────────────────────────────────────────
 app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, 'public')));
 app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 
-// 🔥 IMPORTANT: bot APIs BEFORE session & passport
+// bot routes BEFORE session & passport
 app.use("/api/bot", botRoutes);
 
-// ───────────────────────────────────────────────
-// Session + Passport (NOT applied to /api/bot)
-// ───────────────────────────────────────────────
+// Session and Passport
 app.use(session({
     secret: process.env.SESSION_SECRET,
     resave: false,
@@ -56,15 +49,11 @@ app.use(session({
 app.use(passport.initialize());
 app.use(passport.session());
 
-// ───────────────────────────────────────────────
-// View engine setup
-// ───────────────────────────────────────────────
+// View engine
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
 
-// ───────────────────────────────────────────────
-// Other Routes
-// ───────────────────────────────────────────────
+// Other routes
 app.use('/auth', require('./routes/authRoutes.js'));
 app.use('/bookings', require('./routes/bookingRoutes'));
 app.use('/listings', require('./routes/listingRoutes'));
@@ -72,7 +61,7 @@ app.use('/reviews', require('./routes/reviewRoutes'));
 app.use('/users', require('./routes/userRoutes'));
 app.use('/recommend', require('./routes/recommendationRoutes'));
 
-// Error handling middleware
+// Error handler
 app.use(require('./middlewares/errorHandler'));
 
 module.exports = app;
