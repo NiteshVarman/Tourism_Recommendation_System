@@ -4,6 +4,7 @@ const cors = require("cors");
 const path = require('path');
 const session = require("express-session");
 const passport = require("passport");
+const compression = require("compression");
 
 const app = express();
 
@@ -15,16 +16,38 @@ require('./config/passport');
 
 const botRoutes = require("./routes/botRoutes");
 
+// ───────────────────────────────────────────────
+// FIX FOR ZOHO SALESIQ PLUGS
+// Zoho cannot read gzip, chunked responses, or etags
+// ───────────────────────────────────────────────
+
+// Disable gzip compression completely
+app.use(compression({ filter: () => false }));
+
+// Disable ETag
+app.disable("etag");
+
+// Disable chunked transfer encoding (force identity)
+app.use((req, res, next) => {
+    res.setHeader("Transfer-Encoding", "identity");
+    next();
+});
+
+// ───────────────────────────────────────────────
 // Middlewares
+// ───────────────────────────────────────────────
 app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, 'public')));
 app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 
+// 🔥 IMPORTANT: bot APIs BEFORE session & passport
 app.use("/api/bot", botRoutes);
 
-// Session and Passport
+// ───────────────────────────────────────────────
+// Session + Passport (NOT applied to /api/bot)
+// ───────────────────────────────────────────────
 app.use(session({
     secret: process.env.SESSION_SECRET,
     resave: false,
@@ -33,11 +56,15 @@ app.use(session({
 app.use(passport.initialize());
 app.use(passport.session());
 
+// ───────────────────────────────────────────────
 // View engine setup
+// ───────────────────────────────────────────────
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
 
-// Routes
+// ───────────────────────────────────────────────
+// Other Routes
+// ───────────────────────────────────────────────
 app.use('/auth', require('./routes/authRoutes.js'));
 app.use('/bookings', require('./routes/bookingRoutes'));
 app.use('/listings', require('./routes/listingRoutes'));
