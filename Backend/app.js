@@ -13,6 +13,8 @@ require('./config/db');
 // Passport configuration
 require('./config/passport');
 
+const botRoutes = require("./routes/botRoutes");
+
 // Middlewares
 app.use(cors());
 app.use(express.json());
@@ -40,6 +42,7 @@ app.use('/listings', require('./routes/listingRoutes'));
 app.use('/reviews', require('./routes/reviewRoutes'));
 app.use('/users', require('./routes/userRoutes'));
 app.use('/recommend', require('./routes/recommendationRoutes'));
+app.use("/api/bot", botRoutes);
 
 // Error handling middleware
 app.use(require('./middlewares/errorHandler'));
