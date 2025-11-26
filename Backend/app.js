@@ -4,43 +4,45 @@ const cors = require("cors");
 const path = require('path');
 const session = require("express-session");
 const passport = require("passport");
-const compression = require("compression");
+const compression = require("compression");   // added
 
 const app = express();
 
-// Database connection
+// DB
 require('./config/db');
 
-// Passport configuration
+// Passport
 require('./config/passport');
 
+// Routes
 const botRoutes = require("./routes/botRoutes");
 
-// ───────────────────────────────────────────────
+// ─────────────────────────────────────────────
 // ZOHO SALESIQ SAFE SETTINGS
-// ───────────────────────────────────────────────
+// (SalesIQ cannot read gzip or etags)
+// ─────────────────────────────────────────────
 
-// Disable all gzip compression (SalesIQ cannot read gzip)
+// Disable ALL response compression
 app.use(compression({ filter: () => false }));
 
-// Disable etags (SalesIQ sometimes misreads them)
+// Disable ETags
 app.disable("etag");
 
-// DO NOT set Transfer-Encoding manually (crashes Render)
-// ───────────────────────────────────────────────
 
-
+// ─────────────────────────────────────────────
 // Middlewares
+// ─────────────────────────────────────────────
 app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, 'public')));
 app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 
-// bot routes BEFORE session & passport
+// 🔥 bot routes BEFORE session/passport
 app.use("/api/bot", botRoutes);
 
-// Session and Passport
+
+// Session & Passport
 app.use(session({
     secret: process.env.SESSION_SECRET,
     resave: false,

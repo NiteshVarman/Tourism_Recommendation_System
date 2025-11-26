@@ -4,11 +4,9 @@ const router = express.Router();
 const Listing = require("../models/listing");
 const Booking = require("../models/booking");
 const Review = require("../models/reviews");
-const User = require("../models/user");
 
 
-// 🟢 1) Featured packages (FIXED — removed isFeatured)
-// ❗ Since your schema has no isFeatured, we simply send latest 10 packages
+// --- 1) Featured packages ---
 router.get("/packages/featured", async (req, res, next) => {
   try {
     const packages = await Listing.find({})
@@ -16,20 +14,33 @@ router.get("/packages/featured", async (req, res, next) => {
       .sort({ createdAt: -1 })
       .limit(10);
 
-    return res.json({ data: packages });
+    return res.status(200).json({ data: packages });
+  } catch (err) {
+    next(err);
+  }
+});
+
+// SalesIQ uses POST → support POST
+router.post("/packages/featured", async (req, res, next) => {
+  try {
+    const packages = await Listing.find({})
+      .select("title place duration price image type country route")
+      .sort({ createdAt: -1 })
+      .limit(10);
+
+    return res.status(200).json({ data: packages });
   } catch (err) {
     next(err);
   }
 });
 
 
-// 🟢 2) Search packages (location → place/country, days → duration)
+// --- 2) Search packages ---
 router.post("/packages/search", async (req, res, next) => {
   try {
     const { location, budget, days } = req.body;
     const query = {};
 
-    // 🔹 Search by place or country
     if (location) {
       query.$or = [
         { place: new RegExp(location, "i") },
@@ -37,14 +48,10 @@ router.post("/packages/search", async (req, res, next) => {
       ];
     }
 
-    // 🔹 Search by duration (stored as string, so compare loosely)
     if (days) {
-      query.duration = new RegExp(days, "i"); 
-      // or EXACT MATCH: query.duration = `${days} Days`;
-      // (depends on your data format)
+      query.duration = new RegExp(days, "i");
     }
 
-    // 🔹 Search by budget (price)
     if (budget) {
       query.price = { $lte: Number(budget) };
     }
@@ -60,7 +67,7 @@ router.post("/packages/search", async (req, res, next) => {
 });
 
 
-// 🟢 3) Create a lead
+// --- 3) Create a lead ---
 router.post("/leads", async (req, res, next) => {
   try {
     const { name, email, phone, packageId, source } = req.body;
@@ -81,7 +88,7 @@ router.post("/leads", async (req, res, next) => {
 });
 
 
-// 🟢 4) My packages (get bookings by user)
+// --- 4) User packages ---
 router.get("/users/:email/packages", async (req, res, next) => {
   try {
     const { email } = req.params;
@@ -109,7 +116,7 @@ router.get("/users/:email/packages", async (req, res, next) => {
 });
 
 
-// 🟢 5) Feedback
+// --- 5) Feedback ---
 router.post("/feedback", async (req, res, next) => {
   try {
     const { email, bookingId, rating, comments } = req.body;
@@ -129,7 +136,7 @@ router.post("/feedback", async (req, res, next) => {
 });
 
 
-// 🟢 6) Book again / generate invoice link
+// --- 6) Rebook ---
 router.post("/bookings/rebook", async (req, res, next) => {
   try {
     const { email, packageId } = req.body;
